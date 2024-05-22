@@ -6,8 +6,14 @@ public abstract class Person {
 	private String phoneNr;
 	private String address;
 
-	public Person() {
-		// TODO Auto-generated constructor stub
+	
+	
+	public Person(String name, String email, String phoneNr, String address) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phoneNr = phoneNr;
+		this.address = address;
 	}
 
 }

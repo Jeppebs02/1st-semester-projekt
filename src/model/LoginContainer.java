@@ -5,8 +5,23 @@ public class LoginContainer {
 	private Employee loginUser;
 	private static LoginContainer instance;
 
-	public LoginContainer() {
-		// TODO Auto-generated constructor stub
+	private LoginContainer() {
+		
+		// insert potential employee stuff here
 	}
+	
+	public static LoginContainer getInstance() {
+		if (instance==null) {
+			instance = new LoginContainer();
+		}
+		return instance;
+	}
+	
+	public void setLoginUser(Employee user) {
+		this.loginUser=user;
+		
+	}
+	
+	
 
 }

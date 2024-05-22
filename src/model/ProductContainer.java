@@ -6,9 +6,18 @@ import java.util.Iterator;
 public class ProductContainer {
 	private ArrayList<Product> products;
 	private static ProductContainer instance;
+	
+	
 
-	public ProductContainer() {
-		// TODO Auto-generated constructor stub
+	private ProductContainer() {
+		products= new ArrayList<>();
+	}
+	
+	public static ProductContainer getInstance() {
+		if (instance==null) {
+			instance = new ProductContainer();
+		}
+		return instance;
 	}
 
 }
