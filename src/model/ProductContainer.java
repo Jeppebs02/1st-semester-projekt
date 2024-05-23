@@ -20,4 +20,21 @@ public class ProductContainer {
 		return instance;
 	}
 
+	public Product findProductByBarcode(String barcode) {
+		Product foundProduct = null;
+		Product currentProduct = null;
+		boolean searching = true;
+		Iterator<Product> iterator = products.iterator();
+
+		while (searching && iterator.hasNext()) {
+			currentProduct = iterator.next();
+			if (currentProduct.getBarcode().equals(barcode)) {
+				foundProduct = currentProduct;
+				searching = false;
+			}
+		}
+		return foundProduct;
+		
+	}
+
 }
