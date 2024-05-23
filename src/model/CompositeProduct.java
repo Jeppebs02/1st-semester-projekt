@@ -10,10 +10,10 @@ public class CompositeProduct extends Product {
 	
 
 	public CompositeProduct(String name, String barcode, String description, String sKU, String category,
-			ItemPrice price, Location iventory, String assemblyInstructions, ArrayList<CompositeLine> components) {
+			ItemPrice price, Location iventory, String assemblyInstructions) {
 		super(name, barcode, description, sKU, category, price, iventory);
 		this.assemblyInstructions = assemblyInstructions;
-		this.components = components;
+		components = new ArrayList<>();
 	}
 	
 	public String getBarcode() {
