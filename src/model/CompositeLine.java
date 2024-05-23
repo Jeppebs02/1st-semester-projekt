@@ -6,7 +6,7 @@ public class CompositeLine {
 	private int quantity;
 	private Product product;
 	
-	public CompositeLine() {
+	public CompositeLine (int quantity, Product product) {
 		this.quantity = quantity;
 		this.product = product; 
 	}
