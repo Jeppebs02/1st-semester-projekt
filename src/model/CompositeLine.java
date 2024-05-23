@@ -1,5 +1,5 @@
 package model;
-import model.CompsiteProduct;
+import model.CompositeProduct;
 import model.Product;
 
 public class CompositeLine {
