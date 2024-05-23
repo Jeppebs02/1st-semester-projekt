@@ -54,7 +54,10 @@ public class Order {
 		this.employee = employee;
 	}
 	
-	public void addOrderLine(OrderLine orderLine) {
+	public void addOrderLine(OrderLine orderLine) throws IllegalArgumentException {
+		if(orderLine==null) {
+			throw new IllegalArgumentException("orderLine cannot be null");
+		}
 		orderLines.add(orderLine);
 	}
 	
