@@ -4,6 +4,7 @@ import java.util.Scanner;
 import model.Customer;
 import model.Order;
 import model.Product;
+import control.*;
 
 public class OrderMenu {
 
@@ -13,20 +14,46 @@ public class OrderMenu {
 	
 	public void start() {
 		//TODO Start the TUI, call the ordermenu in our first usecase (for now)
+		orderMenu();
 	}
 	
 	public void orderMenu() {
 		//TODO Here we should put the logic, so the different options in the menu
+		boolean running = true;
+		while (running) {
+			int choice = writeOrderMenu();
+			switch (choice) {
+			case 1:
+				createOffer();
+				break;
+			case 0:
+				System.out.println("Tak for denne gang");
+				running = false;
+				break;
+			default:
+				System.out.println("En uforklarlig fejl er sket med choice = " + choice);
+				break; 
+			}
+		}
 	}
 	
 	public int writeOrderMenu() {
 		//TODO Print the TUI ordermenu and return the users choice to be used in orderMenu()
-		return 0;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("** Ordre Menu **");
+		System.out.println(" (1) Opret et Tilbud");
+		System.out.println(" (0) Luk Menu");
+		System.out.println("\n Vælg");
+		int choice = getIntegerFromUser (keyboard);
+		return choice; 
 	}
 	
 	public Order createOffer() {
 		//TODO Initiate creating an offer, this passes the method onto the orderController.
-		return null;
+		OrderController oc = new OrderController();
+		Scanner keyboard = new Scanner(System.in);
+		
+		
 	}
 	
 	public Product inputProduct() {
