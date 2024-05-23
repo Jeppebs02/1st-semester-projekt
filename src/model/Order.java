@@ -14,9 +14,38 @@ public class Order {
 	private Employee employee;
 
 	public Order() {
-		// TODO Auto-generated constructor stub
+		//random string orderNR
+		// order nr is set in container
+		this.orderStatus=OrderStatus.ONHOLD;
+		
 	}
 
+	
+	public double calculateTotalPrice() {
+		
+		return 0;
+	}
+	
+	
+	
+	public String getOrderNr() {
+		return orderNr;
+	}
+
+
+	public void setOrderNr(String orderNr) {
+		this.orderNr = orderNr;
+	}
+
+
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus=orderStatus;
+	}
+	
+	public void setDiscount(double discount) {
+		this.discount=discount;
+	}
+	
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
