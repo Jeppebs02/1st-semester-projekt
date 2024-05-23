@@ -4,6 +4,7 @@ import java.util.Scanner;
 import model.Customer;
 import model.Order;
 import model.Product;
+import model.Person;
 import control.*;
 
 public class OrderMenu {
@@ -48,7 +49,7 @@ public class OrderMenu {
 		return choice; 
 	}
 	
-	public Order createOffer() {
+	public void createOffer() {
 		//TODO Initiate creating an offer, this passes the method onto the orderController.
 		OrderController oc = new OrderController();
 		Scanner keyboard = new Scanner(System.in);
@@ -59,7 +60,6 @@ public class OrderMenu {
 		int quantity = 0;
 		boolean foundBarcode = false;
 		String customerID = null;
-		boolean foundCustomerID = false;
 
 		
 		//String newOfferNr = newOffer.getOrderNr();
@@ -87,24 +87,20 @@ public class OrderMenu {
 			}
 		}
 		
+		System.out.println("Indtast Kunde ID:");
+		customerID = String.valueOf(getIntegerFromUser(keyboard));
+		
+		if (oc.inputCustomerID(customerID) == null) {
+			System.out.println("Kunde ID eksisterer ikke");
+		} else {
+		Customer currentCustomer = oc.inputCustomerID(customerID);
+		System.out.println(currentCustomer.getName() + " er tilføjet");
+		}
+		
+		oc.saveOffer();
+		System.out.println("den totale pris på tilbuddet: " + newOffer.calculateTotalPrice() + "DKK");
 		
 		
-		
-	}
-	
-	public Product inputProduct() {
-		//TODO pass this down to the order controller, and then to the product controller.
-		return null;
-	}
-	
-	public Customer inputCustomerID() {
-		//TODO pass this down to the order controller, then to the customer controller.
-		return null;
-	}
-	
-	public boolean saveOffer() {
-		//TODO pass down to order controller, to save the offer
-		return false;
 	}
 
 	//Used to get an integer from the user
@@ -113,7 +109,9 @@ public class OrderMenu {
             System.out.println("Input skal være et tal - prøv igen");
             keyboard.nextLine();
         }
-        return keyboard.nextInt();
+        int i = keyboard.nextInt();
+        keyboard.nextLine();
+        return i;
 	}
 
 }
