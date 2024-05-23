@@ -53,6 +53,42 @@ public class OrderMenu {
 		OrderController oc = new OrderController();
 		Scanner keyboard = new Scanner(System.in);
 		
+		Order newOffer = oc.createOffer();
+		
+		String barcode = null;
+		int quantity = 0;
+		boolean foundBarcode = false;
+		String customerID = null;
+		boolean foundCustomerID = false;
+
+		
+		//String newOfferNr = newOffer.getOrderNr();
+		//System.out.println("Ordrenummeret er: " + newOfferNr);
+		
+		while (!foundBarcode) {
+			
+			System.out.println("Indtast Barcode på produktet:");
+			barcode = String.valueOf(getIntegerFromUser(keyboard));
+			System.out.println("Indtast antal af dette produkt:");
+			quantity = getIntegerFromUser(keyboard); 
+			
+			//null check
+			if (oc.inputProduct(barcode) == null) {
+				System.out.println("Barcode findes ikke");
+			} else {
+				Product currentProduct = oc.inputProduct(barcode, quantity);
+				
+				System.out.println(currentProduct.getName() + " er tilføjet");
+			}
+			System.out.println("Skal der tilføjes flere produkter?");
+			System.out.println("Ja(1) / Nej(0)");
+			if (getIntegerFromUser(keyboard) == 0) {
+				foundBarcode = true; 
+			}
+		}
+		
+		
+		
 		
 	}
 	
@@ -70,17 +106,7 @@ public class OrderMenu {
 		//TODO pass down to order controller, to save the offer
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	//Used to get an integer from the user
 	private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
