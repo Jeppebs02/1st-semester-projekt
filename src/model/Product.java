@@ -35,4 +35,11 @@ public class Product {
 	}
 
 
+	public ItemPrice getPrice() {
+		return price;
+	}
+	
+	
+
+
 }

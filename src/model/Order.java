@@ -22,8 +22,16 @@ public class Order {
 
 	
 	public double calculateTotalPrice() {
+		double total=0;
 		
-		return 0;
+		for(OrderLine currLine:orderLines) {
+			int currQuantity= currLine.getQuantity();
+			double currProductSalesPrice = currLine.getProduct().getPrice().getSalesPrice();
+			total=total+(currQuantity*currProductSalesPrice);
+			
+		}
+		
+		return total;
 	}
 	
 	

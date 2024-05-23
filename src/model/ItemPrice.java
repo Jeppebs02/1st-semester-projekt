@@ -15,7 +15,7 @@ public class ItemPrice {
 		super();
 		this.costPrice = costPrice;
 		MSRP = mSRP;
-		this.salesPrice = salesPrice;
+		this.salesPrice = salesPrice*discount;
 		this.discount = discount;
 		this.date = date;
 	}
