@@ -20,6 +20,10 @@ public class CompositeProduct extends Product {
 		return super.getBarcode();
 	}
 	
+	public void addComponent(CompositeLine component) {
+		components.add(component);
+	}
+	
 	
 
 }
