@@ -8,12 +8,12 @@ public class Product {
 	private String SKU;
 	private String category;
 	private ItemPrice price;
-	private Location iventory;
+	private Location inventory;
 	
 	
 
 	public Product(String name, String barcode, String description, String sKU, String category, ItemPrice price,
-			Location iventory) {
+			Location inventory) {
 		super();
 		this.name = name;
 		this.barcode = barcode;
@@ -21,7 +21,7 @@ public class Product {
 		SKU = sKU;
 		this.category = category;
 		this.price = price;
-		this.iventory = iventory;
+		this.inventory = inventory;
 	}
 
 
