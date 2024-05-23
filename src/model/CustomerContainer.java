@@ -34,7 +34,11 @@ public class CustomerContainer {
 		return foundCustomer;
 	}
 	
-	
+	public void addCustomerToContainer(Customer customer) {
+		if(customer != null) {
+			customers.add(customer);
+		}
+	}
 	
 	
 	

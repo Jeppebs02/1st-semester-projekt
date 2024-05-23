@@ -36,5 +36,11 @@ public class ProductContainer {
 		return foundProduct;
 		
 	}
+	
+	public void addProductsToContainer(Product product) {
+		if(product != null) {
+			products.add(product);
+		}
+	}
 
 }
