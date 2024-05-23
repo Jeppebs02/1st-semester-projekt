@@ -41,7 +41,7 @@ public class OrderMenu {
 	
 	public boolean saveOffer() {
 		//TODO pass down to order controller, to save the offer
-		return null;
+		return false;
 	}
 	
 	
