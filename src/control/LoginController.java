@@ -9,12 +9,13 @@ public class LoginController {
 	private Employee currentUser;
 
 	public LoginController() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Employee retrieveLoginUser() {
-		//TODO Retrieve current logged in user from the LoginContainer
-		return null;
+		LoginContainer lc = LoginContainer.getInstance();
+		currentUser = lc.getLoginUser();
+		return currentUser;
 	}
 	
 

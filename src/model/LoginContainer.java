@@ -22,6 +22,10 @@ public class LoginContainer {
 		
 	}
 	
+	public Employee getLoginUser() {
+		return loginUser;
+	}
+	
 	
 
 }
