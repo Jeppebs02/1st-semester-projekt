@@ -3,6 +3,7 @@ package control;
 import model.Customer;
 import model.Order;
 import model.OrderContainer;
+import model.OrderLine;
 import model.Product;
 
 public class OrderController {
@@ -10,17 +11,23 @@ public class OrderController {
 
 	
 	public OrderController() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Order createOffer() {
-		//TODO Create a new Order object and save it to the field currentOrder
-		return null;
+		// Create a new Order object and save it to the field currentOrder
+		Order newOrder = new Order();
+		currentOrder = newOrder;
+		return newOrder;
 	}
 	
-	public Product inputProduct(String barcode, int quaintity) {
-		//TODO Find a product and a quantity to add to an orderline
-		return null;
+	public Product inputProduct(String barcode, int quantity) {
+		// Find a product and a quantity to add to an orderline and add orderline to currentOrder
+		ProductController pc = new ProductController();
+		Product orderProduct = pc.inputProduct(barcode);
+		OrderLine ol = new OrderLine(quantity, orderProduct);
+		currentOrder.addOrderLine(ol);
+		return orderProduct;
 	}
 	
 	//Method overloading to add a "default" argument. Do not delete this pls
@@ -29,9 +36,11 @@ public class OrderController {
 	}
 	
 	public Customer inputCustomerID(String customerID) {
-		//TODO Find a customer and add to currentOrder
-		
-		return null;
+		//Find a customer and add to currentOrder
+		CustomerController cc = new CustomerController();
+		Customer orderCustomer = cc.inputCustomerID(customerID);
+		currentOrder.setCustomer(orderCustomer);
+		return orderCustomer;
 	}
 	
 	public boolean saveOffer() {
