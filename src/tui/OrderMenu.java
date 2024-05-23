@@ -54,23 +54,20 @@ public class OrderMenu {
 		OrderController oc = new OrderController();
 		Scanner keyboard = new Scanner(System.in);
 		
-		Order newOffer = oc.createOffer();
 		
-		String barcode = null;
-		int quantity = 0;
-		boolean foundBarcode = false;
+		boolean foundProducts = false;
 		String customerID = null;
 
 		
 		//String newOfferNr = newOffer.getOrderNr();
 		//System.out.println("Ordrenummeret er: " + newOfferNr);
 		
-		while (!foundBarcode) {
+		while (!foundProducts) {
 			
 			System.out.println("Indtast Barcode på produktet:");
-			barcode = String.valueOf(getIntegerFromUser(keyboard));
+			
 			System.out.println("Indtast antal af dette produkt:");
-			quantity = getIntegerFromUser(keyboard); 
+			 
 			
 			//null check
 			if (oc.inputProduct(barcode) == null) {
@@ -83,7 +80,7 @@ public class OrderMenu {
 			System.out.println("Skal der tilføjes flere produkter?");
 			System.out.println("Ja(1) / Nej(0)");
 			if (getIntegerFromUser(keyboard) == 0) {
-				foundBarcode = true; 
+				foundProducts = true; 
 			}
 		}
 		

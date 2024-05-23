@@ -1,4 +1,5 @@
 package control;
+import java.util.Scanner;
 
 import model.Customer;
 import model.Employee;
@@ -22,9 +23,16 @@ public class OrderController {
 		return newOrder;
 	}
 	
-	public Product inputProduct(String barcode, int quantity) {
+	public Product inputProduct() {
 		// Find a product and a quantity to add to an orderline and add orderline to currentOrder
+		String barcode = null;
+		int quantity = 0;
 		ProductController pc = new ProductController();
+		Scanner keyboard = new Scanner(System.in); 
+		
+		barcode = String.valueOf(getIntegerFromUser(keyboard));
+		quantity = getIntegerFromUser(keyboard);
+		
 		Product orderProduct = pc.inputProduct(barcode);
 		OrderLine ol = new OrderLine(quantity, orderProduct);
 		currentOrder.addOrderLine(ol);
@@ -53,5 +61,13 @@ public class OrderController {
 		return oc.saveOffer(currentOrder);
 
 	}
-
+	
+	private int getIntegerFromUser(Scanner keyboard) {
+        while (!keyboard.hasNextInt()) {
+            keyboard.nextLine();
+        }
+        int i = keyboard.nextInt();
+        keyboard.nextLine();
+        return i;
+	}
 }
