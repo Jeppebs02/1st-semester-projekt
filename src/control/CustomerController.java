@@ -1,6 +1,7 @@
 package control;
 
 import model.Customer;
+import model.CustomerContainer;
 
 public class CustomerController {
 	
@@ -11,9 +12,14 @@ public class CustomerController {
 	}
 
 	public Customer inputCustomerID(String customerID) {
-		// TODO Write method to pass customerID to another search method
-		
-		return null;
+		CustomerContainer cc = CustomerContainer.getInstance();
+		currentCustomer = cc.findCustomerByID(customerID);
+		return cc.findCustomerByID(customerID);
 	}
+
+	public Customer getCurrentCustomer() {
+		return currentCustomer;
+	}
+	
 	
 }
