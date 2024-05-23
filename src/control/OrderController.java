@@ -2,6 +2,7 @@ package control;
 
 import model.Customer;
 import model.Order;
+import model.OrderContainer;
 import model.Product;
 
 public class OrderController {
@@ -23,19 +24,21 @@ public class OrderController {
 	}
 	
 	//Method overloading to add a "default" argument. Do not delete this pls
-	
 	public Product inputProduct(String barcode) {
 		return inputProduct(barcode,1);
 	}
 	
 	public Customer inputCustomerID(String customerID) {
 		//TODO Find a customer and add to currentOrder
+		
 		return null;
 	}
 	
 	public boolean saveOffer() {
-		//TODO Take currentOrder and put it into orderContainer (i.e. save the order)
-		return false;
+		// Take currentOrder and put it into orderContainer (i.e. save the order)
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.saveOffer(currentOrder);
+
 	}
 
 }
