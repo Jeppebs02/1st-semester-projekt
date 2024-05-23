@@ -22,9 +22,9 @@ public class OrderContainer {
 	
 	public boolean saveOffer(Order order) {
 		boolean answer = false;
-		if(order==null) {
+		if (order==null) {
 			answer=false;
-		}else {
+		} else {
 			order.setOrderNr(generateOrderNr());
 			orders.add(order);
 			answer=true;
