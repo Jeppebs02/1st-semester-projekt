@@ -31,6 +31,8 @@ public class ProductContainer {
 			if (currentProduct.getBarcode().equals(barcode)) {
 				foundProduct = currentProduct;
 				searching = false;
+			} else {
+				throw new IllegalArgumentException("Product barcode doesnt exists in the system");
 			}
 		}
 		return foundProduct;

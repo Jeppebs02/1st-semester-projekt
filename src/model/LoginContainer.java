@@ -18,6 +18,9 @@ public class LoginContainer {
 	}
 	
 	public void setLoginUser(Employee user) {
+		if(user == null) {
+			throw new IllegalArgumentException("User cannot be null");
+		}
 		this.loginUser=user;
 		
 	}

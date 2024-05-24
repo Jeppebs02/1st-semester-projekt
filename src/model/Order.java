@@ -49,6 +49,9 @@ public class Order {
 
 
 	public void setOrderNr(String orderNr) {
+		if(orderNr == null) {
+			throw new IllegalArgumentException("Order NR. cannot be null");
+		}
 		this.orderNr = orderNr;
 	}
 
@@ -62,10 +65,16 @@ public class Order {
 	}
 	
 	public void setCustomer(Customer customer) {
+		if(customer == null) {
+			throw new IllegalArgumentException("Customer cannot be null");
+		}
 		this.customer = customer;
 	}
 
 	public void setEmployee(Employee employee) {
+		if(employee == null) {
+			throw new IllegalArgumentException("employee cannot be null");
+		}
 		this.employee = employee;
 	}
 	
