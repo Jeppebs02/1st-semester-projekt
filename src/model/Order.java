@@ -28,7 +28,7 @@ public class Order {
 		for(OrderLine currLine:orderLines) {
 			int currQuantity= currLine.getQuantity();
 			double currProductSalesPrice = currLine.getProduct().getPrice().getSalesPrice();
-			total=total+(currQuantity*currProductSalesPrice);
+			total=total+(currProductSalesPrice*currQuantity);
 			
 		}
 		
