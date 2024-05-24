@@ -12,6 +12,7 @@ public class OrderMenu {
 
 	OrderController oc;
 	
+	
 	public OrderMenu() {
 		oc = new OrderController();
 	}
@@ -129,8 +130,16 @@ private void printOrderDesc() {
 		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
 		System.out.println();
 	    System.out.println("*********************************\n");
-	  
+	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().);
+	    System.out.println("");
+	    System.out.println("");
+	    
 		
 	}
+
+private void sendOffer() {
+	
+}
+
 }
 
