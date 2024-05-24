@@ -94,6 +94,11 @@ public class Order {
 		}
 		orderLines.add(orderLine);
 	}
+
+
+	public Customer getCustomer() {
+		return customer;
+	}
 	
 	
 	
