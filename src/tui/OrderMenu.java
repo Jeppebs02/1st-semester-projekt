@@ -114,5 +114,21 @@ public class OrderMenu {
         return i;
 	}
 
+private void printOrderDesc() {
+		
+		System.out.println("   ****Vestbjerg Byggecenter A/S****       \n");
+		System.out.println("Dato: xx     Tid: xx \n");
+		System.out.println("---------------------------------\n");
+		
+		for() {
+		System.out.println("Produkt          Qty    \n");
+		
+		}
+		System.out.println( "Total pris = "+ calculateTotalPrice());
+		System.out.println();
+	    System.out.println("*********************************\n");
+	  
+		
+	}
 }
 
