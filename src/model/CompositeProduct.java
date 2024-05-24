@@ -17,13 +17,10 @@ public class CompositeProduct extends Product {
 	}
 	
 	public String getBarcode() {
-		if(getBarcode() == null) {
-			throw new NullPointerException("Barcode is null -check the product");
-		}
 		return super.getBarcode();
 	}
 	
-	public void addComponent(CompositeLine component) {
+	public void addComponent(CompositeLine component) throws IllegalArgumentException {
 		if(component == null) {
 			throw new IllegalArgumentException("component is null");
 		}

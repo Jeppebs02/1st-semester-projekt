@@ -17,7 +17,7 @@ public class LoginContainer {
 		return instance;
 	}
 	
-	public void setLoginUser(Employee user) {
+	public void setLoginUser(Employee user) throws IllegalArgumentException {
 		if(user == null) {
 			throw new IllegalArgumentException("User cannot be null");
 		}

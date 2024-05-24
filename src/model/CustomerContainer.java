@@ -18,7 +18,7 @@ public class CustomerContainer {
 		return instance;
 	}
 
-	public Customer findCustomerByID(String customerID) {
+	public Customer findCustomerByID(String customerID) throws IllegalArgumentException {
 		Customer foundCustomer = null;
 		Customer currentCustomer = null;
 		boolean searching = true;

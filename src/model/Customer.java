@@ -10,10 +10,7 @@ public class Customer extends Person{
 	}
 
 
-	public String getCustomerID() {	
-		if(getCustomerID() == null) {
-			throw new IllegalArgumentException("Customer ID cannot be null");
-		}
+	public String getCustomerID() {
 		return customerID;
 	}
 	
