@@ -32,7 +32,7 @@ public class ProductContainer {
 				foundProduct = currentProduct;
 				searching = false;
 			} else {
-				throw new IllegalArgumentException("Product barcode doesnt exists in the system");
+				//throw new IllegalArgumentException("Product barcode doesnt exists in the system");
 			}
 		}
 		return foundProduct;
