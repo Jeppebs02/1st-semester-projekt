@@ -10,8 +10,10 @@ import control.*;
 
 public class OrderMenu {
 
+	OrderController oc;
+	
 	public OrderMenu() {
-		// TODO Auto-generated constructor stub
+		oc = new OrderController();
 	}
 	
 	public void start() {
@@ -52,7 +54,7 @@ public class OrderMenu {
 	
 	public void createOffer() {
 		//TODO Initiate creating an offer, this passes the method onto the orderController.
-		OrderController oc = new OrderController();
+		//OrderController oc = new OrderController();
 		Scanner keyboard = new Scanner(System.in);
 		
 		Order newOffer = oc.createOffer();
@@ -69,12 +71,12 @@ public class OrderMenu {
 			System.out.println("Indtast antal af dette produkt:");
 			quantity = getIntegerFromUser(keyboard); 
 			
+			Product currentProduct = oc.inputProduct(barcode, quantity);
+			
 			//null check
-			if (oc.inputProduct(barcode, quantity) == null) {
+			if (currentProduct == null) {
 				System.out.println("Barcode findes ikke");
 			} else {
-				Product currentProduct = oc.inputProduct(barcode, quantity);
-				
 				System.out.println(currentProduct.getName() + " er tilføjet");
 			}
 			System.out.println("Skal der tilføjes flere produkter?");
@@ -94,8 +96,9 @@ public class OrderMenu {
 		System.out.println(currentCustomer.getName() + " er tilføjet");
 		}
 		
+		printOrderDesc();
 		oc.saveOffer();
-		System.out.println("den totale pris på tilbuddet: " + newOffer.calculateTotalPrice() + "DKK");
+		
 		
 		
 	}
@@ -112,18 +115,18 @@ public class OrderMenu {
 	}
 
 private void printOrderDesc() {
-		OrderController oc = new OrderController();
-		System.out.println("   ****Vestbjerg Byggecenter A/S****       \n");
+		
+		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
 		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
 		System.out.println("---------------------------------\n");
 		
 		for(OrderLine currLine:oc.getCurrentOrder().getOrderLines()) {
 			int currQuantity= currLine.getQuantity();
 			Product currProduct = currLine.getProduct();
-			System.out.println("Produkt" +currProduct.getName() +"       Antal "+ currQuantity +" : Total"+ currLine.calculateOrderLinePrice() +"\n");
+			System.out.println(currProduct.getName() +"       Antal "+ currQuantity +" : Total "+ currLine.calculateOrderLinePrice() + " DKK" +"\n");
 		
 		}
-		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice());
+		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
 		System.out.println();
 	    System.out.println("*********************************\n");
 	  

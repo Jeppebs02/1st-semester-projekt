@@ -11,10 +11,8 @@ public class OrderLine {
 		this.product = product;
 	}
 	
-	public double calculateOrderLinePrice() throws IllegalArgumentException {
-		if(quantity > 1) {
-			throw new IllegalArgumentException("quantity is set to less than 1");
-		}
+	public double calculateOrderLinePrice() {
+		
 		return product.getPrice().getSalesPrice()*quantity;
 	}
 
@@ -24,10 +22,8 @@ public class OrderLine {
 	}
 
 
-	public void setQuantity(int quantity) throws IllegalArgumentException {
-		if(quantity < 1) {
-			throw new IllegalArgumentException("Quantity cannot be less than 1");
-		}
+	public void setQuantity(int quantity) {
+		
 		this.quantity = quantity;
 	}
 
