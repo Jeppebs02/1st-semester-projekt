@@ -130,16 +130,12 @@ private void printOrderDesc() {
 		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
 		System.out.println();
 	    System.out.println("*********************************\n");
-	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().);
-	    System.out.println("");
-	    System.out.println("");
+	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().getCustomer().getEmail());
+	  
 	    
 		
 	}
 
-private void sendOffer() {
-	
-}
 
 }
 
