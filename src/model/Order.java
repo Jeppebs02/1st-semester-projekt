@@ -8,7 +8,7 @@ public class Order {
 	private String orderNr;
 	private OrderStatus orderStatus;
 	private ArrayList<OrderLine> orderLines;
-	private Customer costumer;
+	private Customer customer;
 	private Employee employee;
 
 	public Order() {
@@ -23,7 +23,7 @@ public class Order {
 	
 	public double calculateTotalPrice() {
 		double total=0;
-		double costumerDiscount=costumer.getCustomerCategory().getDiscount();
+		
 		
 		for(OrderLine currLine:orderLines) {
 			int currQuantity= currLine.getQuantity();
@@ -32,10 +32,13 @@ public class Order {
 			total=total+(currProductSalesPrice*currQuantity);
 			
 		}
-		if(costumerDiscount!=null) {
-			
+		if(customer.getCustomerCategory()==null) {
+			return total;
+		}else {
+			double customerDiscount=customer.getCustomerCategory().getDiscount();
+			return total*customerDiscount;
 		}
-		return total;
+		
 	}
 	
 	
@@ -75,7 +78,7 @@ public class Order {
 		if(customer == null) {
 			throw new IllegalArgumentException("Customer cannot be null");
 		}
-		this.costumer = customer;
+		this.customer = customer;
 	}
 
 	public void setEmployee(Employee employee) throws IllegalArgumentException {
