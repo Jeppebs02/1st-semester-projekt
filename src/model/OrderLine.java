@@ -10,6 +10,10 @@ public class OrderLine {
 		this.quantity = quantity;
 		this.product = product;
 	}
+	
+	public double calculateOrderLinePrice() {
+		return product.getPrice().getSalesPrice()*quantity;
+	}
 
 
 	public int getQuantity() {
