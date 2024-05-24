@@ -33,7 +33,7 @@ public class OrderContainer {
 	}
 	
 	public String generateOrderNr() {
-		orderNrCounter++;
+		orderNrCounter=orderNrCounter+1;
 		return String.valueOf(orderNrCounter);
 	}
 
