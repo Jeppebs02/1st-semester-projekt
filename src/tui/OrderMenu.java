@@ -70,7 +70,7 @@ public class OrderMenu {
 			quantity = getIntegerFromUser(keyboard); 
 			
 			//null check
-			if (oc.inputProduct(barcode) == null) {
+			if (oc.inputProduct(barcode, quantity) == null) {
 				System.out.println("Barcode findes ikke");
 			} else {
 				Product currentProduct = oc.inputProduct(barcode, quantity);
