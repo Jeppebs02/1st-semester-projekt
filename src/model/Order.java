@@ -42,7 +42,7 @@ public class Order {
 	}
 	
 	public String getTimeMMSS() {
-		return ""+date.getHour()+":"+date.getMinute()+date.getSecond();
+		return ""+date.getHour()+":"+date.getMinute()+":"+date.getSecond();
 	}
 	
 	public String getTimeDate() {
