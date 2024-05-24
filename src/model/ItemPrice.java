@@ -11,13 +11,13 @@ public class ItemPrice {
 
 	
 	
-	public ItemPrice(double costPrice, double mSRP, double salesPrice, double discount, LocalDateTime date) {
+	public ItemPrice(double costPrice, double mSRP, double salesPrice, double discount) {
 		super();
 		this.costPrice = costPrice;
 		MSRP = mSRP;
 		this.salesPrice = salesPrice*discount;
 		this.discount = discount;
-		this.date = date;
+		this.date = LocalDateTime.now();
 	}
 
 
