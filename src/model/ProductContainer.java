@@ -20,7 +20,7 @@ public class ProductContainer {
 		return instance;
 	}
 
-	public Product findProductByBarcode(String barcode) {
+	public Product findProductByBarcode(String barcode) throws IllegalArgumentException {
 		Product foundProduct = null;
 		Product currentProduct = null;
 		boolean searching = true;

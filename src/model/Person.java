@@ -16,7 +16,7 @@ public abstract class Person {
 		this.address = address;
 	}
 
-	public String getName() {
+	public String getName() throws NullPointerException {
 		if(getName() == null) {
 			throw new NullPointerException("Name is set to nothing -check the person");
 		}

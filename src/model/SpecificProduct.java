@@ -14,7 +14,10 @@ public class SpecificProduct extends Product {
 		
 	}
 	
-	public String getBarcode() {
+	public String getBarcode() throws NullPointerException {
+		if(getBarcode() == null) {
+			throw new NullPointerException("Customer cannot be null");
+		}
 		return super.getBarcode();
 	}
 	

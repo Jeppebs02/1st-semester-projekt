@@ -32,7 +32,10 @@ public class OrderContainer {
 		return answer;
 	}
 	
-	public String generateOrderNr() {
+	public String generateOrderNr() throws NullPointerException {
+		if(generateOrderNr() == null) {
+			throw new NullPointerException ("Order NR. cannot be null");
+		}
 		orderNrCounter++;
 		return String.valueOf(orderNrCounter);
 	}
