@@ -46,7 +46,7 @@ public class Order {
 	}
 	
 	public String getTimeDate() {
-		return ""+date.getMonth();
+		return ""+date.getDayOfMonth()+"-"+date.getMonthValue()+"-"+date.getYear();
 	}
 
 
