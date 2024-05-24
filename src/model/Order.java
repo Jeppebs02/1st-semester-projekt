@@ -17,6 +17,8 @@ public class Order {
 		//random string orderNR
 		// order nr is set in container
 		this.orderStatus=OrderStatus.ONHOLD;
+		orderLines = new ArrayList<>();
+		this.date = LocalDate.now();
 		
 	}
 
