@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import model.Customer;
 import model.Order;
+import model.OrderLine;
 import model.Product;
 import model.Person;
 import control.*;
@@ -115,16 +116,18 @@ public class OrderMenu {
 	}
 
 private void printOrderDesc() {
-		
+		OrderController oc = new OrderController();
 		System.out.println("   ****Vestbjerg Byggecenter A/S****       \n");
-		System.out.println("Dato: xx     Tid: xx \n");
+		System.out.println("Dato: "+  +"     Tid: "+  +" \n");
 		System.out.println("---------------------------------\n");
 		
-		for() {
-		System.out.println("Produkt          Qty    \n");
+		for(OrderLine currLine:oc.getCurrentOrder().getOrderLines()) {
+			int currQuantity= currLine.getQuantity();
+			Product currProduct = currLine.getProduct();
+			System.out.println("Produkt" +currProduct.getName() +"       Qty "+ currQuantity +" : Total"+ currLine.calculateOrderLinePrice() +"\n");
 		
 		}
-		System.out.println( "Total pris = "+ calculateTotalPrice());
+		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice());
 		System.out.println();
 	    System.out.println("*********************************\n");
 	  

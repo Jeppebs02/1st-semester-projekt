@@ -43,6 +43,11 @@ public class Order {
 	}
 
 
+	public ArrayList<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+
 	public void setOrderNr(String orderNr) {
 		this.orderNr = orderNr;
 	}

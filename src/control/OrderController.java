@@ -1,5 +1,7 @@
 package control;
 
+import java.util.ArrayList;
+
 import model.Customer;
 import model.Employee;
 import model.Order;
@@ -11,8 +13,15 @@ public class OrderController {
 	private Order currentOrder;
 
 	
+	
+
+
 	public OrderController() {
 		
+	}
+	
+	public Order getCurrentOrder() {
+		return currentOrder;
 	}
 	
 	public Order createOffer() {
@@ -52,6 +61,10 @@ public class OrderController {
 		OrderContainer oc = OrderContainer.getInstance();
 		return oc.saveOffer(currentOrder);
 
+	}
+	
+	public ArrayList<OrderLine> getOrderLines() {
+		return currentOrder.getOrderLines();
 	}
 
 }
