@@ -2,7 +2,7 @@ package tui;
 
 import model.*;
 
-public class tryMe {
+public class TryMe {
 
 	
 	public static void addData() {
@@ -12,7 +12,9 @@ public class tryMe {
 		CustomerContainer cc = CustomerContainer.getInstance();
 		
 		
-		cc.addCustomerToContainer(new Customer("Bob", "Bob@1337.com", "22112233", "Hurtigvej 99", "22112233"));
+		
+		Customer c = new Customer("Bob", "Bob@1337.com", "22112233", "Hurtigvej 99", "22112233");
+		cc.addCustomerToContainer(c);
 		
 		lc.setLoginUser(new Employee("Jeppe", "Jeppebs02@doxed.com", "12341234", "Pågade 22", "ctfjeppebs02", "BestName4ever", "12341234"));
 		
