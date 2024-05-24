@@ -25,26 +25,17 @@ public class Product {
 	}
 
 
-	public String getBarcode() throws NullPointerException {
-		if(getBarcode() == null) {
-			throw new NullPointerException("Barcode is null -check the product");
-		}
+	public String getBarcode() {
 		return barcode;
 	}
 
 
-	public String getName() throws NullPointerException {
-		if(getName() == null) {
-			throw new NullPointerException("Products name is null -check the product");
-		}
+	public String getName() {
 		return name;
 	}
 
 
-	public ItemPrice getPrice() throws NullPointerException {
-		if(getPrice() == null) {
-			throw new NullPointerException("Price is null -check the Item price");
-		}
+	public ItemPrice getPrice() {
 		return price;
 	}
 	

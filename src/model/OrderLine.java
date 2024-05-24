@@ -12,9 +12,6 @@ public class OrderLine {
 	}
 	
 	public double calculateOrderLinePrice() throws IllegalArgumentException {
-		if(product.getPrice().getSalesPrice() > 0) {
-			throw new IllegalArgumentException("Sales price is set to less than 0");
-		}
 		if(quantity > 1) {
 			throw new IllegalArgumentException("quantity is set to less than 1");
 		}
@@ -22,10 +19,7 @@ public class OrderLine {
 	}
 
 
-	public int getQuantity() throws IllegalArgumentException {
-		if(getQuantity() > 1) {
-			throw new IllegalArgumentException("quantity is set to less than 1");
-		}
+	public int getQuantity() {
 		return quantity;
 	}
 
@@ -38,10 +32,7 @@ public class OrderLine {
 	}
 
 
-	public Product getProduct() throws NullPointerException {
-		if(getProduct() == null) {
-			throw new NullPointerException("Product is null");
-		}
+	public Product getProduct() {
 		return product;
 	}
 

@@ -15,10 +15,7 @@ public class Employee extends Person{
 	}
 
 
-	public String getEmployeeID() throws NullPointerException {
-		if(getEmployeeID() == null) {
-			throw new NullPointerException("Employee ID is set null");
-		}
+	public String getEmployeeID() {
 		return employeeID;
 	}
 
