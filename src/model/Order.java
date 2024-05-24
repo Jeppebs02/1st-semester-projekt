@@ -1,10 +1,9 @@
 package model;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Order {
-	private LocalDate date;
+	private LocalDateTime date;
 	private double discount;
 	private double totalPrice;
 	private String orderNr;
@@ -18,7 +17,7 @@ public class Order {
 		// order nr is set in container
 		this.orderStatus=OrderStatus.ONHOLD;
 		orderLines = new ArrayList<>();
-		this.date = LocalDate.now();
+		this.date = LocalDateTime.now();
 		
 	}
 
@@ -40,6 +39,14 @@ public class Order {
 	
 	public String getOrderNr() {
 		return orderNr;
+	}
+	
+	public String getTimeMMSS() {
+		return ""+date.getHour()+":"+date.getMinute()+date.getSecond();
+	}
+	
+	public String getTimeDate() {
+		return ""+date.getMonth();
 	}
 
 

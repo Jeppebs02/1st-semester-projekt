@@ -114,13 +114,13 @@ public class OrderMenu {
 private void printOrderDesc() {
 		OrderController oc = new OrderController();
 		System.out.println("   ****Vestbjerg Byggecenter A/S****       \n");
-		System.out.println("Dato: "+  +"     Tid: "+  +" \n");
+		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
 		System.out.println("---------------------------------\n");
 		
 		for(OrderLine currLine:oc.getCurrentOrder().getOrderLines()) {
 			int currQuantity= currLine.getQuantity();
 			Product currProduct = currLine.getProduct();
-			System.out.println("Produkt" +currProduct.getName() +"       Qty "+ currQuantity +" : Total"+ currLine.calculateOrderLinePrice() +"\n");
+			System.out.println("Produkt" +currProduct.getName() +"       Antal "+ currQuantity +" : Total"+ currLine.calculateOrderLinePrice() +"\n");
 		
 		}
 		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice());
