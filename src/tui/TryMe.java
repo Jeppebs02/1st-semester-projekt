@@ -12,9 +12,14 @@ public class TryMe {
 		CustomerContainer cc = CustomerContainer.getInstance();
 		
 		
-		
 		Customer c = new Customer("Bob Jepsen", "Bob@1337.com", "22112233", "Hurtigvej 99", "22112233");
 		cc.addCustomerToContainer(c);
+		
+		Customer c1 = new Customer("Average Joe", "Average@Joe.com", "44556677", "Average Street 44", "44556677");
+		CustomerCategory cuc = new CustomerCategory("Loyal", "Loyale kunder", 0.90);
+		c1.setCustomerCategory(cuc);
+		cc.addCustomerToContainer(c1);
+		
 		
 		lc.setLoginUser(new Employee("Jeppe", "Jeppebs02@doxed.com", "12341234", "Pågade 22", "ctfjeppebs02", "BestName4ever", "12341234"));
 		
@@ -44,7 +49,8 @@ public class TryMe {
 
 		ItemPrice ip6 = new ItemPrice(15, 40, 40, 1);
 		Location l6 = new Location("DIY store", "Række 4", "Hylde 444", 40, 800);
-		pc.addProductsToContainer(new Product("Skruer", "33445566", "Pakke med skruer", "33445566", "Fastgørelseselementer", ip6, l6));
+		Product p6 = new Product("Skruer", "33445566", "Pakke med skruer", "33445566", "Fastgørelseselementer", ip6, l6);
+		pc.addProductsToContainer(p6);
 
 		ItemPrice ip7 = new ItemPrice(35, 100, 100, 1);
 		Location l7 = new Location("DIY store", "Række 1", "Hylde 180", 5, 30);
@@ -58,6 +64,31 @@ public class TryMe {
 		Location l9 = new Location("DIY store", "Række 31", "Hylde 116", 5, 20);
 		pc.addProductsToContainer(new Product("Stiksav", "33224455", "Elektrisk stiksav", "33224455", "Elværktøj", ip9, l9));
 
+		ItemPrice ip10 = new ItemPrice(50, 100, 100, 1);
+		Location l10 = new Location("DIY store", "Række 49", "Hylde 300", 20, 100);
+		Product p10 = new Product("Træ plade", "99008800", "Træ plade af krydsfiner", "99008800", "Trælast", ip10, l10);
+		pc.addProductsToContainer(p10);
+
+		ItemPrice ip11 = new ItemPrice(5, 20, 20, 1);
+		Location l11 = new Location("DIY store", "Række 32", "Hylde 166", 30, 200);
+		Product p11 = new Product("Greb", "77118822", "Håndtag til låger", "77118822", "Beslag", ip11, l11);
+		pc.addProductsToContainer(p11);
+
+		
+		
+		CompositeLine skab1 = new CompositeLine(8, p10);
+		CompositeLine skab2 = new CompositeLine(1, p11);
+		CompositeLine skab3 = new CompositeLine(1, p6);
+		
+		ItemPrice ip12 = new ItemPrice(300, 500, 500, 1);
+		Location l12 = new Location("DIY store", "Række 60", "Udstilling", 2, 10);
+		
+		CompositeProduct skab = new CompositeProduct("Skab", "445566", "Køkkenskab", "445566", "Køkken", ip12, l12, "Manual");
+		skab.addComponent(skab1);
+		skab.addComponent(skab2);
+		skab.addComponent(skab3);
+		pc.addProductsToContainer(skab);
+		
 		
 	}
 	

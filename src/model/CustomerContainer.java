@@ -18,7 +18,7 @@ public class CustomerContainer {
 		return instance;
 	}
 
-	public Customer findCustomerByID(String customerID) throws IllegalArgumentException {
+	public Customer findCustomerByID(String customerID) {
 		Customer foundCustomer = null;
 		Customer currentCustomer = null;
 		boolean searching = true;
@@ -29,9 +29,7 @@ public class CustomerContainer {
 			if (currentCustomer.getCustomerID().equals(customerID)) {
 				foundCustomer = currentCustomer;
 				searching = false;
-			} else {
-				throw new IllegalArgumentException("Customer ID doesnt exists in the system");
-			}
+			} 
 		}
 		return foundCustomer;
 	}

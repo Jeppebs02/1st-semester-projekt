@@ -49,7 +49,10 @@ public class OrderController {
 		//Find a customer and add to currentOrder
 		CustomerController cc = new CustomerController();
 		Customer orderCustomer = cc.inputCustomerID(customerID);
-		currentOrder.setCustomer(orderCustomer);
+		
+		if(orderCustomer != null) {
+			currentOrder.setCustomer(orderCustomer);
+		}		
 		return orderCustomer;
 	}
 	

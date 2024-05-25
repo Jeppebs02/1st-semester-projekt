@@ -58,16 +58,17 @@ public class OrderMenu {
 		//OrderController oc = new OrderController();
 		Scanner keyboard = new Scanner(System.in);
 		
-		Order newOffer = oc.createOffer();
+		oc.createOffer();
 		
 		String barcode = null;
 		int quantity = 0;
 		boolean foundProducts = false;
+		boolean foundCustomer = false;
 		String customerID = null;
 
 		while (!foundProducts) {
 			
-			System.out.println("Indtast Barcode på produktet:");
+			System.out.println("Indtast Stregkode på produktet:");
 			barcode = String.valueOf(getIntegerFromUser(keyboard));
 			System.out.println("Indtast antal af dette produkt:");
 			quantity = getIntegerFromUser(keyboard); 
@@ -76,7 +77,7 @@ public class OrderMenu {
 			
 			//null check
 			if (currentProduct == null) {
-				System.out.println("Barcode findes ikke");
+				System.out.println("Stregkode findes ikke");
 			} else {
 				System.out.println(currentProduct.getName() + " er tilføjet");
 			}
@@ -87,16 +88,19 @@ public class OrderMenu {
 			}
 		}
 		
-		System.out.println("Indtast Kunde ID:");
-		customerID = String.valueOf(getIntegerFromUser(keyboard));
-		
-		if (oc.inputCustomerID(customerID) == null) {
-			System.out.println("Kunde ID eksisterer ikke");
-		} else {
-		Customer currentCustomer = oc.inputCustomerID(customerID);
-		System.out.println(currentCustomer.getName() + " er tilføjet");
+		while (!foundCustomer) {
+			System.out.println("Indtast Kunde ID:");
+			customerID = String.valueOf(getIntegerFromUser(keyboard));
+			
+			Customer currentCustomer = oc.inputCustomerID(customerID);
+			
+			if (currentCustomer == null) {
+				System.out.println("Kunde ID eksisterer ikke");
+			} else {
+				System.out.println(currentCustomer.getName() + " er tilføjet");
+				foundCustomer = true;
+			} 
 		}
-		
 		printOrderDesc();
 		oc.saveOffer();
 		
