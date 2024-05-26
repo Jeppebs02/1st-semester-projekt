@@ -12,7 +12,7 @@ public class LoginController {
 		
 	}
 	
-	public Employee retrieveLoginUser() {
+	public Employee getLoginUser() {
 		LoginContainer lc = LoginContainer.getInstance();
 		currentUser = lc.getLoginUser();
 		return currentUser;

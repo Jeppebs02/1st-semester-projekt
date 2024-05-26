@@ -6,6 +6,7 @@ public class Location {
 	private String shelf;
 	private int minStock;
 	private int maxStock;
+	private int stock;
 
 	
 	

@@ -119,7 +119,7 @@ public class OrderMenu {
         return i;
 	}
 
-private void printOrderDesc() {
+	private void printOrderDesc() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
 		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
@@ -135,11 +135,6 @@ private void printOrderDesc() {
 		System.out.println();
 	    System.out.println("*********************************\n");
 	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().getCustomer().getEmail());
-	  
-	    
-		
 	}
-
-
 }
 

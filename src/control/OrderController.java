@@ -12,10 +12,6 @@ import model.Product;
 public class OrderController {
 	private Order currentOrder;
 
-	
-	
-
-
 	public OrderController() {
 		
 	}
@@ -59,7 +55,7 @@ public class OrderController {
 	public boolean saveOffer() {
 		// Take currentOrder and put it into orderContainer (i.e. save the order)
 		LoginController lc =  new LoginController();
-		Employee  user = lc.retrieveLoginUser();
+		Employee  user = lc.getLoginUser();
 		currentOrder.setEmployee(user);
 		OrderContainer oc = OrderContainer.getInstance();
 		return oc.saveOffer(currentOrder);

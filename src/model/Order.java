@@ -20,7 +20,6 @@ public class Order {
 		
 	}
 
-	
 	public double calculateTotalPrice() {
 		double total=0;
 		
@@ -40,8 +39,6 @@ public class Order {
 		}
 		
 	}
-	
-	
 	
 	public String getOrderNr() {
 		return orderNr;
