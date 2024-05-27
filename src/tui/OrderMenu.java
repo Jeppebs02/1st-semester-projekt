@@ -189,6 +189,8 @@ public class OrderMenu {
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
 		System.out.println("---------------------------------\n");
+		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
+		System.out.println("---------------------------------\n");
 		
 		for(OrderLine currLine:oc.getCurrentOrder().getOrderLines()) {
 			int currQuantity= currLine.getQuantity();

@@ -47,6 +47,10 @@ public class Order {
 		return orderNr;
 	}
 	
+	public String getOrderStatus() {
+		return orderStatus.toString();
+	}
+	
 	public String getTimeMMSS() throws NullPointerException {
 		if (date == null) {
 			throw new NullPointerException("date cant be Null");
