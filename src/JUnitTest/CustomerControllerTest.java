@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import control.CustomerController;
+import model.Customer;
+import model.Product;
 import tui.TryMe;
 
 public class CustomerControllerTest {
@@ -29,5 +31,9 @@ public class CustomerControllerTest {
         assertEquals("Average Joe", customerController.inputCustomerID("44556677").getName());
     }
     
+    @Test
+    public void inputCustomerNonExistingCustomerID() {
+    	assertNull(customerController.inputCustomerID("1111"));
+    }
 }
 

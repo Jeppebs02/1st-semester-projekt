@@ -20,6 +20,10 @@ public abstract class Person {
 		if (name == null) {
 		throw new NullPointerException("Name cant be Null");
 		}
+//		if (name.matches(".*\\d.*")) {
+//	        throw new IllegalArgumentException("Name cant contain numbers");
+//	    }
+//		Vi snakkede om at introducere en exception på fx at indtaste tal i et navn ved brugen af REGEX da det er 2. semester, bruger vi energien på noget andet
 		return name;
 	}
 
