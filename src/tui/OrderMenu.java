@@ -141,8 +141,11 @@ public class OrderMenu {
 			System.out.println("Indtast den nye status på ordren");
 			System.out.println("ACCEPTED, PAID, CANCELLED, ONHOLD, OVERDUE");
 			statusAnswer = keyboard.nextLine().toUpperCase();
-			if (!statusAnswer.equals("ACCEPTED") && !statusAnswer.equals("PAID") && !statusAnswer.equals("CANCELLED")
-					&& !statusAnswer.equals("ONHOLD") && !statusAnswer.equals("OVERDUE")) {
+			if (!statusAnswer.equals("ACCEPTED")
+					&& !statusAnswer.equals("PAID")
+					&& !statusAnswer.equals("CANCELLED") 
+					&& !statusAnswer.equals("ONHOLD")
+					&& !statusAnswer.equals("OVERDUE")) {
 				System.out.println("Status ukendt - prøv igen \n");
 			} else {
 				foundAnswer = true;
