@@ -4,14 +4,16 @@ public class CustomerCategory {
 	private String name;
 	private String description;
 	private double discount;
+	private String paymentDeadline;
 
 	
 
-	public CustomerCategory(String name, String description, double discount) {
+	public CustomerCategory(String name, String description, double discount, String paymentDeadline) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.discount = discount;
+		this.paymentDeadline = paymentDeadline;
 	}
 
 	public String getName() throws NullPointerException {
@@ -56,6 +58,8 @@ public class CustomerCategory {
 		this.discount = discount;
 	}
 	
-	
+	public String getPaymentDeadline() {
+		return paymentDeadline;
+	}
 
 }
