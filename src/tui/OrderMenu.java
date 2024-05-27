@@ -166,6 +166,8 @@ public class OrderMenu {
 		
 		System.out.println("Orderen er nu ændret til: " + statusAnswer);
 		
+		printOrderDesc();
+		
 	}
 	
 	
