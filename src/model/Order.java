@@ -60,7 +60,8 @@ public class Order {
 	
 	
 	public String getAcceptDeadlineString() {
-		return String.valueOf(date.toLocalDate().plusDays(7));
+		LocalDateTime AcceptDeadline = date.plusDays(7);
+		return ""+AcceptDeadline.getDayOfMonth()+"-"+AcceptDeadline.getMonthValue()+"-"+AcceptDeadline.getYear();
 	}
 
 	public String getTimeDateString() throws NullPointerException {
