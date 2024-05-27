@@ -16,7 +16,7 @@ public class TryMe {
 		cc.addCustomerToContainer(c);
 		
 		Customer c1 = new Customer("Average Joe", "Average@Joe.com", "44556677", "Average Street 44", "44556677");
-		CustomerCategory cuc = new CustomerCategory("Loyal", "Loyale kunder", 0.90, "14");
+		CustomerCategory cuc = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
 		c1.setCustomerCategory(cuc);
 		cc.addCustomerToContainer(c1);
 		

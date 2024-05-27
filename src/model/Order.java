@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -72,6 +73,19 @@ public class Order {
 	}
 
 
+	public String getPaymentDeadlineString() {
+		LocalDate paymentDeadline = LocalDate.now();
+		
+		if(customer.getCustomerCategory() == null) {
+			paymentDeadline = paymentDeadline.plusDays(7);
+		} else {
+			paymentDeadline = paymentDeadline.plusDays(customer.getCustomerCategory().getPaymentDeadline());
+		}
+		
+		return ""+paymentDeadline.getDayOfMonth()+"-"+paymentDeadline.getMonthValue()+"-"+paymentDeadline.getYear();
+		
+	}
+	
 	public ArrayList<OrderLine> getOrderLines() throws NullPointerException {
 		if (orderLines == null) {
 			throw new NullPointerException("orderLines cant be Null");

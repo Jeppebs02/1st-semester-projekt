@@ -36,7 +36,7 @@ public class OrderContainer {
 		orderNrCounter=orderNrCounter+1;
 		return String.valueOf(orderNrCounter);
 	}
-
+	//Iteration 2
 	public Order findOrderByNr (String orderNr) {
 		Order foundOrder = null;
 		Order currentOrder = null;

@@ -1,4 +1,5 @@
 package tui;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import model.Customer;
@@ -198,6 +199,11 @@ public class OrderMenu {
 			System.out.println(currProduct.getName() +"       Antal "+ currQuantity +" : Total "+ currLine.calculateOrderLinePrice() + " DKK" +"\n");
 		
 		}
+		
+		if(oc.getCurrentOrder().getCustomer().getCustomerCategory() != null) {
+		System.out.println("Samlet rabat: " + oc.getCurrentOrder().getCustomer().getCustomerCategory().calculateDiscountPercent() + "%");
+		}
+		
 		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
 		System.out.println();
 	    System.out.println("*********************************\n");
@@ -211,7 +217,8 @@ public class OrderMenu {
 	private void printOrderAccept() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
-		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
+		System.out.println("Dato: "+ LocalDate.now() + "\n");
+		System.out.println("Skal betales inden: "+oc.getCurrentOrder().getPaymentDeadlineString());
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
 		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
@@ -223,14 +230,17 @@ public class OrderMenu {
 			System.out.println(currProduct.getName() +"       Antal "+ currQuantity +" : Total "+ currLine.calculateOrderLinePrice() + " DKK" +"\n");
 		
 		}
+		
+		if(oc.getCurrentOrder().getCustomer().getCustomerCategory() != null) {
+		System.out.println("Samlet rabat: " + oc.getCurrentOrder().getCustomer().getCustomerCategory().calculateDiscountPercent() + "%");
+		}
+		
 		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
 		System.out.println();
 	    System.out.println("*********************************\n");
-	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().getCustomer().getEmail());
-	    System.out.println();
-	    System.out.println("*********************************\n");
 	    System.out.println("Du er blevet betjent af: " + oc.getCurrentEmployee().getName());
 	    System.out.println();
+	    System.out.println("En pakke liste er blevet sendt til lageret. \nDu vil få en yderligere mail ang. levering.\n");
 	}
 }
 

@@ -4,11 +4,11 @@ public class CustomerCategory {
 	private String name;
 	private String description;
 	private double discount;
-	private String paymentDeadline;
+	private int paymentDeadline;
 
 	
 
-	public CustomerCategory(String name, String description, double discount, String paymentDeadline) {
+	public CustomerCategory(String name, String description, double discount, int paymentDeadline) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -58,8 +58,16 @@ public class CustomerCategory {
 		this.discount = discount;
 	}
 	
-	public String getPaymentDeadline() {
+	public int getPaymentDeadline() {
 		return paymentDeadline;
 	}
 
+	public double calculateDiscountPercent() {
+		double discountPercent;
+		
+		discountPercent = (1 - discount) * 100;
+		
+		return Math.ceil(discountPercent);
+	}
+	
 }

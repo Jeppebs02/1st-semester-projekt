@@ -19,7 +19,7 @@ public class Customer extends Person{
 	}
 
 
-	public CustomerCategory getCustomerCategory() throws NullPointerException {
+	public CustomerCategory getCustomerCategory(){
 	
 		return customerCategory;
 	}

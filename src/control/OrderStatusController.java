@@ -11,7 +11,7 @@ public class OrderStatusController {
 	public OrderStatusController() {
 		
 	}
-	
+	//Iteration 2
 	public Order findOrderByNr(String orderNr) {
 		OrderContainer oc = OrderContainer.getInstance();
 		Order foundOrder = oc.findOrderByNr(orderNr);
