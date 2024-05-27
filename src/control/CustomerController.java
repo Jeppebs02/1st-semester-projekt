@@ -20,6 +20,6 @@ public class CustomerController {
 	public Customer getCurrentCustomer() {
 		return currentCustomer;
 	}
-	
+
 	
 }
