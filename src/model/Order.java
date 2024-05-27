@@ -51,14 +51,14 @@ public class Order {
 		return orderStatus.toString();
 	}
 	
-	public String getTimeMMSS() throws NullPointerException {
+	public String getTimeMMSSString() throws NullPointerException {
 		if (date == null) {
 			throw new NullPointerException("date cant be Null");
 		}
 		return ""+date.getHour()+":"+date.getMinute()+":"+date.getSecond();
 	}
 	
-	public String getTimeDate() throws NullPointerException {
+	public String getTimeDateString() throws NullPointerException {
 		if (date == null) {
 			throw new NullPointerException("date cant be Null");
 		}

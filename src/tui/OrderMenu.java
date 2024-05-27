@@ -185,7 +185,8 @@ public class OrderMenu {
 	private void printOrderDesc() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
-		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
+		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
+		System.out.println("Skal accepteres inden: "oc.getCurrentOrder().getTimeDate());
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
 		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
@@ -210,7 +211,7 @@ public class OrderMenu {
 private void printOrderAccept() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
-		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
+		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
 		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
