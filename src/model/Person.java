@@ -16,11 +16,17 @@ public abstract class Person {
 		this.address = address;
 	}
 
-	public String getName() {
+	public String getName() throws NullPointerException {
+		if (name == null) {
+		throw new NullPointerException("Name cant be Null");
+		}
 		return name;
 	}
 
-	public String getEmail() {
+	public String getEmail() throws NullPointerException {
+		if (email == null) {
+		throw new NullPointerException("E-mail cant be Null");
+		}
 		return email;
 	}
 	

@@ -21,7 +21,10 @@ public class ItemPrice {
 	}
 
 
-	public double getSalesPrice() {
+	public double getSalesPrice() throws NullPointerException {
+		if (salesPrice < 0) {
+			throw new IllegalArgumentException("salesprice cant be less than 0");
+		}
 		return salesPrice;
 	}
 	

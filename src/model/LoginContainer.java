@@ -25,7 +25,10 @@ public class LoginContainer {
 		
 	}
 	
-	public Employee getLoginUser() {
+	public Employee getLoginUser() throws NullPointerException {
+		if(loginUser == null) {
+			throw new NullPointerException("User is set to null");
+		}
 		return loginUser;
 	}
 	

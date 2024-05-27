@@ -17,18 +17,27 @@ public class OrderLine {
 	}
 
 
-	public int getQuantity() {
+	public int getQuantity() throws NullPointerException {
+		if (quantity < 1) {
+		throw new NullPointerException("Quantity cant be less than 1");
+		}
 		return quantity;
 	}
 
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quantity) throws IllegalArgumentException {
+		if (quantity < 1) {
+		throw new IllegalArgumentException("Quantity cant be less than 1");
+		}
 		
 		this.quantity = quantity;
 	}
 
 
-	public Product getProduct() {
+	public Product getProduct() throws NullPointerException {
+		if (product == null) {
+		throw new NullPointerException("Product cant be Null");
+		}
 		return product;
 	}
 
