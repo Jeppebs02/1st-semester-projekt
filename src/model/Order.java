@@ -58,6 +58,11 @@ public class Order {
 		return ""+date.getHour()+":"+date.getMinute()+":"+date.getSecond();
 	}
 	
+	
+	public String getAcceptDeadlineString() {
+		return String.valueOf(date.plusDays(7));
+	}
+
 	public String getTimeDateString() throws NullPointerException {
 		if (date == null) {
 			throw new NullPointerException("date cant be Null");
