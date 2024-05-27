@@ -188,7 +188,6 @@ public class OrderMenu {
 		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
-		System.out.println("---------------------------------\n");
 		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
 		System.out.println("---------------------------------\n");
 		
