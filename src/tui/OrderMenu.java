@@ -127,13 +127,24 @@ public class OrderMenu {
 	public void changeOrderStatus() {
 		
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Indtast ordre nummer:");
-		String answer = keyboard.nextLine();
 		boolean foundAnswer = false;
+		boolean foundOrder = false;
 		
 		OrderStatusController osc = new OrderStatusController();
 		
-		osc.findOrderByNr(answer);
+		while (!foundOrder) {
+			
+			System.out.println("Indtast ordre nummer:");
+			String answer = keyboard.nextLine();
+			Order order = osc.findOrderByNr(answer);
+			
+			if(order == null) {
+				System.out.println("Order findes ikke - Prøv igen \n");
+			} else {
+				foundOrder = true;
+			}
+			
+		}
 		
 		String statusAnswer = null;
 		

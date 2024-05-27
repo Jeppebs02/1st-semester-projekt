@@ -10,7 +10,6 @@ public class OrderStatusController {
 	
 	public OrderStatusController() {
 		
-		
 	}
 	
 	public Order findOrderByNr(String orderNr) {
