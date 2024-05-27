@@ -40,33 +40,48 @@ public class Order {
 		
 	}
 	
-	public String getOrderNr() {
+	public String getOrderNr() throws NullPointerException {
+		if (orderNr == null) {
+			throw new NullPointerException("Order Nr. cant be Null");
+		}
 		return orderNr;
 	}
 	
-	public String getTimeMMSS() {
+	public String getTimeMMSS() throws NullPointerException {
+		if (date == null) {
+			throw new NullPointerException("date cant be Null");
+		}
 		return ""+date.getHour()+":"+date.getMinute()+":"+date.getSecond();
 	}
 	
-	public String getTimeDate() {
+	public String getTimeDate() throws NullPointerException {
+		if (date == null) {
+			throw new NullPointerException("date cant be Null");
+		}
 		return ""+date.getDayOfMonth()+"-"+date.getMonthValue()+"-"+date.getYear();
 	}
 
 
-	public ArrayList<OrderLine> getOrderLines() {
+	public ArrayList<OrderLine> getOrderLines() throws NullPointerException {
+		if (orderLines == null) {
+			throw new NullPointerException("orderLines cant be Null");
+		}
 		return orderLines;
 	}
 
 
 	public void setOrderNr(String orderNr) throws IllegalArgumentException {
 		if(orderNr == null) {
-			throw new IllegalArgumentException("Order NR. cannot be null");
+			throw new IllegalArgumentException("Order NR. cant be null");
 		}
 		this.orderNr = orderNr;
 	}
 
 
-	public void setOrderStatus(OrderStatus orderStatus) {
+	public void setOrderStatus(OrderStatus orderStatus) throws IllegalArgumentException {
+		if(orderStatus == null) {
+			throw new IllegalArgumentException("Order Status cannot be null");
+		}
 		this.orderStatus=orderStatus;
 	}
 	
@@ -93,7 +108,10 @@ public class Order {
 	}
 
 
-	public Customer getCustomer() {
+	public Customer getCustomer() throws NullPointerException {
+		if (customer == null) {
+			throw new NullPointerException("Customer cant be Null");
+		}
 		return customer;
 	}
 	

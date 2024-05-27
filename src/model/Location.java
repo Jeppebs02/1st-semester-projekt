@@ -7,8 +7,6 @@ public class Location {
 	private int minStock;
 	private int maxStock;
 	private int stock;
-
-	
 	
 	public Location(String department, String aisle, String shelf, int minStock, int maxStock, int stock) {
 		super();

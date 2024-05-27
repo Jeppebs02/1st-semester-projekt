@@ -20,7 +20,7 @@ public class ProductContainer {
 		return instance;
 	}
 
-	public Product findProductByBarcode(String barcode) throws IllegalArgumentException {
+	public Product findProductByBarcode(String barcode) {
 		Product foundProduct = null;
 		Product currentProduct = null;
 		boolean searching = true;
@@ -31,17 +31,16 @@ public class ProductContainer {
 			if (currentProduct.getBarcode().equals(barcode)) {
 				foundProduct = currentProduct;
 				searching = false;
-			} else {
-				//throw new IllegalArgumentException("Product barcode doesnt exists in the system");
-			}
+			} 
 		}
 		return foundProduct;
-		
 	}
 	
-	public void addProductsToContainer(Product product) {
+	public void addProductsToContainer(Product product) throws NullPointerException {
 		if(product != null) {
 			products.add(product);
+		} else {
+			throw new NullPointerException("Description cant be Null");
 		}
 	}
 

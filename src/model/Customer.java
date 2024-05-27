@@ -13,7 +13,7 @@ public class Customer extends Person{
 
 	public String getCustomerID() throws NullPointerException {
 		if (customerID == null) {
-            throw new NullPointerException("Customer ID er Null");
+            throw new NullPointerException("Customer ID cant be Null");
         }
 		return customerID;
 	}
@@ -21,13 +21,16 @@ public class Customer extends Person{
 
 	public CustomerCategory getCustomerCategory() throws NullPointerException {
 		if (customerCategory == null) {
-            throw new NullPointerException("Customer ID er Null");
+            throw new NullPointerException("Customer ID cant be Null");
         }
 		return customerCategory;
 	}
 
 
 	public void setCustomerCategory(CustomerCategory customerCategory) throws IllegalArgumentException {
+		if (customerCategory == null) {
+			throw new IllegalArgumentException("CustomerCategory cant be null");
+		}
 		this.customerCategory = customerCategory;
 	}
 	
