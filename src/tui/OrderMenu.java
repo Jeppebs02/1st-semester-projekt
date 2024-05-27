@@ -151,6 +151,9 @@ public class OrderMenu {
 		System.out.println();
 	    System.out.println("*********************************\n");
 	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().getCustomer().getEmail());
+	    System.out.println();
+	    System.out.println("*********************************\n");
+	    System.out.println("Du er blevet betjent af: " + oc.getCurrentEmployee().getName());
 	}
 }
 

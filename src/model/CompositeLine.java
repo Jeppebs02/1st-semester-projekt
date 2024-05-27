@@ -11,3 +11,4 @@ public class CompositeLine {
 		this.product = product; 
 	}
 }
+

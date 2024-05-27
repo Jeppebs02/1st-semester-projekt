@@ -66,5 +66,10 @@ public class OrderController {
 	public ArrayList<OrderLine> getOrderLines() {
 		return currentOrder.getOrderLines();
 	}
+	
+	public Employee getCurrentEmployee() {
+		LoginController lc = new LoginController();
+		return lc.getLoginUser();
+	}
 
 }
