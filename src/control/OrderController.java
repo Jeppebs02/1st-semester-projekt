@@ -20,6 +20,10 @@ public class OrderController {
 		return currentOrder;
 	}
 	
+	public void testMethodRemove() {
+		
+	}
+	
 	public Order createOffer() {
 		// Create a new Order object and save it to the field currentOrder
 		Order newOrder = new Order();
