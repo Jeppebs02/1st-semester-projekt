@@ -119,8 +119,9 @@ public class OrderMenu {
 				foundCustomer = true;
 			} 
 		}
-		printOrderDesc();
+		
 		oc.saveOffer();
+		printOrderDesc();
 	}
 
 	public void changeOrderStatus() {

@@ -41,9 +41,9 @@ public class Order {
 	}
 	
 	public String getOrderNr() throws NullPointerException {
-		if (orderNr == null) {
-			throw new NullPointerException("Order Nr. cant be Null");
-		}
+//		if (orderNr == null) {
+//			throw new NullPointerException("Order Nr. cant be Null");
+//		}
 		return orderNr;
 	}
 	
