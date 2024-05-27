@@ -207,8 +207,8 @@ public class OrderMenu {
 	    System.out.println("Du er blevet betjent af: " + oc.getCurrentEmployee().getName());
 	    System.out.println();
 	}
-	
-private void printOrderAccept() {
+	//TODO
+	private void printOrderAccept() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
 		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
