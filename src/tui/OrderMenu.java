@@ -31,6 +31,9 @@ public class OrderMenu {
 			case 1:
 				createOffer();
 				break;
+			case 2: 
+				changeOrderStatus();
+				break;
 			case 0:
 				System.out.println("Tak for denne gang");
 				running = false;
@@ -47,6 +50,7 @@ public class OrderMenu {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("** Ordre Menu **");
 		System.out.println(" (1) Opret et Tilbud");
+		System.out.println(" (2) Ændre status på ordre");
 		System.out.println(" (0) Luk Menu");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser (keyboard);
@@ -117,11 +121,29 @@ public class OrderMenu {
 		}
 		printOrderDesc();
 		oc.saveOffer();
-		
-		
-		
 	}
 
+	public void changeOrderStatus() {
+		
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Indtast ordre nummer:");
+		String answer = keyboard.nextLine();
+		
+		OrderStatusController osc = new OrderStatusController();
+		
+		osc.findOrderByNr(answer);
+		
+		System.out.println("Indtast den nye status på ordren");
+		System.out.println("ACCEPTED, PAID, CANCELLED, ONHOLD, OVERDUE");
+		String statusAnswer = keyboard.nextLine();
+		
+		osc.changeOrderStatus(statusAnswer);
+		
+		System.out.println("Orderen er nu ændret til: " + statusAnswer);
+		
+	}
+	
+	
 	//Used to get an integer from the user
 	private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
