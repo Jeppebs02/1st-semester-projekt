@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 public class ControllerTest {
 	
-	@before
+	//@before
 	
 	@Test
 	public void Test1() {
