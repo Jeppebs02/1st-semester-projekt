@@ -10,7 +10,7 @@ public class Location {
 
 	
 	
-	public Location(String department, String aisle, String shelf, int minStock, int maxStock) {
+	public Location(String department, String aisle, String shelf, int minStock, int maxStock, int stock) {
 		super();
 		this.department = department;
 		this.aisle = aisle;
