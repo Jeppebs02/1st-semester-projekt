@@ -37,5 +37,23 @@ public class OrderContainer {
 		return String.valueOf(orderNrCounter);
 	}
 
+	public Order findOrderByNr (String orderNr) {
+		Order foundOrder = null;
+		Order currentOrder = null;
+		boolean searching = true;
+		Iterator<Order> iterator = orders.iterator();
+
+		while (searching && iterator.hasNext()) {
+			currentOrder = iterator.next();
+			if (currentOrder.getOrderNr().equals(orderNr)) {
+				foundOrder = currentOrder;
+				searching = false;
+			} 
+		}
+		return foundOrder;
+		
+		
+	}
+	
 	
 }
