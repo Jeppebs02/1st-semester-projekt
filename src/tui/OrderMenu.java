@@ -140,7 +140,7 @@ public class OrderMenu {
 		
 		osc.changeOrderStatus(statusAnswer);
 		
-		System.out.println("Orderen er nu ændret til: " + statusAnswer);
+		System.out.println("Orderen er nu ændret til: " + statusAnswer.toUpperCase());
 		
 	}
 	

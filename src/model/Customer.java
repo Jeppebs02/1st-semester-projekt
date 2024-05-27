@@ -20,9 +20,7 @@ public class Customer extends Person{
 
 
 	public CustomerCategory getCustomerCategory() throws NullPointerException {
-		if (customerCategory == null) {
-            throw new NullPointerException("Customer ID cant be Null");
-         }
+	
 		return customerCategory;
 	}
 
