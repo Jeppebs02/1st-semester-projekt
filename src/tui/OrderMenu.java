@@ -166,7 +166,7 @@ public class OrderMenu {
 		
 		System.out.println("Orderen er nu ændret til: " + statusAnswer);
 		
-		printOrderDesc();
+		printOrderAccept();
 		
 	}
 	
@@ -185,7 +185,33 @@ public class OrderMenu {
 	private void printOrderDesc() {
 		
 		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
-		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDate() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSS() +" \n");
+		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
+		System.out.println("Skal accepteres inden: "oc.getCurrentOrder().getTimeDate());
+		System.out.println("---------------------------------\n");
+		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
+		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());
+		System.out.println("---------------------------------\n");
+		
+		for(OrderLine currLine:oc.getCurrentOrder().getOrderLines()) {
+			int currQuantity= currLine.getQuantity();
+			Product currProduct = currLine.getProduct();
+			System.out.println(currProduct.getName() +"       Antal "+ currQuantity +" : Total "+ currLine.calculateOrderLinePrice() + " DKK" +"\n");
+		
+		}
+		System.out.println( "Total pris = "+ oc.getCurrentOrder().calculateTotalPrice() + " DKK");
+		System.out.println();
+	    System.out.println("*********************************\n");
+	    System.out.println("Dette tilbud er sendt til: " + oc.getCurrentOrder().getCustomer().getEmail());
+	    System.out.println();
+	    System.out.println("*********************************\n");
+	    System.out.println("Du er blevet betjent af: " + oc.getCurrentEmployee().getName());
+	    System.out.println();
+	}
+	//TODO
+	private void printOrderAccept() {
+		
+		System.out.println("   **** Vestbjerg Byggecenter A/S ****       \n");
+		System.out.println("Dato: "+ oc.getCurrentOrder().getTimeDateString() +"     Tid: "+ oc.getCurrentOrder().getTimeMMSSString() +" \n");
 		System.out.println("---------------------------------\n");
 		System.out.println("Order Nr: "+ oc.getCurrentOrder().getOrderNr());
 		System.out.println("Order status: "+oc.getCurrentOrder().getOrderStatus());

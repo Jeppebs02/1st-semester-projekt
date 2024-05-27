@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>360</x>
+      <y>184</y>
+      <w>72</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>Employee</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>216</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>:System
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>232</y>
+      <w>24</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>232</y>
+      <w>24</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>320</y>
+      <w>288</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>changeOrderStatus()
+lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>272</y>
+      <w>288</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>findOrder()
+lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>360</y>
+      <w>288</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Returns final order
+lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>456</y>
+      <w>288</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Order send to warehouse for packaging
+lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>464</x>
+      <y>216</y>
+      <w>112</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Larman 173-184</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>408</y>
+      <w>288</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Order saves as accepted
+lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>272</y>
+      <w>328</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>operation contract
+
+Operation: changeOrderStatus()
+Use case: Færdiggør tilbud
+Precondition: An instance of Employe e is 
+logged into the system. 
+An intance of Order o exists.
+
+Postcondition:
+o.orderStatus became orderStatus (attribute modification)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>928</x>
+      <y>216</y>
+      <w>80</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>OrderUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>344</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>OrderController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>904</x>
+      <y>472</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>                           1
+OrderContainer
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>208</y>
+      <w>176</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1. findOrder()
+2. changeOrderStatus()</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>232</y>
+      <w>232</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.1 o = findOrderByNr(orderNr): Order
+2.1 changeOrderStatus(): OrderStatus
+</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>360</y>
+      <w>208</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+1.1.1 *[i=1..n] getOrderNr(): String
+</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>736</x>
+      <y>488</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Order</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>360</y>
+      <w>160</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+2.1.1 setOrderStatus():
+</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;80.0;180.0;80.0;180.0;10.0</additional_attributes>
+  </element>
+</diagram>
