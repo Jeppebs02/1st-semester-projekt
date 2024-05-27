@@ -83,8 +83,22 @@ public class OrderMenu {
 			}
 			System.out.println("Skal der tilføjes flere produkter?");
 			System.out.println("Ja(1) / Nej(0)");
-			if (getIntegerFromUser(keyboard) == 0) {
-				foundProducts = true; 
+			boolean correctChoice= false;
+			int answer=0;
+			while(!correctChoice) {
+				answer = getIntegerFromUser(keyboard);
+			if (answer == 0) {
+				foundProducts = true;
+				correctChoice=true;
+				 
+			}else if(answer == 1) {
+				foundProducts= false;
+				correctChoice=true;
+				
+			} else {
+				System.out.println("Vælg venligst 1 for ja eller 0 for nej");
+				correctChoice=false;
+				}
 			}
 		}
 		
