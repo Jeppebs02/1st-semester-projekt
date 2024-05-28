@@ -48,7 +48,10 @@ public class Order {
 		return orderNr;
 	}
 	
-	public String getOrderStatus() {
+	public String getOrderStatus() throws NullPointerException {
+		if (orderStatus == null) {
+			throw new NullPointerException("Order Status cant be null");
+		}
 		return orderStatus.toString();
 	}
 	
