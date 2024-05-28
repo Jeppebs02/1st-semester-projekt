@@ -15,6 +15,7 @@ public class Location {
 		this.shelf = shelf;
 		this.minStock = minStock;
 		this.maxStock = maxStock;
+		this.stock = stock;
 	}
 	
 	
