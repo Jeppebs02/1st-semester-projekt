@@ -232,7 +232,8 @@ description:String, SKU:String, category:String,
 price:ItemPrice, inventory:Location) 
 +getBarcode(): String
 +getName(): String
-+getPrice() ItemPrice
++getPrice(): ItemPrice
++getInventory(): Location
 
 
 
@@ -640,7 +641,7 @@ salesPrice:double, discount:double, date:LocalDate)
       <x>2712</x>
       <y>1160</y>
       <w>264</w>
-      <h>152</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Location
 --
@@ -653,7 +654,8 @@ salesPrice:double, discount:double, date:LocalDate)
 --
 +&lt;&lt;create&gt;&gt; Location(department:String, aisle:String, 
 shelf:String, minStock:int, maxStock:int, stock:int)
-
++getStock(): int
++changeStock(quantity:int)
 
 
 </panel_attributes>
