@@ -42,16 +42,13 @@ public class OrderController {
 			}
 		}
 		
-<<<<<<< Updated upstream
 		if(orderProduct != null) {
 			currentOrder.addOrderLine(ol);
 		}
+		
 		return orderProduct; 
-=======
-		return orderProduct;
->>>>>>> Stashed changes
-	}
-	
+
+	}	
 	//Method overloading to add a "default" argument. Do not delete this pls
 	//public Product inputProduct(String barcode) {
 		//return inputProduct(barcode,1);
