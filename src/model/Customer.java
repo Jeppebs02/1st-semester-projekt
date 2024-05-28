@@ -1,5 +1,9 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class holds specific information and fields 
+//needed for a customers in the system.
 public class Customer extends Person{
 	private String customerID;
 	private CustomerCategory customerCategory;
@@ -19,8 +23,7 @@ public class Customer extends Person{
 	}
 
 
-	public CustomerCategory getCustomerCategory(){
-	
+	public CustomerCategory getCustomerCategory() {
 		return customerCategory;
 	}
 

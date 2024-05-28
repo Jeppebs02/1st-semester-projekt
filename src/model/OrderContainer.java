@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: OrderContainer holds orders, and fields to give the 
+//orders a number.
 public class OrderContainer {
 	private ArrayList<Order> orders;
 	private static OrderContainer instance;
@@ -36,6 +40,7 @@ public class OrderContainer {
 		orderNrCounter=orderNrCounter+1;
 		return String.valueOf(orderNrCounter);
 	}
+	
 	//Iteration 2
 	public Order findOrderByNr (String orderNr) {
 		Order foundOrder = null;

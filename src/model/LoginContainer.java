@@ -1,5 +1,8 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: LoginContainer holds the user that is logged into the system.
 public class LoginContainer {
 	
 	private Employee loginUser;

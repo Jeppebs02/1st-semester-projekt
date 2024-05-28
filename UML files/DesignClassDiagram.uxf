@@ -156,6 +156,7 @@ _-instance : ProductContainer_
 _+getInstance(): ProductContainer_
 +findProductByBarcode(barcode:String): Product
 +addProductToContainer(product:Product)
+{exception NullPointerException}
 
 
 </panel_attributes>
@@ -167,7 +168,7 @@ _+getInstance(): ProductContainer_
       <x>568</x>
       <y>1168</y>
       <w>240</w>
-      <h>248</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>LoginContainer
 --
@@ -177,7 +178,9 @@ _-instance : LoginContainer_
 -&lt;&lt;create&gt;&gt; LoginContainer()
 _+getInstance(): LoginContainer_
 +setLoginUser(user:Employee)
+{exception IllegalArgumentException}
 +getLoginUser(): Employee
+{exception NullPointerException}
 
 
 
@@ -214,7 +217,7 @@ _+getInstance(): CustomerContainer_
     <coordinates>
       <x>2192</x>
       <y>984</y>
-      <w>264</w>
+      <w>304</w>
       <h>248</h>
     </coordinates>
     <panel_attributes>Product
@@ -230,10 +233,10 @@ _+getInstance(): CustomerContainer_
 +&lt;&lt;create&gt;&gt; Product(name:String, barcode:String 
 description:String, SKU:String, category:String, 
 price:ItemPrice, inventory:Location) 
-+getBarcode(): String
-+getName(): String
-+getPrice(): ItemPrice
-+getInventory(): Location
++getBarcode(): String {exception NullPointerException}
++getName(): String {exception NullPointerException}
++getPrice(): ItemPrice {exception NullPointerException}
++getInventory(): Location {exception NullPointerException}
 
 
 
@@ -246,7 +249,7 @@ price:ItemPrice, inventory:Location)
       <x>1432</x>
       <y>944</y>
       <w>248</w>
-      <h>288</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>Order
 --
@@ -260,17 +263,29 @@ price:ItemPrice, inventory:Location)
 --
 +&lt;&lt;create&gt;&gt; Order()
 +calculateTotalPrice(): double
-+getOrderNr(): String
-+getTimeMMSS() String
-+getTimeDate(): String
-+getOrderLines(): ArrayList&lt;OrderLine&gt;
-+setOrderNr(orderNr:String)
-+setOrderStatus(orderStatus:OrderStatus)
-+setCustomer(customer:Customer)
-+setEmployee(employee:Employee)
-+addOrderLine(orderLine:OrderLine)
-+getCustomer(): Customer
++getOrderNr(): String 
+{exception NullPointerException}
++getOrderStatus(): String
+{exception NullPointerException}
++getTimeMMSSString() String
 +getAcceptDeadlineString(): String
++getTimeDateString(): String
++getPaymentDeadlineString(): String
++getOrderLines(): ArrayList&lt;OrderLine&gt;
+{exception NullPointerException}
++setOrderNr(orderNr:String)
+{exception IllegalArgumentException}
++setOrderStatus(orderStatus:OrderStatus)
+{exception IllegalArgumentException}
++setCustomer(customer:Customer)
+{exception IllegalArgumentException}
++setEmployee(employee:Employee)
+{exception IllegalArgumentException}
++addOrderLine(orderLine:OrderLine)
+{exception NullPointerException}
++getCustomer(): Customer
+{exception NullPointerException}
+
 
 
 
@@ -284,9 +299,9 @@ price:ItemPrice, inventory:Location)
     <id>UMLClass</id>
     <coordinates>
       <x>1248</x>
-      <y>1272</y>
+      <y>1416</y>
       <w>312</w>
-      <h>104</h>
+      <h>152</h>
     </coordinates>
     <panel_attributes>OrderLine
 --
@@ -294,10 +309,13 @@ price:ItemPrice, inventory:Location)
 -product : Product
 --
 +&lt;&lt;create&gt;&gt; OrderLine(product:Product, quantity:int)
-+getQuantity(): int
-+setQuantity(quantity:int)
-+getProduct(): Product
-+setProduct(product:Product)
++getQuantity(): int {exception NullPointerException}
++setQuantity(quantity:int) 
+{exception IllegalArgumentException}
++getProduct(): Product {exception NullPointerException}
++setProduct(product:Product) 
+{exception IllegalArgumentException}
+
 
 
 
@@ -324,6 +342,7 @@ email:String, phoneNr:String,
 address:String, employee:String,
 password:String, username: String)
 +getEmployeeID(): String
+{exception NullPointerException}
 
 
 
@@ -333,9 +352,9 @@ password:String, username: String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>352</x>
+      <x>328</x>
       <y>968</y>
-      <w>184</w>
+      <w>216</w>
       <h>248</h>
     </coordinates>
     <panel_attributes>Customer
@@ -347,8 +366,12 @@ password:String, username: String)
 email:String, phoneNr:String, 
 address:String, customerID:String)
 +getCustomerID(): String
-+getCustomerCategory(): CustomerCategory
-+setCustomerCategory(CustomerCategory:customerCategory)
+{exception NullPointerException}
++getCustomerCategory(): 
+CustomerCategory
++setCustomerCategory
+(CustomerCategory:customerCategory)
+{exception IllegalArgumentException}
 
 
 </panel_attributes>
@@ -380,13 +403,13 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>224</x>
+      <x>232</x>
       <y>560</y>
-      <w>1088</w>
+      <w>1080</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;20.0;1340.0;20.0;1340.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;20.0;1330.0;20.0;1330.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -417,10 +440,10 @@ m1=1</panel_attributes>
       <x>1320</x>
       <y>560</y>
       <w>112</w>
-      <h>728</h>
+      <h>872</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>110.0;890.0;120.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>110.0;1070.0;120.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -531,24 +554,24 @@ m1=1</panel_attributes>
     <coordinates>
       <x>280</x>
       <y>1080</y>
-      <w>88</w>
+      <w>64</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
-    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1528</x>
-      <y>1224</y>
+      <y>1376</y>
       <w>24</w>
-      <h>64</h>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m2=*</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+m1=*</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -565,10 +588,10 @@ m1=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>608</x>
+      <x>600</x>
       <y>944</y>
-      <w>160</w>
-      <h>160</h>
+      <w>176</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>/Person/
 --
@@ -581,8 +604,9 @@ m1=*</panel_attributes>
 email:String, phoneNr:String,
 address:String)
 +getName(): String
+{exception NullPointerException}
 +getEmail(): String
-
+{exception NullPointerException}
 
 
 </panel_attributes>
@@ -591,31 +615,31 @@ address:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>768</x>
       <y>1000</y>
-      <w>96</w>
+      <w>88</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0;70.0;120.0;100.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;120.0;90.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
+      <x>536</x>
       <y>1000</y>
-      <w>96</w>
+      <w>80</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>100.0;10.0;40.0;10.0;40.0;110.0;10.0;110.0</additional_attributes>
+    <additional_attributes>80.0;10.0;30.0;10.0;30.0;110.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2560</x>
       <y>864</y>
-      <w>264</w>
+      <w>288</w>
       <h>248</h>
     </coordinates>
     <panel_attributes>ItemPrice
@@ -628,7 +652,8 @@ address:String)
 --
 +&lt;&lt;create&gt;&gt; ItemPrice(costPrice:double, MSRP:double 
 salesPrice:double, discount:double, date:LocalDate) 
-+getSalesPrice(): double
++getSalesPrice(): double 
+{exception NullPointerException}
 
 
 
@@ -664,14 +689,14 @@ shelf:String, minStock:int, maxStock:int, stock:int)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2448</x>
+      <x>2488</x>
       <y>976</y>
-      <w>128</w>
+      <w>88</w>
       <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>140.0;10.0;80.0;10.0;80.0;160.0;10.0;160.0</additional_attributes>
+    <additional_attributes>90.0;10.0;30.0;10.0;30.0;160.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -679,11 +704,11 @@ m1=1</panel_attributes>
       <x>1552</x>
       <y>1224</y>
       <w>672</w>
-      <h>128</h>
+      <h>272</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>820.0;10.0;820.0;40.0;50.0;40.0;50.0;140.0;10.0;140.0</additional_attributes>
+    <additional_attributes>820.0;10.0;820.0;40.0;240.0;40.0;240.0;320.0;10.0;320.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -726,7 +751,7 @@ m1=1</panel_attributes>
       <x>2024</x>
       <y>1328</y>
       <w>272</w>
-      <h>152</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>SpecificProduct
 --
@@ -749,7 +774,7 @@ price:ItemPrice, inventory:Location, modelNr:String)
       <x>2360</x>
       <y>1328</y>
       <w>264</w>
-      <h>152</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>CompositeProduct
 --
@@ -762,7 +787,8 @@ sKU:String, category:String,
 price:ItemPrice, inventory:Location, 
 assemblyInstructions:String) 
 +getBarcode(): String
-+addComponent(component:CompositeLine): void
++addComponent(component:CompositeLine)
+{exception IllegalArgumentException}
 
 
 
@@ -795,7 +821,7 @@ assemblyInstructions:String)
     <id>UMLClass</id>
     <coordinates>
       <x>2360</x>
-      <y>1536</y>
+      <y>1544</y>
       <w>264</w>
       <h>152</h>
     </coordinates>
@@ -817,7 +843,7 @@ product:Product)
     <id>UMLClass</id>
     <coordinates>
       <x>2024</x>
-      <y>1536</y>
+      <y>1544</y>
       <w>272</w>
       <h>152</h>
     </coordinates>
@@ -826,7 +852,8 @@ product:Product)
 -serialNr : String
 --
 +&lt;&lt;create&gt;&gt; Product(serialNr:String) 
-+getSerialNr(): String
++getSerialNr(): String 
+{exception NullPointerException}
 
 
 
@@ -837,7 +864,7 @@ product:Product)
     <id>Relation</id>
     <coordinates>
       <x>2480</x>
-      <y>1472</y>
+      <y>1480</y>
       <w>24</w>
       <h>80</h>
     </coordinates>
@@ -851,31 +878,31 @@ m1=*</panel_attributes>
       <x>2424</x>
       <y>1224</y>
       <w>240</w>
-      <h>424</h>
+      <h>432</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1</panel_attributes>
-    <additional_attributes>250.0;510.0;280.0;510.0;280.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>250.0;520.0;280.0;520.0;280.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2448</x>
+      <x>2488</x>
       <y>1168</y>
-      <w>280</w>
+      <w>240</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>330.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>344</x>
+      <x>328</x>
       <y>1264</y>
-      <w>200</w>
-      <h>224</h>
+      <w>216</w>
+      <h>304</h>
     </coordinates>
     <panel_attributes>CustomerCategory
 --
@@ -889,12 +916,19 @@ String, description:String,
 discount:double, String 
 paymentDeadline)
 +getName(): String
+{exception NullPointerException}
 +setName(name:String)
+{exception IllegalArgumentException}
 +getDescription(): String
+{exception NullPointerException}
 +setDescription(description:String)
+{exception IllegalArgumentException}
 +getDiscount(): double
+{exception NullPointerException}
 +setDiscount(discount:double)
+{exception IllegalArgumentException}
 +getPaymentDealine(): String
++calculateDiscountPercent(): double
 
 
 </panel_attributes>
@@ -971,13 +1005,12 @@ m1=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2152</x>
-      <y>1472</y>
+      <y>1480</y>
       <w>24</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m1=1
-m2=*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

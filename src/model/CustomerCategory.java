@@ -1,5 +1,8 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class holds information about a customers category.
 public class CustomerCategory {
 	private String name;
 	private String description;
@@ -7,7 +10,6 @@ public class CustomerCategory {
 	private int paymentDeadline;
 
 	
-
 	public CustomerCategory(String name, String description, double discount, int paymentDeadline) {
 		super();
 		this.name = name;

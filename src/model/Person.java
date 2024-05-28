@@ -1,12 +1,15 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: this superclass holds the fields that is common for all 
+//types of persons in our system.
 public abstract class Person {
 	private String name;
 	private String email;
 	private String phoneNr;
 	private String address;
 
-	
 	
 	public Person(String name, String email, String phoneNr, String address) {
 		super();
