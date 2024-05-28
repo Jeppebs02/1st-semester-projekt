@@ -33,8 +33,13 @@ public class OrderController {
 		ProductController pc = new ProductController();
 		Product orderProduct = pc.inputProduct(barcode);
 		OrderLine ol = new OrderLine(quantity, orderProduct);
+		
+		if(orderProduct.getInventory().getStock() >= quantity) {
+			orderProduct.getInventory().changeStock(-quantity);
+		}
+		
 		if(orderProduct != null) {
-		currentOrder.addOrderLine(ol);
+			currentOrder.addOrderLine(ol);
 		}
 		return orderProduct; 
 	}

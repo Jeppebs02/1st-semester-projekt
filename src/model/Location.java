@@ -18,6 +18,13 @@ public class Location {
 	}
 	
 	
+	public void changeStock(int quantity) {
+		stock += quantity;
+	}
 
+
+	public int getStock() {
+		return stock;
+	}
 
 }

@@ -47,6 +47,11 @@ public class Product {
 		}
 		return price;
 	}
+
+
+	public Location getInventory() {
+		return inventory;
+	}
 	
 	
 
