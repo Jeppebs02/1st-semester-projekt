@@ -34,14 +34,22 @@ public class OrderController {
 		Product orderProduct = pc.inputProduct(barcode);
 		OrderLine ol = new OrderLine(quantity, orderProduct);
 		
-		if(orderProduct.getInventory().getStock() >= quantity) {
-			orderProduct.getInventory().changeStock(-quantity);
+		//check product for null and if stock is greater than quantity
+		if(orderProduct != null) {
+			if(orderProduct.getInventory().getStock() >= quantity) {
+				orderProduct.getInventory().changeStock(-quantity);
+				currentOrder.addOrderLine(ol);
+			}
 		}
 		
+<<<<<<< Updated upstream
 		if(orderProduct != null) {
 			currentOrder.addOrderLine(ol);
 		}
 		return orderProduct; 
+=======
+		return orderProduct;
+>>>>>>> Stashed changes
 	}
 	
 	//Method overloading to add a "default" argument. Do not delete this pls
