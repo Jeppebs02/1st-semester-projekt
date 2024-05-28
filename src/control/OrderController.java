@@ -42,10 +42,6 @@ public class OrderController {
 			}
 		}
 		
-		if(orderProduct != null) {
-			currentOrder.addOrderLine(ol);
-		}
-		
 		return orderProduct; 
 
 	}	
