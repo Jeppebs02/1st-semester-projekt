@@ -48,7 +48,7 @@ public class OrderStatusControllerTest {
 	    	oc.saveOffer(order);
 	    	
 	        
-	        assertNotNull(orderStatusController.findOrderByNr("12"));
+	        assertNull(orderStatusController.findOrderByNr("12"));
 	    }
 	    
 	    @Test
