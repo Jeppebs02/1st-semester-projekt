@@ -36,7 +36,7 @@ public class OrderController {
 		if(orderProduct != null) {
 		currentOrder.addOrderLine(ol);
 		}
-		return orderProduct;
+		return orderProduct; 
 	}
 	
 	//Method overloading to add a "default" argument. Do not delete this pls
