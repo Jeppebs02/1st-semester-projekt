@@ -2,6 +2,10 @@ package model;
 
 import java.time.LocalDateTime;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class holds the different prices associated 
+//with a product, and a date for future statistics.
 public class ItemPrice {
 	private double costPrice;
 	private double MSRP;

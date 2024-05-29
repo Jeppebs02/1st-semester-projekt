@@ -9,6 +9,10 @@ import model.Product;
 import model.Person;
 import control.*;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class contains the OrderMenu. Its the 
+//interaction UI for the user.
 public class OrderMenu {
 
 	OrderController oc;
@@ -33,7 +37,7 @@ public class OrderMenu {
 				createOffer();
 				break;
 			case 2: 
-				changeOrderStatus();
+				changeOrderStatus(); //made in interation 2
 				break;
 			case 0:
 				System.out.println("Tak for denne gang");
@@ -51,7 +55,7 @@ public class OrderMenu {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("** Ordre Menu **");
 		System.out.println(" (1) Opret et Tilbud");
-		System.out.println(" (2) Ændre status på ordre");
+		System.out.println(" (2) Ændre status på ordre"); //made in interation 2
 		System.out.println(" (0) Luk Menu");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser (keyboard);
@@ -125,6 +129,7 @@ public class OrderMenu {
 		printOrderDesc();
 	}
 
+	//made in interation 2
 	public void changeOrderStatus() {
 		
 		Scanner keyboard = new Scanner(System.in);

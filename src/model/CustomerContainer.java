@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: CustomerContainer holds customers.
 public class CustomerContainer {
 	private ArrayList<Customer> customers;
 	private static CustomerContainer instance;

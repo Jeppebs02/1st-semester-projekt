@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import model.CompositeLine;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class holds information needed to create 
+//products consisting of other products in the system. 
 public class CompositeProduct extends Product {
 
 	private String assemblyInstructions;

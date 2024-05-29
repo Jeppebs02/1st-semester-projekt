@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+//	@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//	@date: 31/5/2024
+//  @description: Specific product handles products like fridges
 public class SpecificProduct extends Product {
 	
 	private String modelNr;

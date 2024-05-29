@@ -9,6 +9,11 @@ import model.OrderContainer;
 import model.OrderLine;
 import model.Product;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class contains the OrderController, 
+//enabling userinput from the TUI level to interact with the modellayer, 
+//without compromising the architecture. 
 public class OrderController {
 	private Order currentOrder;
 
@@ -34,16 +39,17 @@ public class OrderController {
 		Product orderProduct = pc.inputProduct(barcode);
 		OrderLine ol = new OrderLine(quantity, orderProduct);
 		
-		if(orderProduct.getInventory().getStock() >= quantity) {
-			orderProduct.getInventory().changeStock(-quantity);
+		//check product for null and if stock is greater than quantity
+		if(orderProduct != null) {
+			if(orderProduct.getInventory().getStock() >= quantity) {
+				orderProduct.getInventory().changeStock(-quantity);
+				currentOrder.addOrderLine(ol);
+			}
 		}
 		
-		if(orderProduct != null) {
-			currentOrder.addOrderLine(ol);
-		}
 		return orderProduct; 
-	}
-	
+
+	}	
 	//Method overloading to add a "default" argument. Do not delete this pls
 	//public Product inputProduct(String barcode) {
 		//return inputProduct(barcode,1);

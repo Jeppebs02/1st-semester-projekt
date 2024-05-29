@@ -10,8 +10,11 @@ import model.OrderContainer;
 import model.Product;
 import tui.TryMe;
 
-
-//iteration 2 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: Interatction Test in a JUnit frame. testing the methods 
+//of the OrderStatusController.
+//made during iteration 2 
 public class OrderStatusControllerTest {
 	
 	 private OrderStatusController orderStatusController;
@@ -38,14 +41,14 @@ public class OrderStatusControllerTest {
 	    }
 	    
 	    @Test
-	    public void findOrderByNrFalse() {
+	    public void findOrderByNrNegativeTest() {
 	    	Order order= new Order();
 	    	oc = OrderContainer.getInstance();
 	    	
 	    	oc.saveOffer(order);
 	    	
 	        
-	        assertNotNull(orderStatusController.findOrderByNr("12"));
+	        assertNull(orderStatusController.findOrderByNr("12"));
 	    }
 	    
 	    @Test

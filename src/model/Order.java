@@ -3,6 +3,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class makes orders. 
 public class Order {
 	private LocalDateTime date;
 	private double totalPrice;
@@ -42,9 +45,9 @@ public class Order {
 	}
 	
 	public String getOrderNr() throws NullPointerException {
-//		if (orderNr == null) {
-//			throw new NullPointerException("Order Nr. cant be Null");
-//		}
+		if (orderNr == null) {
+			throw new NullPointerException("Order Nr. cant be Null");
+		}
 		return orderNr;
 	}
 	
@@ -55,10 +58,7 @@ public class Order {
 		return orderStatus.toString();
 	}
 	
-	public String getTimeMMSSString() throws NullPointerException {
-		if (date == null) {
-			throw new NullPointerException("date cant be Null");
-		}
+	public String getTimeMMSSString() {
 		return ""+date.getHour()+":"+date.getMinute()+":"+date.getSecond();
 	}
 	
@@ -68,10 +68,7 @@ public class Order {
 		return ""+AcceptDeadline.getDayOfMonth()+"-"+AcceptDeadline.getMonthValue()+"-"+AcceptDeadline.getYear();
 	}
 
-	public String getTimeDateString() throws NullPointerException {
-		if (date == null) {
-			throw new NullPointerException("date cant be Null");
-		}
+	public String getTimeDateString() {
 		return ""+date.getDayOfMonth()+"-"+date.getMonthValue()+"-"+date.getYear();
 	}
 
@@ -127,9 +124,9 @@ public class Order {
 		this.employee = employee;
 	}
 	
-	public void addOrderLine(OrderLine orderLine) throws IllegalArgumentException {
+	public void addOrderLine(OrderLine orderLine) throws NullPointerException {
 		if(orderLine==null) {
-			throw new IllegalArgumentException("orderLine cannot be null");
+			throw new NullPointerException("orderLine cannot be null");
 		}
 		orderLines.add(orderLine);
 	}

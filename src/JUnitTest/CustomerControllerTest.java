@@ -9,6 +9,10 @@ import model.Customer;
 import model.Product;
 import tui.TryMe;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: Interatction Test in a JUnit frame. testing the methods 
+//of the CustomerController.
 public class CustomerControllerTest {
 
     private CustomerController customerController;

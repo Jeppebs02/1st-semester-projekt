@@ -1,5 +1,9 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: This class holds the fields that is specific for 
+//employees in the system.
 public class Employee extends Person{
 	
 	private String employeeID;

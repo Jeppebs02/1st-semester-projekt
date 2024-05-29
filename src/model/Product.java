@@ -1,5 +1,8 @@
 package model;
 
+//@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
+//@date: 31/5/2024
+//@description: this class holds the object that is a product.
 public class Product {
 	
 	private String name;
@@ -10,8 +13,6 @@ public class Product {
 	private ItemPrice price;
 	private Location inventory;
 	
-	
-
 	public Product(String name, String barcode, String description, String sKU, String category, ItemPrice price,
 			Location inventory) {
 		super();
@@ -27,7 +28,7 @@ public class Product {
 
 	public String getBarcode() throws NullPointerException {
 		if (barcode == null) {
-			throw new IllegalArgumentException("Barcode cant be Null");
+			throw new NullPointerException("Barcode cant be Null");
 		}
 		return barcode;
 	}
@@ -35,7 +36,7 @@ public class Product {
 
 	public String getName() throws NullPointerException {
 		if (name == null) {
-			throw new IllegalArgumentException("Product name cant be Null");
+			throw new NullPointerException("Product name cant be Null");
 		}
 		return name;
 	}
@@ -43,13 +44,16 @@ public class Product {
 
 	public ItemPrice getPrice() throws NullPointerException {
 		if (price == null) {
-			throw new IllegalArgumentException("itemPrice cant be Null");
+			throw new NullPointerException("itemPrice cant be Null");
 		}
 		return price;
 	}
 
 
-	public Location getInventory() {
+	public Location getInventory() throws NullPointerException {
+		if (price == null) {
+			throw new NullPointerException("Inventory cant be Null");
+		}
 		return inventory;
 	}
 	
