@@ -495,24 +495,90 @@ fg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>45</y>
-      <w>90</w>
-      <h>27</h>
+      <x>927</x>
+      <y>180</y>
+      <w>126</w>
+      <h>81</h>
     </coordinates>
-    <panel_attributes/>
+    <panel_attributes>Ekstern betalingssystem</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLUseCase</id>
+    <id>Relation</id>
     <coordinates>
-      <x>81</x>
+      <x>738</x>
       <y>216</y>
-      <w>108</w>
-      <h>36</h>
+      <w>207</w>
+      <h>207</h>
     </coordinates>
-    <panel_attributes>Use case 2
-bg=blue</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;210.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>216</y>
+      <w>207</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;170.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>216</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;30.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>216</y>
+      <w>207</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;120.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>216</y>
+      <w>207</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;320.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>972</x>
+      <y>252</y>
+      <w>27</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>
+bg=BLACK
+fg=BLACK</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
