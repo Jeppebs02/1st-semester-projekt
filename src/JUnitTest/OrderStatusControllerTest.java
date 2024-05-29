@@ -41,7 +41,7 @@ public class OrderStatusControllerTest {
 	    }
 	    
 	    @Test
-	    public void findOrderByNrFalse() {
+	    public void findOrderByNrNegativeTest() {
 	    	Order order= new Order();
 	    	oc = OrderContainer.getInstance();
 	    	
