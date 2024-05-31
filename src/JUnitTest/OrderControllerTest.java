@@ -36,9 +36,5 @@ public class OrderControllerTest {
 		
 	}
 	
-//	@Test
-//	public void inputProduct1() {
-//		assertNotNull(orderController.inputProduct("99008800",10));
-//	}
 	
 }
