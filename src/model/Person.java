@@ -36,6 +36,30 @@ public abstract class Person {
 		}
 		return email;
 	}
+
+	public String getPhoneNr() {
+		return phoneNr;
+	}
+
+	public void setPhoneNr(String phoneNr) {
+		this.phoneNr = phoneNr;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	
 

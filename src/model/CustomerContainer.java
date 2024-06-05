@@ -29,7 +29,7 @@ public class CustomerContainer {
 
 		while (searching && iterator.hasNext()) {
 			currentCustomer = iterator.next();
-			if (currentCustomer.getCustomerID().equals(customerID)) {
+			if (currentCustomer.getCustomerID().equalsIgnoreCase(customerID)) {
 				foundCustomer = currentCustomer;
 				searching = false;
 			} 
@@ -43,8 +43,13 @@ public class CustomerContainer {
 		}
 	}
 	
+	public boolean removeCustomer(Customer c) {
+		return customers.remove(c);
+	}
 	
-	
+	public ArrayList<Customer> findAllCustomers(){
+		return new ArrayList<>(this.customers);
+	}
 	
 	
 }

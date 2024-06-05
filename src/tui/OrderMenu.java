@@ -15,8 +15,8 @@ import control.*;
 //interaction UI for the user.
 public class OrderMenu {
 
-	OrderController oc;
-	
+	private OrderController oc;
+
 	
 	public OrderMenu() {
 		oc = new OrderController();
@@ -40,7 +40,6 @@ public class OrderMenu {
 				changeOrderStatus(); //made in interation 2
 				break;
 			case 0:
-				System.out.println("Tak for denne gang");
 				running = false;
 				break;
 			default:
@@ -56,7 +55,7 @@ public class OrderMenu {
 		System.out.println("** Ordre Menu **");
 		System.out.println(" (1) Opret et Tilbud");
 		System.out.println(" (2) Ændre status på ordre"); //made in interation 2
-		System.out.println(" (0) Luk Menu");
+		System.out.println(" (0) Tilbage");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser (keyboard);
 		return choice; 

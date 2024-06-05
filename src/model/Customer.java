@@ -23,6 +23,11 @@ public class Customer extends Person{
 	}
 
 
+	public void setCustomerID(String customerID) {
+		this.customerID = customerID;
+	}
+
+
 	public CustomerCategory getCustomerCategory() {
 		return customerCategory;
 	}
