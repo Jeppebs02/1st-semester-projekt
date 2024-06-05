@@ -87,7 +87,7 @@ public class OrderMenu {
 			//null check
 			if (currentProduct == null) {
 				System.out.println("Stregkode findes ikke");
-			} else {
+			} else if(quantity<=currentProduct.getInventory().getStock()) {
 				System.out.println(currentProduct.getName() + " er tilføjet");
 			}
 			System.out.println("Skal der tilføjes flere produkter?");
