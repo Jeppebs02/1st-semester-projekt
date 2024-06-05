@@ -67,7 +67,7 @@ public class NormSalg extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(273, 11, 155, 178);
+		scrollPane.setBounds(10, 10, 416, 208);
 		contentPane.add(scrollPane);
 		
 		JList list = new JList();

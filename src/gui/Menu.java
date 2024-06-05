@@ -11,12 +11,46 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Menu extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTabbedPane tabbedPane;
+	private JLayeredPane layeredTilbudPane;
+	private JButton btnOpretTilbud;
+	private JButton btnFærdiggørTilbud;
+	private JButton btnReturnButton;
+	private JButton btnNormaltSalg;
+	private JLayeredPane layeredLeasingPane;
+	private JButton btnUdlnMaskine;
+	private JButton btnReturnMachineButton;
+	private JButton btnAddNewMachineButton;
+	private JButton btnSearchMachineButton;
+	private JLayeredPane layeredMedarbejderPane;
+	private JButton btnOpretMedarbejder;
+	private JButton btnSearchMedarbejder;
+	private JButton btnAddMedarbejder;
+	private JButton btnRemoveMedarbejder;
+	private JLayeredPane layeredCustomerPane;
+	private JButton btnCreateKunde;
+	private JButton btnSearchKunde;
+	private JButton btnAddKunde;
+	private JButton btnRemoveKunde;
+	private JButton btnSetKundeKategori;
+	private JLayeredPane layeredLagerPane;
+	private JButton btnFindVare;
+	private JButton btnBestilVare;
+	private JButton btnLagerOptælling;
+	private JLayeredPane layeredStatestikPane;
+	private JButton btnMedarbejderStatestik;
+	private JButton btnKundeStatestik;
+	private JButton btnLagerStatestik;
+	private JButton btnLogud;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -43,136 +77,146 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-contentPane.setLayout(null);
+		contentPane.setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 11, 438, 227);
 		contentPane.add(tabbedPane);
 		
-		JLayeredPane layeredPane = new JLayeredPane();
-		tabbedPane.addTab("Salg", null, layeredPane, null);
+		layeredTilbudPane = new JLayeredPane();
+		tabbedPane.addTab("Salg", null, layeredTilbudPane, null);
 		
-		JButton opretTilbud = new JButton("Opret tilbud");
-		opretTilbud.setBounds(10, 44, 172, 23);
-		layeredPane.add(opretTilbud);
+		btnOpretTilbud = new JButton("Opret tilbud");
+		btnOpretTilbud.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleOpretTilbud();
+			}
+		});
+		btnOpretTilbud.setBounds(10, 44, 172, 23);
+		layeredTilbudPane.add(btnOpretTilbud);
 		
-		JButton færdiggørTilbud = new JButton("Færdiggør tilbud");
-		færdiggørTilbud.setBounds(10, 78, 172, 23);
-		layeredPane.add(færdiggørTilbud);
+		btnFærdiggørTilbud = new JButton("Færdiggør tilbud");
+		btnFærdiggørTilbud.setBounds(10, 78, 172, 23);
+		layeredTilbudPane.add(btnFærdiggørTilbud);
 		
-		JButton btnNewButton_1_5 = new JButton("Returner vare ");
-		btnNewButton_1_5.setBounds(10, 112, 172, 23);
-		layeredPane.add(btnNewButton_1_5);
+		btnReturnButton = new JButton("Returner vare ");
+		btnReturnButton.setBounds(10, 112, 172, 23);
+		layeredTilbudPane.add(btnReturnButton);
 		
-		JButton btnNormaltSalg = new JButton("Normalt salg");
+		btnNormaltSalg = new JButton("Normalt salg");
 		btnNormaltSalg.setBounds(10, 11, 172, 23);
-		layeredPane.add(btnNormaltSalg);
+		layeredTilbudPane.add(btnNormaltSalg);
 		
-		JLayeredPane layeredPane_3 = new JLayeredPane();
-		tabbedPane.addTab("Leasing", null, layeredPane_3, null);
+		layeredLeasingPane = new JLayeredPane();
+		tabbedPane.addTab("Leasing", null, layeredLeasingPane, null);
 		
-		JButton btnUdlnMaskine = new JButton("Udlån maskine");
+		btnUdlnMaskine = new JButton("Udlån maskine");
 		btnUdlnMaskine.setBounds(10, 11, 173, 23);
-		layeredPane_3.add(btnUdlnMaskine);
+		layeredLeasingPane.add(btnUdlnMaskine);
 		
-		JButton btnNewButton_1_3 = new JButton("Returner maskine");
-		btnNewButton_1_3.setBounds(10, 45, 173, 23);
-		layeredPane_3.add(btnNewButton_1_3);
+		btnReturnMachineButton = new JButton("Returner maskine");
+		btnReturnMachineButton.setBounds(10, 45, 173, 23);
+		layeredLeasingPane.add(btnReturnMachineButton);
 		
-		JButton btnNewButton_1_5_1 = new JButton("Tilføj ny maskine");
-		btnNewButton_1_5_1.setBounds(10, 79, 173, 23);
-		layeredPane_3.add(btnNewButton_1_5_1);
+		btnAddNewMachineButton = new JButton("Tilføj ny maskine");
+		btnAddNewMachineButton.setBounds(10, 79, 173, 23);
+		layeredLeasingPane.add(btnAddNewMachineButton);
 		
-		JButton btnNewButton_1_5_1_1 = new JButton("Gennemse maskiner");
-		btnNewButton_1_5_1_1.setBounds(10, 113, 173, 23);
-		layeredPane_3.add(btnNewButton_1_5_1_1);
+		btnSearchMachineButton = new JButton("Gennemse maskiner");
+		btnSearchMachineButton.setBounds(10, 113, 173, 23);
+		layeredLeasingPane.add(btnSearchMachineButton);
 		
-		JLayeredPane layeredPane_1 = new JLayeredPane();
-		tabbedPane.addTab("Medarbejder", null, layeredPane_1, null);
+		layeredMedarbejderPane = new JLayeredPane();
+		tabbedPane.addTab("Medarbejder", null, layeredMedarbejderPane, null);
 		
-		JButton btnUdlnMaskine_1 = new JButton("Opret Medarbejder");
-		btnUdlnMaskine_1.setBounds(10, 11, 173, 23);
-		layeredPane_1.add(btnUdlnMaskine_1);
+		btnOpretMedarbejder = new JButton("Opret Medarbejder");
+		btnOpretMedarbejder.setBounds(10, 11, 173, 23);
+		layeredMedarbejderPane.add(btnOpretMedarbejder);
 		
-		JButton btnNewButton_1_3_1 = new JButton("Gennemse medarbejdere");
-		btnNewButton_1_3_1.setBounds(10, 45, 173, 23);
-		layeredPane_1.add(btnNewButton_1_3_1);
+		btnSearchMedarbejder = new JButton("Gennemse medarbejdere");
+		btnSearchMedarbejder.setBounds(10, 45, 173, 23);
+		layeredMedarbejderPane.add(btnSearchMedarbejder);
 		
-		JButton btnNewButton_1_5_1_2 = new JButton("Tilføj ny medarbejder");
-		btnNewButton_1_5_1_2.setBounds(10, 79, 173, 23);
-		layeredPane_1.add(btnNewButton_1_5_1_2);
+		btnAddMedarbejder = new JButton("Tilføj ny medarbejder");
+		btnAddMedarbejder.setBounds(10, 79, 173, 23);
+		layeredMedarbejderPane.add(btnAddMedarbejder);
 		
-		JButton btnNewButton_1_5_1_1_1 = new JButton("Fjern medarbejder");
-		btnNewButton_1_5_1_1_1.setBounds(10, 113, 173, 23);
-		layeredPane_1.add(btnNewButton_1_5_1_1_1);
+		btnRemoveMedarbejder = new JButton("Fjern medarbejder");
+		btnRemoveMedarbejder.setBounds(10, 113, 173, 23);
+		layeredMedarbejderPane.add(btnRemoveMedarbejder);
 		
-		JLayeredPane layeredPane_2 = new JLayeredPane();
-		tabbedPane.addTab("Kunde", null, layeredPane_2, null);
+		layeredCustomerPane = new JLayeredPane();
+		tabbedPane.addTab("Kunde", null, layeredCustomerPane, null);
 		
-		JButton btnUdlnMaskine_1_1 = new JButton("Opret kunde ");
-		btnUdlnMaskine_1_1.setBounds(10, 11, 173, 23);
-		layeredPane_2.add(btnUdlnMaskine_1_1);
+		btnCreateKunde = new JButton("Opret kunde ");
+		btnCreateKunde.setBounds(10, 11, 173, 23);
+		layeredCustomerPane.add(btnCreateKunde);
 		
-		JButton btnNewButton_1_3_1_1 = new JButton("Gennemse kunde");
-		btnNewButton_1_3_1_1.setBounds(10, 45, 173, 23);
-		layeredPane_2.add(btnNewButton_1_3_1_1);
+		btnSearchKunde = new JButton("Gennemse kunde");
+		btnSearchKunde.setBounds(10, 45, 173, 23);
+		layeredCustomerPane.add(btnSearchKunde);
 		
-		JButton btnNewButton_1_5_1_2_1 = new JButton("Tilføj ny kunde");
-		btnNewButton_1_5_1_2_1.setBounds(10, 79, 173, 23);
-		layeredPane_2.add(btnNewButton_1_5_1_2_1);
+		btnAddKunde = new JButton("Tilføj ny kunde");
+		btnAddKunde.setBounds(10, 79, 173, 23);
+		layeredCustomerPane.add(btnAddKunde);
 		
-		JButton btnNewButton_1_5_1_1_1_1 = new JButton("Fjern kunde");
-		btnNewButton_1_5_1_1_1_1.setBounds(10, 113, 173, 23);
-		layeredPane_2.add(btnNewButton_1_5_1_1_1_1);
+		btnRemoveKunde = new JButton("Fjern kunde");
+		btnRemoveKunde.setBounds(10, 113, 173, 23);
+		layeredCustomerPane.add(btnRemoveKunde);
 		
-		JButton btnNewButton_1_5_1_1_1_1_1 = new JButton("Angiv kunde kategori");
-		btnNewButton_1_5_1_1_1_1_1.setBounds(10, 147, 173, 23);
-		layeredPane_2.add(btnNewButton_1_5_1_1_1_1_1);
+		btnSetKundeKategori = new JButton("Angiv kunde kategori");
+		btnSetKundeKategori.setBounds(10, 147, 173, 23);
+		layeredCustomerPane.add(btnSetKundeKategori);
 		
-		JLayeredPane layeredPane_4 = new JLayeredPane();
-		tabbedPane.addTab("Lager", null, layeredPane_4, null);
+		layeredLagerPane = new JLayeredPane();
+		tabbedPane.addTab("Lager", null, layeredLagerPane, null);
 		
-		JButton btnNewButton_1_5_1_1_1_1_2 = new JButton("Find vare");
-		btnNewButton_1_5_1_1_1_1_2.setBounds(10, 11, 173, 23);
-		layeredPane_4.add(btnNewButton_1_5_1_1_1_1_2);
+		btnFindVare = new JButton("Find vare");
+		btnFindVare.setBounds(10, 11, 173, 23);
+		layeredLagerPane.add(btnFindVare);
 		
-		JButton btnNewButton_1_5_1_1_1_1_3 = new JButton("Bestil vare ");
-		btnNewButton_1_5_1_1_1_1_3.setBounds(10, 45, 173, 23);
-		layeredPane_4.add(btnNewButton_1_5_1_1_1_1_3);
+		btnBestilVare = new JButton("Bestil vare ");
+		btnBestilVare.setBounds(10, 45, 173, 23);
+		layeredLagerPane.add(btnBestilVare);
 		
-		JButton btnNewButton_1_5_1_1_1_1_4 = new JButton("Lager optælling ");
-		btnNewButton_1_5_1_1_1_1_4.setBounds(10, 79, 173, 23);
-		layeredPane_4.add(btnNewButton_1_5_1_1_1_1_4);
+		btnLagerOptælling = new JButton("Lager optælling ");
+		btnLagerOptælling.setBounds(10, 79, 173, 23);
+		layeredLagerPane.add(btnLagerOptælling);
 		
-		JLayeredPane layeredPane_5 = new JLayeredPane();
-		tabbedPane.addTab("Statistik", null, layeredPane_5, null);
+		layeredStatestikPane = new JLayeredPane();
+		tabbedPane.addTab("Statistik", null, layeredStatestikPane, null);
 		
-		JButton btnNewButton_1_5_1_1_1_1_5 = new JButton("Medarbejder statestik");
-		btnNewButton_1_5_1_1_1_1_5.setBounds(10, 11, 173, 23);
-		layeredPane_5.add(btnNewButton_1_5_1_1_1_1_5);
+		btnMedarbejderStatestik = new JButton("Medarbejder statestik");
+		btnMedarbejderStatestik.setBounds(10, 11, 173, 23);
+		layeredStatestikPane.add(btnMedarbejderStatestik);
 		
-		JButton btnNewButton_1_5_1_1_1_1_6 = new JButton("Kunde statestik");
-		btnNewButton_1_5_1_1_1_1_6.setBounds(10, 45, 173, 23);
-		layeredPane_5.add(btnNewButton_1_5_1_1_1_1_6);
+		btnKundeStatestik = new JButton("Kunde statestik");
+		btnKundeStatestik.setBounds(10, 45, 173, 23);
+		layeredStatestikPane.add(btnKundeStatestik);
 		
-		JButton btnNewButton_1_5_1_1_1_1_7 = new JButton("Lager statestik ");
-		btnNewButton_1_5_1_1_1_1_7.setBounds(10, 79, 173, 23);
-		layeredPane_5.add(btnNewButton_1_5_1_1_1_1_7);
+		btnLagerStatestik = new JButton("Lager statestik ");
+		btnLagerStatestik.setBounds(10, 79, 173, 23);
+		layeredStatestikPane.add(btnLagerStatestik);
 		
-		JButton btnNewButton_9 = new JButton("Logud");
-		btnNewButton_9.addMouseListener(new MouseAdapter() {
+		btnLogud = new JButton("Logud");
+		btnLogud.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logOut();
 			}
 		});
-		btnNewButton_9.setBounds(339, 242, 89, 23);
-		contentPane.add(btnNewButton_9);
+		btnLogud.setBounds(339, 242, 89, 23);
+		contentPane.add(btnLogud);
 		
 	
 	}
 
-	protected void logOut() {
+	private void handleOpretTilbud() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void logOut() {
 		Login login = new Login();
 		login.setVisible(true);
         Menu.this.setVisible(false);
