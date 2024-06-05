@@ -40,6 +40,9 @@ public class CustomerMenu {
 			case 4: 
 				 removeCustomer();
 				break;
+			case 5: 
+				 printAllCustomers();
+				break;
 			case 0:
 				running = false;
 				break;
@@ -59,6 +62,7 @@ public class CustomerMenu {
 		System.out.println(" (2) Søg kunde");
 		System.out.println(" (3) Opdater kunde");
 		System.out.println(" (4) slet kunde");
+		System.out.println(" (5) Vis alle kunder");
 		System.out.println(" (0) Tilbage");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser(keyboard);
@@ -168,6 +172,14 @@ public class CustomerMenu {
 			System.out.println("Kunden findes ikke.");
 		}
 		
+	}
+	
+	public void printAllCustomers() {
+		
+		for(Customer c : cc.printAllCustomers()) {
+			printCustomerInfo(c);
+			System.out.println();
+		}
 	}
 	
 }

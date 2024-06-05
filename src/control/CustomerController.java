@@ -1,5 +1,7 @@
 package control;
 
+import java.util.ArrayList;
+
 import model.Customer;
 import model.CustomerContainer;
 
@@ -49,5 +51,10 @@ public class CustomerController {
 			c.setName(name);
 			c.setPhoneNr(phoneNr);
 		}
+	}
+	
+	public ArrayList<Customer> printAllCustomers() {
+		return CustomerContainer.getInstance().findAllCustomers();
+		
 	}
 }
