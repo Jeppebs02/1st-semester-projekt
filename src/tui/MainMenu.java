@@ -6,10 +6,12 @@ public class MainMenu {
 	
 	private CustomerMenu cm;
 	private OrderMenu om;
+	private ProductMenu pm;
 	
 	public MainMenu() {
 		cm = new CustomerMenu();
 		om = new OrderMenu();
+		pm = new ProductMenu();
 	}
 	
 	public void start() {
@@ -29,7 +31,7 @@ public class MainMenu {
 				 om.start();
 				break;
 			case 3: 
-				 
+				 pm.start();
 				break;
 			case 4: 
 				 
@@ -52,7 +54,7 @@ public class MainMenu {
 		System.out.println("** Main Menu **");
 		System.out.println(" (1) Kunde menu");
 		System.out.println(" (2) Ordre Menu");
-
+		System.out.println(" (3) Produkt Menu");
 		System.out.println(" (0) Luk Menu");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser(keyboard);
