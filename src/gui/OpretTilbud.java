@@ -11,9 +11,11 @@ import javax.swing.table.DefaultTableModel;
 
 import control.OrderController;
 import model.OrderLine;
+import model.Product;
 import tui.TryMe;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -172,17 +174,34 @@ public class OpretTilbud extends JDialog {
 	private void handleAddProduct() {
 		// TODO Auto-generated method stub
 		String barcode = textStregkodeField.getText();
-		int quantity = Integer.parseInt(textAntalField.getText());
+		int quantity = 0;
+		String quantityText = textAntalField.getText();
+
+		if (quantityText.isEmpty()) {
+		    quantity = 1;
+		} else {
+		    try {
+		        quantity = Integer.parseInt(quantityText);
+		        if (quantity < 1) {
+		            quantity = 1;
+		        }
+		    } catch (NumberFormatException e) {
+		        JOptionPane.showMessageDialog(this, "Antal må ikke indeholde bogstaver");
+		    }
+		}
+		
+		Product product = oc.inputProduct(barcode, quantity);
 		
 		//TODO add check
-		oc.inputProduct(barcode, quantity);
+		if (product == null) {
+			JOptionPane.showMessageDialog(this, "Produktet eksistere ikke");
+		}
 		
-		//TODO add error when quantity not available
+		//TODO add error when quantity not available + check
 		orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
 		
 		textStregkodeField.setText("");
 		textAntalField.setText("");
-		
 		
 		
 	}
