@@ -125,6 +125,8 @@ public class OpretTilbud extends JDialog {
 		contentPanel.add(scrollPane);
 		
 		orderLineTable = new JTable();
+		
+		//maybe add abstract table model
 		orderLineTableModel= new DefaultTableModel(
 				new Object[][] {
 				},
