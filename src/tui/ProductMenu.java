@@ -58,9 +58,9 @@ public class ProductMenu {
 		System.out.println("** Produkt Menu **");
 		System.out.println(" (1) Opret produkt");
 		System.out.println(" (2) Søg produkt");
-		System.out.println(" (3) Opdater produkt");
-		System.out.println(" (4) slet produkt");
-		System.out.println(" (5) Vis alle produkter");
+		//System.out.println(" (3) Opdater produkt");
+		//System.out.println(" (4) slet produkt");
+		//System.out.println(" (5) Vis alle produkter");
 		System.out.println(" (0) Tilbage");
 		System.out.println("\n Vælg");
 		int choice = getIntegerFromUser(keyboard);
