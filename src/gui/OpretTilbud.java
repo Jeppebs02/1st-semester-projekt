@@ -103,6 +103,11 @@ public class OpretTilbud extends JDialog {
 		contentPanel.add(textKundeIDField);
 		
 		btnSøgKundeIDButton = new JButton("Tilføj Kunde");
+		btnSøgKundeIDButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleAddCustomer();
+			}
+		});
 		btnSøgKundeIDButton.setBounds(100, 47, 111, 21);
 		contentPanel.add(btnSøgKundeIDButton);
 		
@@ -179,6 +184,15 @@ public class OpretTilbud extends JDialog {
 		oc.createOffer();
 	}
 
+	private void handleAddCustomer() {
+		
+		String CustomerID = textKundeIDField.getText();
+		oc.inputCustomerID(CustomerID);
+		textKundeIDField.setEditable(false);
+		
+		
+	}
+
 	private void handleAddProduct() {
 		// TODO Auto-generated method stub
 		String barcode = textStregkodeField.getText();
@@ -227,8 +241,6 @@ public class OpretTilbud extends JDialog {
 
 	private void handleOkButton() {
 		// TODO Add a receipt
-		String CustomerID = textKundeIDField.getText();
-		oc.inputCustomerID(CustomerID);
 		oc.saveOffer();
 		this.setVisible(false);
 		this.dispose();
