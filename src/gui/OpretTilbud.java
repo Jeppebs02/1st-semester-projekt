@@ -71,39 +71,39 @@ public class OpretTilbud extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			lblStregkodeLabel = new JLabel("Stregkode");
-			lblStregkodeLabel.setBounds(24, 23, 66, 13);
+			lblStregkodeLabel.setBounds(28, 86, 66, 13);
 			contentPanel.add(lblStregkodeLabel);
 		}
 		
 		lblAntalLabel = new JLabel("Antal");
-		lblAntalLabel.setBounds(24, 54, 66, 13);
+		lblAntalLabel.setBounds(28, 115, 66, 13);
 		contentPanel.add(lblAntalLabel);
 		
 		lblKundeIDLabel = new JLabel("Customer ID");
-		lblKundeIDLabel.setBounds(24, 402, 72, 13);
+		lblKundeIDLabel.setBounds(28, 23, 72, 13);
 		contentPanel.add(lblKundeIDLabel);
 		
 		textAntalField = new JTextField();
-		textAntalField.setBounds(100, 51, 96, 19);
+		textAntalField.setBounds(100, 112, 111, 19);
 		contentPanel.add(textAntalField);
 		textAntalField.setColumns(10);
 		
 		textStregkodeField = new JTextField();
-		textStregkodeField.setBounds(100, 20, 96, 19);
+		textStregkodeField.setBounds(100, 83, 111, 19);
 		contentPanel.add(textStregkodeField);
 		textStregkodeField.setColumns(10);
 		
 		btnSøgProduktButton = new JButton("Søg produkt");
-		btnSøgProduktButton.setBounds(221, 19, 111, 21);
+		btnSøgProduktButton.setBounds(240, 82, 92, 21);
 		contentPanel.add(btnSøgProduktButton);
 		
 		textKundeIDField = new JTextField();
 		textKundeIDField.setColumns(10);
-		textKundeIDField.setBounds(100, 399, 96, 19);
+		textKundeIDField.setBounds(100, 20, 111, 19);
 		contentPanel.add(textKundeIDField);
 		
-		btnSøgKundeIDButton = new JButton("Søg Kunde");
-		btnSøgKundeIDButton.setBounds(221, 398, 111, 21);
+		btnSøgKundeIDButton = new JButton("Tilføj Kunde");
+		btnSøgKundeIDButton.setBounds(100, 47, 111, 21);
 		contentPanel.add(btnSøgKundeIDButton);
 		
 		btnTilføjProduktButton = new JButton("Tilføj produkt");
@@ -112,11 +112,11 @@ public class OpretTilbud extends JDialog {
 				handleAddProduct();
 			}
 		});
-		btnTilføjProduktButton.setBounds(221, 79, 111, 21);
+		btnTilføjProduktButton.setBounds(100, 141, 111, 21);
 		contentPanel.add(btnTilføjProduktButton);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(24, 143, 308, 175);
+		scrollPane.setBounds(24, 194, 308, 198);
 		contentPanel.add(scrollPane);
 		
 		orderLineTable = new JTable();
@@ -133,12 +133,20 @@ public class OpretTilbud extends JDialog {
 		scrollPane.setViewportView(orderLineTable);
 		
 		lblOrdreLabel = new JLabel("Ordre");
-		lblOrdreLabel.setBounds(24, 120, 66, 13);
+		lblOrdreLabel.setBounds(24, 171, 66, 13);
 		contentPanel.add(lblOrdreLabel);
 		
 		lblTotalPrisLabel = new JLabel("Total pris:");
-		lblTotalPrisLabel.setBounds(24, 328, 66, 13);
+		lblTotalPrisLabel.setBounds(28, 425, 66, 13);
 		contentPanel.add(lblTotalPrisLabel);
+		
+		JButton btnSgKunde = new JButton("Søg kunde");
+		btnSgKunde.setBounds(240, 19, 92, 21);
+		contentPanel.add(btnSgKunde);
+		
+		JLabel lblRabat = new JLabel("Rabat:");
+		lblRabat.setBounds(28, 402, 66, 13);
+		contentPanel.add(lblRabat);
 		{
 			buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -174,21 +182,24 @@ public class OpretTilbud extends JDialog {
 	private void handleAddProduct() {
 		// TODO Auto-generated method stub
 		String barcode = textStregkodeField.getText();
-		int quantity = 0;
-		String quantityText = textAntalField.getText();
-
-		if (quantityText.isEmpty()) {
-		    quantity = 1;
-		} else {
-		    try {
-		        quantity = Integer.parseInt(quantityText);
-		        if (quantity < 1) {
-		            quantity = 1;
-		        }
-		    } catch (NumberFormatException e) {
-		        JOptionPane.showMessageDialog(this, "Antal må ikke indeholde bogstaver");
-		    }
+		int quantity=0;
+		
+		try {
+			if (textAntalField.getText().equals("")) {
+			    quantity = 1;
+			}else {
+				
+				quantity = Integer.parseInt(textAntalField.getText());
+			}
+		
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(this, "Antal må ikke indeholde bogstaver");
+			return;
 		}
+		
+		//String quantityText = textAntalField.getText();
+
+		
 		
 		Product product = oc.inputProduct(barcode, quantity);
 		
@@ -229,8 +240,4 @@ public class OpretTilbud extends JDialog {
 		this.dispose();
 		
 	}
-	
-	
-	
-	
 }
