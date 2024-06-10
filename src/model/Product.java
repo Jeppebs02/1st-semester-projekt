@@ -56,6 +56,56 @@ public class Product {
 		}
 		return inventory;
 	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public String getSKU() {
+		return SKU;
+	}
+
+
+	public String getCategory() {
+		return category;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
+	public void setSKU(String sKU) {
+		SKU = sKU;
+	}
+
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+	public void setPrice(ItemPrice price) {
+		this.price = price;
+	}
+
+
+	public void setInventory(Location inventory) {
+		this.inventory = inventory;
+	}
 	
 	
 

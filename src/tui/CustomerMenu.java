@@ -14,13 +14,9 @@ public class CustomerMenu {
 
 	}
 	
-	
-	
 	public void start() {
 		customerMenu();
 	}
-
-
 
 	private void customerMenu() {
 		

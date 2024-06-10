@@ -31,4 +31,19 @@ public class Location {
 		return stock;
 	}
 
+
+	public String getDepartment() {
+		return department;
+	}
+
+
+	public String getAisle() {
+		return aisle;
+	}
+
+
+	public String getShelf() {
+		return shelf;
+	}
+
 }

@@ -45,4 +45,12 @@ public class ProductContainer {
 		}
 	}
 
+	public boolean removeProduct(Product p) {
+		return products.remove(p);	
+	}
+	
+	public ArrayList<Product> findAllProducts(){
+		return new ArrayList<>(this.products);
+	}
+	
 }
