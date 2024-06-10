@@ -162,7 +162,7 @@ public class ProductMenu {
 		System.out.println("Kategori: " + p.getCategory());
 		System.out.println("Pris: " + p.getPrice().getSalesPrice());
 		System.out.println("Lokation: " + p.getInventory().getDepartment());
-		System.out.println("Række " + p.getInventory().getAisle() + ", Hylde " + p.getInventory().getShelf());
+		System.out.println(p.getInventory().getAisle() + ", " + p.getInventory().getShelf());
 
 		}
 		
