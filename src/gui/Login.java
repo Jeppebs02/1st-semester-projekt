@@ -49,7 +49,6 @@ public class Login extends JFrame {
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 300, 450, 300);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		contentPane = new JPanel();
 
 		setContentPane(contentPane);
