@@ -9,6 +9,9 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
+
+import control.OrderController;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
@@ -213,6 +216,9 @@ public class Menu extends JFrame {
 
 	private void handleOpretTilbud() {
 		// TODO Auto-generated method stub
+		OpretTilbud ot = new OpretTilbud();
+		ot.setVisible(true);
+		
 		
 	}
 

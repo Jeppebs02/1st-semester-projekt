@@ -7,10 +7,18 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import control.OrderController;
+import model.OrderLine;
+import tui.TryMe;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class OpretTilbud extends JDialog {
 
@@ -19,7 +27,7 @@ public class OpretTilbud extends JDialog {
 	private JTextField textAntalField;
 	private JTextField textStregkodeField;
 	private JTextField textKundeIDField;
-	private JTable table;
+	private JTable orderLineTable;
 	private JLabel lblStregkodeLabel;
 	private JLabel lblAntalLabel;
 	private JLabel lblKundeIDLabel;
@@ -32,12 +40,15 @@ public class OpretTilbud extends JDialog {
 	private JPanel buttonPane;
 	private JButton okButton;
 	private JButton cancelButton;
+	private OrderController oc;
+	private DefaultTableModel orderLineTableModel;
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
+			TryMe.addData();
 			OpretTilbud dialog = new OpretTilbud();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
@@ -50,6 +61,7 @@ public class OpretTilbud extends JDialog {
 	 * Create the dialog.
 	 */
 	public OpretTilbud() {
+		setModal(true);
 		setBounds(100, 100, 373, 516);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -93,6 +105,11 @@ public class OpretTilbud extends JDialog {
 		contentPanel.add(btnSøgKundeIDButton);
 		
 		btnTilføjProduktButton = new JButton("Tilføj produkt");
+		btnTilføjProduktButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleAddProduct();
+			}
+		});
 		btnTilføjProduktButton.setBounds(221, 79, 111, 21);
 		contentPanel.add(btnTilføjProduktButton);
 		
@@ -100,8 +117,18 @@ public class OpretTilbud extends JDialog {
 		scrollPane.setBounds(24, 143, 308, 175);
 		contentPanel.add(scrollPane);
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		orderLineTable = new JTable();
+		orderLineTableModel= new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Produkt", "Antal", "Pris"
+				}
+				
+				);
+		
+		orderLineTable.setModel(orderLineTableModel);
+		scrollPane.setViewportView(orderLineTable);
 		
 		lblOrdreLabel = new JLabel("Ordre");
 		lblOrdreLabel.setBounds(24, 120, 66, 13);
@@ -116,15 +143,75 @@ public class OpretTilbud extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						handleOkButton();
+					}
+				});
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						handleCancelButton();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
+				
 			}
 		}
+		
+		oc = new OrderController();
+		oc.createOffer();
 	}
+
+	private void handleAddProduct() {
+		// TODO Auto-generated method stub
+		String barcode = textStregkodeField.getText();
+		int quantity = Integer.parseInt(textAntalField.getText());
+		
+		//TODO add check
+		oc.inputProduct(barcode, quantity);
+		
+		//TODO add error when quantity not available
+		orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
+		
+		textStregkodeField.setText("");
+		textAntalField.setText("");
+		
+		
+		
+	}
+	
+	private Object[] orderLineToObjectArray(OrderLine ol) {
+		String productName = ol.getProduct().getName();
+		int quantity = ol.getQuantity();
+		double price = ol.getProduct().getPrice().getSalesPrice()*quantity;
+		
+		return new Object[] {productName,quantity,price};
+	}
+
+	private void handleOkButton() {
+		// TODO Add a receipt
+		String CustomerID = textKundeIDField.getText();
+		oc.inputCustomerID(CustomerID);
+		oc.saveOffer();
+		this.setVisible(false);
+		this.dispose();
+		
+	}
+
+	private void handleCancelButton() {
+		this.setVisible(false);
+		this.dispose();
+		
+	}
+	
+	
+	
+	
 }
