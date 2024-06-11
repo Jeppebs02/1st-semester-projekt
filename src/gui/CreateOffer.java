@@ -107,9 +107,9 @@ public class CreateOffer extends JDialog {
 		pricePanel = new JPanel();
 		contentPanel.add(pricePanel, BorderLayout.SOUTH);
 		GridBagLayout gbl_pricePanel = new GridBagLayout();
-		gbl_pricePanel.columnWidths = new int[]{185, 0, 0, 47, 30, 0};
+		gbl_pricePanel.columnWidths = new int[]{297, 159, 0};
 		gbl_pricePanel.rowHeights = new int[]{13, 0};
-		gbl_pricePanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_pricePanel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 		gbl_pricePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		pricePanel.setLayout(gbl_pricePanel);
 		
@@ -124,9 +124,7 @@ public class CreateOffer extends JDialog {
 		
 		lblTotalPrice = new JLabel("Total pris:");
 		GridBagConstraints gbc_lblTotalPrisLabel = new GridBagConstraints();
-		gbc_lblTotalPrisLabel.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblTotalPrisLabel.anchor = GridBagConstraints.NORTH;
-		gbc_lblTotalPrisLabel.insets = new Insets(0, 0, 0, 5);
+		gbc_lblTotalPrisLabel.anchor = GridBagConstraints.NORTHWEST;
 		gbc_lblTotalPrisLabel.gridx = 1;
 		gbc_lblTotalPrisLabel.gridy = 0;
 		pricePanel.add(lblTotalPrice, gbc_lblTotalPrisLabel);
