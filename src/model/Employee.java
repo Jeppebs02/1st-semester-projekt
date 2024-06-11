@@ -26,6 +26,18 @@ public class Employee extends Person{
 		return employeeID;
 	}
 
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public String getUsername() {
+		return username;
+	}
+
+	public boolean authenticate(String password) {
+		return this.password.equals(password);
+	}
 
 }

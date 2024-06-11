@@ -23,8 +23,12 @@ public class TryMe {
 		c1.setCustomerCategory(cuc);
 		cc.addCustomerToContainer(c1);
 		
+		Employee admin = new Employee("Admin", "Admin@Admin.com", "66666666", "Admin Street 666", "Admin", "Admin", "Admin");
+		Employee jeppe = new Employee("Jeppe", "Jeppebs02@doxed.com", "12341234", "Pågade 22", "ctfjeppebs02", "BestName4ever", "12341234");
+		lc.addNewEmployee(admin);
+		lc.addNewEmployee(jeppe);
 		
-		lc.setLoginUser(new Employee("Jeppe", "Jeppebs02@doxed.com", "12341234", "Pågade 22", "ctfjeppebs02", "BestName4ever", "12341234"));
+		lc.setLoginUser(jeppe);
 		
 		Location l = new Location("DIY store", "Række 34", "Hylde 234", 20, 400, 50);
 		ItemPrice ip = new ItemPrice(50, 200, 200, 1);

@@ -8,10 +8,14 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import control.LoginController;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -138,11 +142,22 @@ public class Login extends JFrame {
 	private void handleLoginButton() {
 		// TODO Write Login method. Use LoginController to check for employee login.
 		
-		Menu menu = new Menu();
-		menu.setVisible(true);
+		String username = textField.getText();
+		String password = passwordField.getText();
 		
-		this.setVisible(false);
-		this.dispose();
+		LoginController lc = new LoginController();
+		
+		if(lc.authenticateEmployee(username, password)) {
+			Menu menu = new Menu();
+			menu.setVisible(true);
+			
+			this.setVisible(false);
+			this.dispose();
+		} else {
+			JOptionPane.showMessageDialog(this, "Login failed, try again.");
+		}
+		
+		
 		
 		
 		

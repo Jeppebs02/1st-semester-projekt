@@ -23,5 +23,12 @@ public class LoginController {
 		return currentUser;
 	}
 	
-
+	 public boolean authenticateEmployee(String username, String password) {
+		 LoginContainer lc = LoginContainer.getInstance();
+		 return lc.authenticateEmployee(username, password);
+		 
+	 }
+	
+	
+	
 }
