@@ -113,7 +113,7 @@ public class FinishOffer extends JDialog {
 		gbl_northPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		NorthPane.setLayout(gbl_northPane);
 		
-		lblInputOrderNr = new JLabel("Intast ordre nr");
+		lblInputOrderNr = new JLabel("Indtast ordre nr");
 		GridBagConstraints gbc_lblInputOrderNr = new GridBagConstraints();
 		gbc_lblInputOrderNr.insets = new Insets(0, 0, 5, 5);
 		gbc_lblInputOrderNr.gridx = 0;
