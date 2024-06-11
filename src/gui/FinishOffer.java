@@ -5,10 +5,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import control.OrderController;
+import control.OrderStatusController;
+import model.Order;
+import model.OrderLine;
+
 import java.awt.GridBagLayout;
 import javax.swing.JTextField;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.Insets;
 import javax.swing.JLabel;
 import java.awt.Button;
@@ -19,25 +28,32 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTable;
 import java.awt.ScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class FinishOffer extends JFrame {
+public class FinishOffer extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel NorthPane;
 	private JLabel lblNewLabel;
-	private JTextField textField;
+	private JTextField textOrderNrField;
 	private JButton btnSgOrder;
 	private JButton btnOdreNrButton;
 	private JLabel lblNewLabel_1;
 	private JButton btnOpdt;
 	private JPanel SouthPane;
 	private JButton btnSendFak;
-	private JButton btnTilbage;
-	private JButton btnNewButton_2;
+	private JButton btnSave;
+	private JButton btnBack;
 	private JPanel CenterPane;
 	private JTable table;
 	private JScrollPane scrollPane;
+	private DefaultTableModel orderLineTableModel ;
+	private JPanel panel;
+	private JLabel lblDiscount;
+	private JLabel lblPrice;
+	private Order foundOrder;
 
 	/**
 	 * Launch the application.
@@ -59,7 +75,8 @@ public class FinishOffer extends JFrame {
 	 * Create the frame.
 	 */
 	public FinishOffer() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setModal(true);
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -83,16 +100,21 @@ public class FinishOffer extends JFrame {
 		gbc_lblNewLabel.gridy = 0;
 		NorthPane.add(lblNewLabel, gbc_lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		textOrderNrField = new JTextField();
+		textOrderNrField.setColumns(10);
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField.insets = new Insets(0, 0, 5, 5);
 		gbc_textField.gridx = 1;
 		gbc_textField.gridy = 0;
-		NorthPane.add(textField, gbc_textField);
+		NorthPane.add(textOrderNrField, gbc_textField);
 		
 		btnSgOrder = new JButton("Søg odre nr");
+		btnSgOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleSearchOrder();
+			}
+		});
 		GridBagConstraints gbc_btnSgOrder = new GridBagConstraints();
 		gbc_btnSgOrder.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSgOrder.insets = new Insets(0, 0, 5, 0);
@@ -102,6 +124,11 @@ public class FinishOffer extends JFrame {
 		NorthPane.add(btnSgOrder, gbc_btnSgOrder);
 		
 		btnOdreNrButton = new JButton("Tilføj odre nr");
+		btnOdreNrButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleAddOrderNr();
+			}
+		});
 		GridBagConstraints gbc_btnOdreNrButton = new GridBagConstraints();
 		gbc_btnOdreNrButton.anchor = GridBagConstraints.NORTH;
 		gbc_btnOdreNrButton.fill = GridBagConstraints.HORIZONTAL;
@@ -125,35 +152,136 @@ public class FinishOffer extends JFrame {
 		gbc_choice.gridy = 2;
 		NorthPane.add(choice, gbc_choice);
 		
-		btnOpdt = new JButton("Opdater");
-		GridBagConstraints gbc_btnOpdt = new GridBagConstraints();
-		gbc_btnOpdt.insets = new Insets(0, 0, 5, 0);
-		gbc_btnOpdt.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnOpdt.anchor = GridBagConstraints.NORTH;
-		gbc_btnOpdt.gridx = 2;
-		gbc_btnOpdt.gridy = 2;
-		NorthPane.add(btnOpdt, gbc_btnOpdt);
 		
 		SouthPane = new JPanel();
 		contentPane.add(SouthPane, BorderLayout.SOUTH);
 		SouthPane.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		btnSendFak = new JButton("Send faktura");
+		btnSendFak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleSendFak();
+			}
+		});
 		SouthPane.add(btnSendFak);
 		
-		btnTilbage = new JButton("Gem");
-		SouthPane.add(btnTilbage);
+		btnSave = new JButton("Gem");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleSave();
+			}
+		});
+		SouthPane.add(btnSave);
 		
-		btnNewButton_2 = new JButton("Tilbage");
-		SouthPane.add(btnNewButton_2);
+		btnBack = new JButton("Tilbage");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleTilbageButton();
+			}
+		});
+		SouthPane.add(btnBack);
 		
 		CenterPane = new JPanel();
 		contentPane.add(CenterPane, BorderLayout.CENTER);
+		CenterPane.setLayout(new BorderLayout(0, 0));
 		
 		scrollPane = new JScrollPane();
 		CenterPane.add(scrollPane);
 		
 		table = new JTable();
+		
+		orderLineTableModel = new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Produkt", "Antal", "Pris"
+				}
+				
+				);
+		
+		table.setModel(orderLineTableModel);
+		
 		scrollPane.setViewportView(table);
+		
+		panel = new JPanel();
+		CenterPane.add(panel, BorderLayout.SOUTH);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{282, 163, 0};
+		gbl_panel.rowHeights = new int[]{13, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		lblDiscount = new JLabel("Rabat:");
+		GridBagConstraints gbc_lblDiscount = new GridBagConstraints();
+		gbc_lblDiscount.fill = GridBagConstraints.BOTH;
+		gbc_lblDiscount.insets = new Insets(0, 0, 0, 5);
+		gbc_lblDiscount.gridx = 0;
+		gbc_lblDiscount.gridy = 0;
+		panel.add(lblDiscount, gbc_lblDiscount);
+		
+		lblPrice = new JLabel("Total pris:");
+		GridBagConstraints gbc_lblPrice = new GridBagConstraints();
+		gbc_lblPrice.fill = GridBagConstraints.BOTH;
+		gbc_lblPrice.gridx = 1;
+		gbc_lblPrice.gridy = 0;
+		panel.add(lblPrice, gbc_lblPrice);
+	}
+
+	protected void handleSave() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void handleSendFak() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+	private Object[] orderLineToObjectArray(OrderLine ol) {
+		String productName = ol.getProduct().getName();
+		int quantity = ol.getQuantity();
+		double price = ol.getProduct().getPrice().getSalesPrice()*quantity;
+		
+		return new Object[] {productName,quantity,price};
+	}
+	
+	private void handleAddOrderNr() {
+		// TODO Auto-generated method stub
+		OrderStatusController osc = new OrderStatusController();
+		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
+		
+		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
+			orderLineTableModel.addRow(orderLineToObjectArray(currentOrderLine));
+			
+		}
+		lblDiscount.setText("Rabat: " + returnDiscount() + "%");
+		lblPrice.setText("Total pris: " + returnPrice() + " DKK");
+		
+		
+		
+	}
+
+	private void handleSearchOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private double returnDiscount() {
+		
+		return foundOrder.getCustomer().getCustomerCategory().calculateDiscountPercent();
+	}
+	
+	private double returnPrice() {
+		
+		return foundOrder.calculateTotalPrice();
+	}
+
+	private void handleTilbageButton() {
+		this.setVisible(false);
+		this.dispose();
+		
 	}
 }
