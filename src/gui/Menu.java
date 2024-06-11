@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
 import control.OrderController;
+import tui.TryMe;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -58,6 +59,7 @@ public class Menu extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		TryMe.addData();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

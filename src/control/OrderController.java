@@ -68,13 +68,18 @@ public class OrderController {
 		return orderCustomer;
 	}
 	
-	public boolean saveOffer() {
+	public String generateOrderNr() {
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.generateOrderNr();
+	}
+	
+	public boolean saveOffer(String orderNr) {
 		// Take currentOrder and put it into orderContainer (i.e. save the order)
 		LoginController lc =  new LoginController();
 		Employee  user = lc.getLoginUser();
 		currentOrder.setEmployee(user);
 		OrderContainer oc = OrderContainer.getInstance();
-		return oc.saveOffer(currentOrder);
+		return oc.saveOffer(currentOrder,orderNr);
 
 	}
 	

@@ -24,12 +24,12 @@ public class OrderContainer {
 		return instance;
 	}
 	
-	public boolean saveOffer(Order order) {
+	public boolean saveOffer(Order order,String orderNr) {
 		boolean answer = false;
 		if (order==null) {
 			answer=false;
 		} else {
-			order.setOrderNr(generateOrderNr());
+			order.setOrderNr(orderNr);
 			orders.add(order);
 			answer=true;
 		}

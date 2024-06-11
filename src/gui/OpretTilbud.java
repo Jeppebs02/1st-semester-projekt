@@ -52,6 +52,7 @@ public class OpretTilbud extends JDialog {
 	private JLabel lblTotalPrisLabel;
 	private JLabel lblRabat;
 	private JLabel lblNewLabel;
+	private String orderNr;
 	
 	/**
 	 * Launch the application.
@@ -71,6 +72,8 @@ public class OpretTilbud extends JDialog {
 	 * Create the dialog.
 	 */
 	public OpretTilbud() {
+		oc = new OrderController();
+		oc.createOffer();
 		setModal(true);
 		setBounds(100, 100, 373, 516);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -96,7 +99,8 @@ public class OpretTilbud extends JDialog {
 		orderLineTable.setModel(orderLineTableModel);
 		scrollPane.setViewportView(orderLineTable);
 		
-		lblOrdreLabel = new JLabel("Ordre");
+		orderNr = oc.generateOrderNr();
+		lblOrdreLabel = new JLabel("Ordre nr: " + orderNr);
 		contentPanel.add(lblOrdreLabel, BorderLayout.NORTH);
 		
 		pricePanel = new JPanel();
@@ -110,15 +114,17 @@ public class OpretTilbud extends JDialog {
 		
 		lblRabat = new JLabel("Rabat:");
 		GridBagConstraints gbc_lblRabat = new GridBagConstraints();
+		gbc_lblRabat.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblRabat.insets = new Insets(0, 0, 0, 5);
-		gbc_lblRabat.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblRabat.anchor = GridBagConstraints.NORTH;
 		gbc_lblRabat.gridx = 0;
 		gbc_lblRabat.gridy = 0;
 		pricePanel.add(lblRabat, gbc_lblRabat);
 		
 		lblTotalPrisLabel = new JLabel("Total pris:");
 		GridBagConstraints gbc_lblTotalPrisLabel = new GridBagConstraints();
-		gbc_lblTotalPrisLabel.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lblTotalPrisLabel.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblTotalPrisLabel.anchor = GridBagConstraints.NORTH;
 		gbc_lblTotalPrisLabel.insets = new Insets(0, 0, 0, 5);
 		gbc_lblTotalPrisLabel.gridx = 1;
 		gbc_lblTotalPrisLabel.gridy = 0;
@@ -263,17 +269,18 @@ public class OpretTilbud extends JDialog {
 		gbc_btnSgKunde.gridy = 1;
 		northPanel.add(btnSgKunde, gbc_btnSgKunde);
 		
-		oc = new OrderController();
-		oc.createOffer();
+		
+		
 	}
 	
-	protected void handleAddCustomer() {
+	private void handleAddCustomer() {
 		//TODO Add text label with customers name based on the ID
 		if(oc.inputCustomerID(textCustomerIDField.getText())==null) {
 			JOptionPane.showMessageDialog(this, "Kunden eksisterer ikke");
 			textCustomerIDField.setText("");
 		} else {
 			textCustomerIDField.setEditable(false);
+			lblRabat.setText("Rabat: " + returnDiscount() + "%");
 		}
 		
 		
@@ -290,7 +297,7 @@ public class OpretTilbud extends JDialog {
 
 	private void handleOkButton() {
 		// TODO Add a receipt
-		oc.saveOffer();
+		oc.saveOffer(orderNr);
 		this.setVisible(false);
 		this.dispose();
 		
@@ -302,8 +309,18 @@ public class OpretTilbud extends JDialog {
 		
 	}
 	
+	private double returnDiscount() {
+		
+		return oc.getCurrentOrder().getCustomer().getCustomerCategory().calculateDiscountPercent();
+	}
+	
+	private double returnPrice() {
+		
+		return oc.getCurrentOrder().calculateTotalPrice();
+	}
+	
 	private void handleAddProduct() {
-        // TODO Auto-generated method stub
+
         String barcode = textBarcodeField.getText();
         int quantity=0;
 
@@ -331,12 +348,16 @@ public class OpretTilbud extends JDialog {
             return;
         }
         
+       
 
         //TODO add error when quantity not available + check
         orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
 
         textBarcodeField.setText("");
         textQuantityField.setText("");
+        
+        lblTotalPrisLabel.setText("Total pris: " + returnPrice() + " DKK");
+        
 
 
     }
