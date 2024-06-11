@@ -5,14 +5,18 @@ import java.util.List;
 import java.util.ArrayList;
 
 import control.OrderController;
+import model.OrderLine;
 
 public class OrderTableModel extends AbstractTableModel {
     private String[] columnNames = {"Produkt", "Antal", "Pris"};
     private OrderController oc;
+    private ArrayList<OrderLine> orderLines;
     
 
     public OrderTableModel() {
-        this.orderLines = new ArrayList<>();
+    	oc = new OrderController();
+    	
+       orderLines = oc.getOrderLines();
     }
 
     public void addOrderLine(OrderLine orderLine) {
@@ -39,7 +43,7 @@ public class OrderTableModel extends AbstractTableModel {
             case 1:
                 return orderLine.getQuantity();
             case 2:
-                return orderLine.getTotalPrice();
+                return orderLine.getProduct().getPrice().getSalesPrice() * orderLine.getQuantity();
             default:
                 return null;
         }

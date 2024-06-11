@@ -37,6 +37,7 @@ public class OpretTilbud extends JDialog {
 	private JButton cancelButton;
 	private OrderController oc;
 	private DefaultTableModel orderLineTableModel;
+	//private OrderTableModel orderLineTableModel;
 	private JPanel northPanel;
 	private JLabel lblStregkodeLabel;
 	private JLabel lblAntalLabel;
@@ -84,7 +85,7 @@ public class OpretTilbud extends JDialog {
 		scrollPane = new JScrollPane();
 		contentPanel.add(scrollPane);
 		
-		orderLineTable = new JTable();
+		orderLineTable = new JTable(); 
 		
 		//maybe add abstract table model
 		orderLineTableModel= new DefaultTableModel(
@@ -346,12 +347,16 @@ public class OpretTilbud extends JDialog {
         if (product == null) {
             JOptionPane.showMessageDialog(this, "Produktet eksistere ikke");
             return;
+        } else if (quantity<product.getInventory().getStock()) {
+        	orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
+        } else {
+        	JOptionPane.showMessageDialog(this, "Der er ikke nok af produktet: " + product.getName()+".\n"+"Der er "+String.valueOf(product.getInventory().getStock())+" tilbage.");
         }
         
        
 
         //TODO add error when quantity not available + check
-        orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
+       
 
         textBarcodeField.setText("");
         textQuantityField.setText("");

@@ -45,7 +45,7 @@ public class OrderController {
 				orderProduct.getInventory().changeStock(-quantity);
 				currentOrder.addOrderLine(ol);
 			}else {
-				System.out.println("Der er ikke nok af produktet "+orderProduct.getName()+".\n"+"Der er "+String.valueOf(orderProduct.getInventory().getStock())+" tilbage.");
+				//System.out.println("Der er ikke nok af produktet "+orderProduct.getName()+".\n"+"Der er "+String.valueOf(orderProduct.getInventory().getStock())+" tilbage.");
 			}
 		}
 		
