@@ -226,6 +226,11 @@ public class CreateOffer extends JDialog {
 		northPanel.add(textBarcodeField, gbc_textBarcodeField);
 		
 		btnSearchProduct = new JButton("Søg produkt");
+		btnSearchProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleSearchProductButton();
+			}
+		});
 		gbc_btnSearchProduct = new GridBagConstraints();
 		gbc_btnSearchProduct.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSearchProduct.insets = new Insets(0, 0, 5, 0);
@@ -271,6 +276,7 @@ public class CreateOffer extends JDialog {
 		btnSearchCustomer = new JButton("Søg kunde");
 		btnSearchCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				handleSeachCustomerButton();
 			}
 		});
 		gbc_btnSearchCustomer = new GridBagConstraints();
@@ -281,6 +287,20 @@ public class CreateOffer extends JDialog {
 		northPanel.add(btnSearchCustomer, gbc_btnSearchCustomer);	
 	}
 	
+	private void handleSearchProductButton() {
+		SearchProduct searchProduct = new SearchProduct();
+		searchProduct.setVisible(true);
+		
+		this.setVisible(false);
+	}
+
+	private void handleSeachCustomerButton() {
+		SearchCustomer searchCustomer = new SearchCustomer();
+		searchCustomer.setVisible(true);
+		
+		this.setVisible(false);
+	}
+
 	private void handleAddCustomer() {
 		if(oc.inputCustomerID(textCustomerIDField.getText())==null) {
 			JOptionPane.showMessageDialog(this, "Kunden eksisterer ikke");
