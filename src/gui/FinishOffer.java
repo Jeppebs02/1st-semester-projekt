@@ -60,7 +60,7 @@ public class FinishOffer extends JDialog {
 	private Order foundOrder;
 	private Choice choice;
 	private OrderStatusController osc;
-	private String choice123;
+	private String dropDownChoice;
 	private JLabel lblCurrentStatus;
 	private JLabel lblBlank;
 	/**
@@ -185,7 +185,7 @@ public class FinishOffer extends JDialog {
 			
 			
 			public void itemStateChanged(ItemEvent e) {
-				choice123= handleSave(e);
+				dropDownChoice= handleSave(e);
 		        
 			}
 		});
@@ -208,7 +208,7 @@ public class FinishOffer extends JDialog {
 		btnSave = new JButton("Gem");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent a) {
-				handleBtnSave(choice123);
+				handleBtnSave(dropDownChoice);
 			}
 		});
 		SouthPane.add(btnSave);
