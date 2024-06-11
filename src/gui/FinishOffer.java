@@ -42,12 +42,12 @@ public class FinishOffer extends JDialog {
 	private JPanel NorthPane;
 	private JLabel lblInputOrderNr;
 	private JTextField textOrderNrField;
-	private JButton btnSgOrder;
+	private JButton btnSearchOrder;
 	private JButton btnOdreNrButton;
 	private JLabel lblChangeStatus;
 	private JButton btnOpdt;
 	private JPanel SouthPane;
-	private JButton btnSendFak;
+	private JButton btnSendInvoice;
 	private JButton btnSave;
 	private JButton btnBack;
 	private JPanel CenterPane;
@@ -111,15 +111,15 @@ public class FinishOffer extends JDialog {
 		
 		textOrderNrField = new JTextField();
 		textOrderNrField.setColumns(10);
-		GridBagConstraints gbc_textField = new GridBagConstraints();
-		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField.insets = new Insets(0, 0, 5, 5);
-		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 0;
-		NorthPane.add(textOrderNrField, gbc_textField);
+		GridBagConstraints gbc_textOrderNrField = new GridBagConstraints();
+		gbc_textOrderNrField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textOrderNrField.insets = new Insets(0, 0, 5, 5);
+		gbc_textOrderNrField.gridx = 1;
+		gbc_textOrderNrField.gridy = 0;
+		NorthPane.add(textOrderNrField, gbc_textOrderNrField);
 		
-		btnSgOrder = new JButton("Søg ordre nr");
-		btnSgOrder.addActionListener(new ActionListener() {
+		btnSearchOrder = new JButton("Søg ordre nr");
+		btnSearchOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleSearchOrder();
 			}
@@ -130,7 +130,7 @@ public class FinishOffer extends JDialog {
 		gbc_btnSgOrder.anchor = GridBagConstraints.NORTH;
 		gbc_btnSgOrder.gridx = 2;
 		gbc_btnSgOrder.gridy = 0;
-		NorthPane.add(btnSgOrder, gbc_btnSgOrder);
+		NorthPane.add(btnSearchOrder, gbc_btnSgOrder);
 		
 		btnOdreNrButton = new JButton("Tilføj ordre nr");
 		btnOdreNrButton.addActionListener(new ActionListener() {
@@ -138,13 +138,13 @@ public class FinishOffer extends JDialog {
 				handleAddOrderNr();
 			}
 		});
-		GridBagConstraints gbc_btnOdreNrButton = new GridBagConstraints();
-		gbc_btnOdreNrButton.anchor = GridBagConstraints.NORTH;
-		gbc_btnOdreNrButton.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnOdreNrButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnOdreNrButton.gridx = 1;
-		gbc_btnOdreNrButton.gridy = 1;
-		NorthPane.add(btnOdreNrButton, gbc_btnOdreNrButton);
+		GridBagConstraints gbc_btnOrderNrButton = new GridBagConstraints();
+		gbc_btnOrderNrButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnOrderNrButton.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnOrderNrButton.insets = new Insets(0, 0, 5, 5);
+		gbc_btnOrderNrButton.gridx = 1;
+		gbc_btnOrderNrButton.gridy = 1;
+		NorthPane.add(btnOdreNrButton, gbc_btnOrderNrButton);
 		
 		lblBlank = new JLabel(" ");
 		GridBagConstraints gbc_lblBlank = new GridBagConstraints();
@@ -196,14 +196,14 @@ public class FinishOffer extends JDialog {
 		contentPane.add(SouthPane, BorderLayout.SOUTH);
 		SouthPane.setLayout(new GridLayout(0, 3, 0, 0));
 		
-		btnSendFak = new JButton("Send faktura");
-		btnSendFak.addActionListener(new ActionListener() {
+		btnSendInvoice = new JButton("Send faktura");
+		btnSendInvoice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleSendFak();
 			}
 		});
-		SouthPane.add(btnSendFak);
-		btnSendFak.setEnabled(false);
+		SouthPane.add(btnSendInvoice);
+		btnSendInvoice.setEnabled(false);
 		
 		btnSave = new JButton("Gem");
 		btnSave.addActionListener(new ActionListener() {
@@ -281,7 +281,7 @@ public class FinishOffer extends JDialog {
 		
         osc.changeOrderStatus(choice123);
         lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
-        btnSendFak.setEnabled(true);
+        btnSendInvoice.setEnabled(true);
 		
         
         // Uncomment to show the change in a popup
@@ -289,7 +289,6 @@ public class FinishOffer extends JDialog {
         
         
 	}
-	
 	
 
 	private void handleSendFak() {
@@ -303,8 +302,6 @@ public class FinishOffer extends JDialog {
 		
 	}
 	
-	
-
 	private Object[] orderLineToObjectArray(OrderLine ol) {
 		String productName = ol.getProduct().getName();
 		int quantity = ol.getQuantity();
@@ -314,8 +311,6 @@ public class FinishOffer extends JDialog {
 	}
 	
 	private void handleAddOrderNr() {
-		// TODO Auto-generated method stub
-		
 		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
 		
 		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
@@ -326,26 +321,19 @@ public class FinishOffer extends JDialog {
 		lblPrice.setText("Total pris: " + returnPrice() + " DKK");
 		
 		lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
-		lblCurrentStatus.setVisible(true);
-		
-		
-		
+		lblCurrentStatus.setVisible(true);	
 	}
 	
-	
-
 	private void handleSearchOrder() {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	private double returnDiscount() {
-		
+	private double returnDiscount() {	
 		return foundOrder.getCustomer().getCustomerCategory().calculateDiscountPercent();
 	}
 	
 	private double returnPrice() {
-		
 		return foundOrder.calculateTotalPrice();
 	}
 
