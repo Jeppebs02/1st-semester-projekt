@@ -63,6 +63,17 @@ public class FinishOffer extends JDialog {
 	private String dropDownChoice;
 	private JLabel lblCurrentStatus;
 	private JLabel lblBlank;
+	private GridBagLayout gbl_northPane;
+	private GridBagConstraints gbc_textOrderNrField;
+	private GridBagConstraints gbc_btnSearchOrder;
+	private GridBagConstraints gbc_btnOrderNrButton;
+	private GridBagConstraints gbc_lblBlank;
+	private GridBagConstraints gbc_lblCurrentStatus;
+	private GridBagConstraints gbc_lblChangeStatus;
+	private GridBagConstraints gbc_choice;
+	private GridBagLayout gbl_panel;
+	private GridBagConstraints gbc_lblDiscount;
+	private GridBagConstraints gbc_lblPrice;
 	/**
 	 * Launch the application.
 	 */
@@ -95,7 +106,7 @@ public class FinishOffer extends JDialog {
 		
 		NorthPane = new JPanel();
 		contentPane.add(NorthPane, BorderLayout.NORTH);
-		GridBagLayout gbl_northPane = new GridBagLayout();
+		gbl_northPane = new GridBagLayout();
 		gbl_northPane.columnWidths = new int[]{127, 201, 83, 0};
 		gbl_northPane.rowHeights = new int[]{23, 23, 23, 0};
 		gbl_northPane.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
@@ -111,7 +122,7 @@ public class FinishOffer extends JDialog {
 		
 		textOrderNrField = new JTextField();
 		textOrderNrField.setColumns(10);
-		GridBagConstraints gbc_textOrderNrField = new GridBagConstraints();
+		gbc_textOrderNrField = new GridBagConstraints();
 		gbc_textOrderNrField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textOrderNrField.insets = new Insets(0, 0, 5, 5);
 		gbc_textOrderNrField.gridx = 1;
@@ -124,13 +135,13 @@ public class FinishOffer extends JDialog {
 				handleSearchOrder();
 			}
 		});
-		GridBagConstraints gbc_btnSgOrder = new GridBagConstraints();
-		gbc_btnSgOrder.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnSgOrder.insets = new Insets(0, 0, 5, 0);
-		gbc_btnSgOrder.anchor = GridBagConstraints.NORTH;
-		gbc_btnSgOrder.gridx = 2;
-		gbc_btnSgOrder.gridy = 0;
-		NorthPane.add(btnSearchOrder, gbc_btnSgOrder);
+		gbc_btnSearchOrder = new GridBagConstraints();
+		gbc_btnSearchOrder.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSearchOrder.insets = new Insets(0, 0, 5, 0);
+		gbc_btnSearchOrder.anchor = GridBagConstraints.NORTH;
+		gbc_btnSearchOrder.gridx = 2;
+		gbc_btnSearchOrder.gridy = 0;
+		NorthPane.add(btnSearchOrder, gbc_btnSearchOrder);
 		
 		btnOdreNrButton = new JButton("Tilføj ordre nr");
 		btnOdreNrButton.addActionListener(new ActionListener() {
@@ -138,7 +149,7 @@ public class FinishOffer extends JDialog {
 				handleAddOrderNr();
 			}
 		});
-		GridBagConstraints gbc_btnOrderNrButton = new GridBagConstraints();
+		gbc_btnOrderNrButton = new GridBagConstraints();
 		gbc_btnOrderNrButton.anchor = GridBagConstraints.NORTH;
 		gbc_btnOrderNrButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnOrderNrButton.insets = new Insets(0, 0, 5, 5);
@@ -147,14 +158,14 @@ public class FinishOffer extends JDialog {
 		NorthPane.add(btnOdreNrButton, gbc_btnOrderNrButton);
 		
 		lblBlank = new JLabel(" ");
-		GridBagConstraints gbc_lblBlank = new GridBagConstraints();
+		gbc_lblBlank = new GridBagConstraints();
 		gbc_lblBlank.insets = new Insets(0, 0, 0, 5);
 		gbc_lblBlank.gridx = 0;
 		gbc_lblBlank.gridy = 3;
 		NorthPane.add(lblBlank, gbc_lblBlank);
 		
 		lblCurrentStatus = new JLabel("Status:");
-		GridBagConstraints gbc_lblCurrentStatus = new GridBagConstraints();
+		gbc_lblCurrentStatus = new GridBagConstraints();
 		gbc_lblCurrentStatus.insets = new Insets(0, 0, 0, 5);
 		gbc_lblCurrentStatus.gridx = 1;
 		gbc_lblCurrentStatus.gridy = 3;
@@ -162,14 +173,14 @@ public class FinishOffer extends JDialog {
 		lblCurrentStatus.setVisible(false);
 		
 		lblChangeStatus = new JLabel("Ændre status");
-		GridBagConstraints gbc_lblChangeStatus = new GridBagConstraints();
+		gbc_lblChangeStatus = new GridBagConstraints();
 		gbc_lblChangeStatus.insets = new Insets(0, 0, 5, 5);
 		gbc_lblChangeStatus.gridx = 0;
 		gbc_lblChangeStatus.gridy = 2;
 		NorthPane.add(lblChangeStatus, gbc_lblChangeStatus);
 		
 		choice = new Choice();
-		GridBagConstraints gbc_choice = new GridBagConstraints();
+		gbc_choice = new GridBagConstraints();
 		gbc_choice.fill = GridBagConstraints.HORIZONTAL;
 		gbc_choice.insets = new Insets(0, 0, 5, 5);
 		gbc_choice.gridx = 1;
@@ -185,7 +196,7 @@ public class FinishOffer extends JDialog {
 			
 			
 			public void itemStateChanged(ItemEvent e) {
-				dropDownChoice= handleSave(e);
+				dropDownChoice = handleSave(e);
 		        
 			}
 		});
@@ -245,7 +256,7 @@ public class FinishOffer extends JDialog {
 		
 		panel = new JPanel();
 		CenterPane.add(panel, BorderLayout.SOUTH);
-		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{282, 163, 0};
 		gbl_panel.rowHeights = new int[]{13, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
@@ -253,7 +264,7 @@ public class FinishOffer extends JDialog {
 		panel.setLayout(gbl_panel);
 		
 		lblDiscount = new JLabel("Rabat:");
-		GridBagConstraints gbc_lblDiscount = new GridBagConstraints();
+		gbc_lblDiscount = new GridBagConstraints();
 		gbc_lblDiscount.fill = GridBagConstraints.BOTH;
 		gbc_lblDiscount.insets = new Insets(0, 0, 0, 5);
 		gbc_lblDiscount.gridx = 0;
@@ -261,7 +272,7 @@ public class FinishOffer extends JDialog {
 		panel.add(lblDiscount, gbc_lblDiscount);
 		
 		lblPrice = new JLabel("Total pris:");
-		GridBagConstraints gbc_lblPrice = new GridBagConstraints();
+		gbc_lblPrice = new GridBagConstraints();
 		gbc_lblPrice.fill = GridBagConstraints.BOTH;
 		gbc_lblPrice.gridx = 1;
 		gbc_lblPrice.gridy = 0;
@@ -282,24 +293,19 @@ public class FinishOffer extends JDialog {
         osc.changeOrderStatus(choice123);
         lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
         btnSendInvoice.setEnabled(true);
-		
-        
+	    
         // Uncomment to show the change in a popup
-		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
-        
-        
+		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());     
 	}
 	
 
 	private void handleSendFak() {
 		JOptionPane.showMessageDialog(this, "Ordren er sendt til " + foundOrder.getCustomer().getName() + "\n" 
-				+ "På email: " + foundOrder.getCustomer().getEmail()
-				
+				+ "På email: " + foundOrder.getCustomer().getEmail()	
 				);
 		
 		this.setVisible(false);
-        this.dispose();
-		
+        this.dispose();	
 	}
 	
 	private Object[] orderLineToObjectArray(OrderLine ol) {
@@ -315,7 +321,6 @@ public class FinishOffer extends JDialog {
 		
 		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
 			orderLineTableModel.addRow(orderLineToObjectArray(currentOrderLine));
-			
 		}
 		lblDiscount.setText("Rabat: " + returnDiscount() + "%");
 		lblPrice.setText("Total pris: " + returnPrice() + " DKK");
@@ -339,7 +344,6 @@ public class FinishOffer extends JDialog {
 
 	private void handleTilbageButton() {
 		this.setVisible(false);
-		this.dispose();
-		
+		this.dispose();	
 	}
 }

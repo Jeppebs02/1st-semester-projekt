@@ -373,9 +373,7 @@ public class CreateOffer extends JDialog {
         } else {
         	JOptionPane.showMessageDialog(this, "Der er ikke nok af produktet: " + product.getName()+".\n"+"Der er "+String.valueOf(product.getInventory().getStock())+" tilbage.");
         }
-        
-        //TODO add error when quantity not available + check
-       
+
         textBarcodeField.setText("");
         textQuantityField.setText("");
         
