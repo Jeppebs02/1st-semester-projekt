@@ -5,12 +5,13 @@ package model;
 //@description: this superclass holds the fields that is common for all 
 //types of persons in our system.
 public abstract class Person {
+	
 	private String name;
 	private String email;
 	private String phoneNr;
 	private String address;
 
-	
+
 	public Person(String name, String email, String phoneNr, String address) {
 		super();
 		this.name = name;
@@ -18,6 +19,8 @@ public abstract class Person {
 		this.phoneNr = phoneNr;
 		this.address = address;
 	}
+	
+	
 
 	public String getName() throws NullPointerException {
 		if (name == null) {
