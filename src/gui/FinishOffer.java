@@ -20,6 +20,8 @@ import javax.swing.JDialog;
 
 import java.awt.Insets;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Button;
 import javax.swing.JScrollPane;
 import java.awt.Choice;
@@ -29,6 +31,8 @@ import java.awt.BorderLayout;
 import javax.swing.JTable;
 import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 
 public class FinishOffer extends JDialog {
@@ -54,7 +58,10 @@ public class FinishOffer extends JDialog {
 	private JLabel lblDiscount;
 	private JLabel lblPrice;
 	private Order foundOrder;
-
+	private Choice choice;
+	private OrderStatusController osc;
+	private String choice123;
+	private JLabel lblCurrentStatus;
 	/**
 	 * Launch the application.
 	 */
@@ -75,6 +82,7 @@ public class FinishOffer extends JDialog {
 	 * Create the frame.
 	 */
 	public FinishOffer() {
+		osc = new OrderStatusController();
 		setModal(true);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -137,20 +145,43 @@ public class FinishOffer extends JDialog {
 		gbc_btnOdreNrButton.gridy = 1;
 		NorthPane.add(btnOdreNrButton, gbc_btnOdreNrButton);
 		
+		lblCurrentStatus = new JLabel("Status:");
+		GridBagConstraints gbc_lblCurrentStatus = new GridBagConstraints();
+		gbc_lblCurrentStatus.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCurrentStatus.gridx = 1;
+		gbc_lblCurrentStatus.gridy = 3;
+		NorthPane.add(lblCurrentStatus, gbc_lblCurrentStatus);
+		lblCurrentStatus.setVisible(false);
+		
 		lblNewLabel_1 = new JLabel("Ændre status");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_1.insets = new Insets(0, 0, 0, 5);
 		gbc_lblNewLabel_1.gridx = 0;
 		gbc_lblNewLabel_1.gridy = 2;
 		NorthPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		Choice choice = new Choice();
+		choice = new Choice();
 		GridBagConstraints gbc_choice = new GridBagConstraints();
 		gbc_choice.fill = GridBagConstraints.HORIZONTAL;
-		gbc_choice.insets = new Insets(0, 0, 5, 5);
+		gbc_choice.insets = new Insets(0, 0, 0, 5);
 		gbc_choice.gridx = 1;
 		gbc_choice.gridy = 2;
 		NorthPane.add(choice, gbc_choice);
+		choice.add("OnHold");
+		choice.add("Accepted");
+		choice.add("Paid");
+		choice.add("Overdue");
+		choice.add("Cancelled");
+		
+		choice.addItemListener(new ItemListener(){
+			
+			
+			public void itemStateChanged(ItemEvent e) {
+				choice123= handleSave(e);
+		        
+			}
+		});
+		
 		
 		
 		SouthPane = new JPanel();
@@ -167,8 +198,8 @@ public class FinishOffer extends JDialog {
 		
 		btnSave = new JButton("Gem");
 		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				handleSave();
+			public void actionPerformed(ActionEvent a) {
+				handleSave2(choice123);
 			}
 		});
 		SouthPane.add(btnSave);
@@ -228,12 +259,30 @@ public class FinishOffer extends JDialog {
 		panel.add(lblPrice, gbc_lblPrice);
 	}
 
-	protected void handleSave() {
-		// TODO Auto-generated method stub
+	private String handleSave(ItemEvent e) {
+		Choice source = (Choice)e.getSource();
+        String selectedChoice = source.getSelectedItem();
+        return selectedChoice;
+        //osc.changeOrderStatus(selectedChoice);
 		
+		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
 	}
+	
+	private void handleSave2(String choice123) {
+		
+        osc.changeOrderStatus(choice123);
+		
+        
+        // Uncomment to show the change in a popup
+		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
+        
+        this.setVisible(false);
+        this.dispose();
+	}
+	
+	
 
-	protected void handleSendFak() {
+	private void handleSendFak() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -250,7 +299,7 @@ public class FinishOffer extends JDialog {
 	
 	private void handleAddOrderNr() {
 		// TODO Auto-generated method stub
-		OrderStatusController osc = new OrderStatusController();
+		
 		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
 		
 		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
@@ -260,9 +309,14 @@ public class FinishOffer extends JDialog {
 		lblDiscount.setText("Rabat: " + returnDiscount() + "%");
 		lblPrice.setText("Total pris: " + returnPrice() + " DKK");
 		
+		lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
+		lblCurrentStatus.setVisible(true);
+		
 		
 		
 	}
+	
+	
 
 	private void handleSearchOrder() {
 		// TODO Auto-generated method stub

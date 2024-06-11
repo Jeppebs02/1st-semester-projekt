@@ -36,5 +36,10 @@ public class OrderStatusController {
 		return newStatus;
 		
 	}
+	public Order getOrder() {
+		return order;
+	}
+	
+	
 	
 }

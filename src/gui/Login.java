@@ -136,7 +136,15 @@ public class Login extends JFrame {
 	}
 
 	private void handleLoginButton() {
-		// TODO Write Login method. Use LoginController to check for employee login. 
+		// TODO Write Login method. Use LoginController to check for employee login.
+		
+		Menu menu = new Menu();
+		menu.setVisible(true);
+		
+		this.setVisible(false);
+		this.dispose();
+		
+		
 		
 	}
 	
