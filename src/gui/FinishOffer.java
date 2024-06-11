@@ -40,11 +40,11 @@ public class FinishOffer extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel NorthPane;
-	private JLabel lblNewLabel;
+	private JLabel lblInputOrderNr;
 	private JTextField textOrderNrField;
 	private JButton btnSgOrder;
 	private JButton btnOdreNrButton;
-	private JLabel lblNewLabel_1;
+	private JLabel lblChangeStatus;
 	private JButton btnOpdt;
 	private JPanel SouthPane;
 	private JButton btnSendFak;
@@ -62,6 +62,7 @@ public class FinishOffer extends JDialog {
 	private OrderStatusController osc;
 	private String choice123;
 	private JLabel lblCurrentStatus;
+	private JLabel lblBlank;
 	/**
 	 * Launch the application.
 	 */
@@ -101,12 +102,12 @@ public class FinishOffer extends JDialog {
 		gbl_northPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		NorthPane.setLayout(gbl_northPane);
 		
-		lblNewLabel = new JLabel("Intast odre nr");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 0;
-		NorthPane.add(lblNewLabel, gbc_lblNewLabel);
+		lblInputOrderNr = new JLabel("Intast ordre nr");
+		GridBagConstraints gbc_lblInputOrderNr = new GridBagConstraints();
+		gbc_lblInputOrderNr.insets = new Insets(0, 0, 5, 5);
+		gbc_lblInputOrderNr.gridx = 0;
+		gbc_lblInputOrderNr.gridy = 0;
+		NorthPane.add(lblInputOrderNr, gbc_lblInputOrderNr);
 		
 		textOrderNrField = new JTextField();
 		textOrderNrField.setColumns(10);
@@ -117,7 +118,7 @@ public class FinishOffer extends JDialog {
 		gbc_textField.gridy = 0;
 		NorthPane.add(textOrderNrField, gbc_textField);
 		
-		btnSgOrder = new JButton("Søg odre nr");
+		btnSgOrder = new JButton("Søg ordre nr");
 		btnSgOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleSearchOrder();
@@ -131,7 +132,7 @@ public class FinishOffer extends JDialog {
 		gbc_btnSgOrder.gridy = 0;
 		NorthPane.add(btnSgOrder, gbc_btnSgOrder);
 		
-		btnOdreNrButton = new JButton("Tilføj odre nr");
+		btnOdreNrButton = new JButton("Tilføj ordre nr");
 		btnOdreNrButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleAddOrderNr();
@@ -145,25 +146,32 @@ public class FinishOffer extends JDialog {
 		gbc_btnOdreNrButton.gridy = 1;
 		NorthPane.add(btnOdreNrButton, gbc_btnOdreNrButton);
 		
+		lblBlank = new JLabel(" ");
+		GridBagConstraints gbc_lblBlank = new GridBagConstraints();
+		gbc_lblBlank.insets = new Insets(0, 0, 0, 5);
+		gbc_lblBlank.gridx = 0;
+		gbc_lblBlank.gridy = 3;
+		NorthPane.add(lblBlank, gbc_lblBlank);
+		
 		lblCurrentStatus = new JLabel("Status:");
 		GridBagConstraints gbc_lblCurrentStatus = new GridBagConstraints();
-		gbc_lblCurrentStatus.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCurrentStatus.insets = new Insets(0, 0, 0, 5);
 		gbc_lblCurrentStatus.gridx = 1;
 		gbc_lblCurrentStatus.gridy = 3;
 		NorthPane.add(lblCurrentStatus, gbc_lblCurrentStatus);
 		lblCurrentStatus.setVisible(false);
 		
-		lblNewLabel_1 = new JLabel("Ændre status");
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_1.gridx = 0;
-		gbc_lblNewLabel_1.gridy = 2;
-		NorthPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		lblChangeStatus = new JLabel("Ændre status");
+		GridBagConstraints gbc_lblChangeStatus = new GridBagConstraints();
+		gbc_lblChangeStatus.insets = new Insets(0, 0, 5, 5);
+		gbc_lblChangeStatus.gridx = 0;
+		gbc_lblChangeStatus.gridy = 2;
+		NorthPane.add(lblChangeStatus, gbc_lblChangeStatus);
 		
 		choice = new Choice();
 		GridBagConstraints gbc_choice = new GridBagConstraints();
 		gbc_choice.fill = GridBagConstraints.HORIZONTAL;
-		gbc_choice.insets = new Insets(0, 0, 0, 5);
+		gbc_choice.insets = new Insets(0, 0, 5, 5);
 		gbc_choice.gridx = 1;
 		gbc_choice.gridy = 2;
 		NorthPane.add(choice, gbc_choice);
@@ -195,11 +203,12 @@ public class FinishOffer extends JDialog {
 			}
 		});
 		SouthPane.add(btnSendFak);
+		btnSendFak.setEnabled(false);
 		
 		btnSave = new JButton("Gem");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent a) {
-				handleSave2(choice123);
+				handleBtnSave(choice123);
 			}
 		});
 		SouthPane.add(btnSave);
@@ -268,22 +277,29 @@ public class FinishOffer extends JDialog {
 		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
 	}
 	
-	private void handleSave2(String choice123) {
+	private void handleBtnSave(String choice123) {
 		
         osc.changeOrderStatus(choice123);
+        lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
+        btnSendFak.setEnabled(true);
 		
         
         // Uncomment to show the change in a popup
 		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
         
-        this.setVisible(false);
-        this.dispose();
+        
 	}
 	
 	
 
 	private void handleSendFak() {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(this, "Ordren er sendt til " + foundOrder.getCustomer().getName() + "\n" 
+				+ "På email: " + foundOrder.getCustomer().getEmail()
+				
+				);
+		
+		this.setVisible(false);
+        this.dispose();
 		
 	}
 	
