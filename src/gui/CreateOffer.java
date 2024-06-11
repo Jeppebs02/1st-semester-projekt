@@ -25,7 +25,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-public class OpretTilbud extends JDialog {
+public class CreateOffer extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
@@ -39,20 +39,20 @@ public class OpretTilbud extends JDialog {
 	private DefaultTableModel orderLineTableModel;
 	//private OrderTableModel orderLineTableModel;
 	private JPanel northPanel;
-	private JLabel lblStregkodeLabel;
-	private JLabel lblAntalLabel;
-	private JLabel lblKundeIDLabel;
+	private JLabel lblBarcode;
+	private JLabel lblQuantity;
+	private JLabel lblCustomerID;
 	private JTextField textCustomerIDField;
 	private JTextField textBarcodeField;
-	private JButton btnSøgProduktButton;
+	private JButton btnSearchProduct;
 	private JTextField textQuantityField;
-	private JButton btnSøgKundeIDButton;
-	private JButton btnTilføjProduktButton;
-	private JButton btnSgKunde;
+	private JButton btnAddCustomer;
+	private JButton btnAddProduct;
+	private JButton btnSearchCustomer;
 	private JPanel pricePanel;
-	private JLabel lblTotalPrisLabel;
-	private JLabel lblRabat;
-	private JLabel lblNewLabel;
+	private JLabel lblTotalPrice;
+	private JLabel lblDiscount;
+	private JLabel lblBlank;
 	private String orderNr;
 	
 	/**
@@ -61,7 +61,7 @@ public class OpretTilbud extends JDialog {
 	public static void main(String[] args) {
 		try {
 			TryMe.addData();
-			OpretTilbud dialog = new OpretTilbud();
+			CreateOffer dialog = new CreateOffer();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -72,7 +72,7 @@ public class OpretTilbud extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public OpretTilbud() {
+	public CreateOffer() {
 		oc = new OrderController();
 		oc.createOffer();
 		setModal(true);
@@ -113,23 +113,23 @@ public class OpretTilbud extends JDialog {
 		gbl_pricePanel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		pricePanel.setLayout(gbl_pricePanel);
 		
-		lblRabat = new JLabel("Rabat:");
+		lblDiscount = new JLabel("Rabat:");
 		GridBagConstraints gbc_lblRabat = new GridBagConstraints();
 		gbc_lblRabat.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblRabat.insets = new Insets(0, 0, 0, 5);
 		gbc_lblRabat.anchor = GridBagConstraints.NORTH;
 		gbc_lblRabat.gridx = 0;
 		gbc_lblRabat.gridy = 0;
-		pricePanel.add(lblRabat, gbc_lblRabat);
+		pricePanel.add(lblDiscount, gbc_lblRabat);
 		
-		lblTotalPrisLabel = new JLabel("Total pris:");
+		lblTotalPrice = new JLabel("Total pris:");
 		GridBagConstraints gbc_lblTotalPrisLabel = new GridBagConstraints();
 		gbc_lblTotalPrisLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblTotalPrisLabel.anchor = GridBagConstraints.NORTH;
 		gbc_lblTotalPrisLabel.insets = new Insets(0, 0, 0, 5);
 		gbc_lblTotalPrisLabel.gridx = 1;
 		gbc_lblTotalPrisLabel.gridy = 0;
-		pricePanel.add(lblTotalPrisLabel, gbc_lblTotalPrisLabel);
+		pricePanel.add(lblTotalPrice, gbc_lblTotalPrisLabel);
 		{
 			buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -167,34 +167,34 @@ public class OpretTilbud extends JDialog {
 		gbl_northPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		northPanel.setLayout(gbl_northPanel);
 		
-		lblNewLabel = new JLabel("");
+		lblBlank = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.gridx = 0;
 		gbc_lblNewLabel.gridy = 0;
-		northPanel.add(lblNewLabel, gbc_lblNewLabel);
+		northPanel.add(lblBlank, gbc_lblNewLabel);
 		
-		lblStregkodeLabel = new JLabel("Stregkode");
+		lblBarcode = new JLabel("Stregkode");
 		GridBagConstraints gbc_lblStregkodeLabel = new GridBagConstraints();
 		gbc_lblStregkodeLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblStregkodeLabel.gridx = 0;
 		gbc_lblStregkodeLabel.gridy = 3;
-		northPanel.add(lblStregkodeLabel, gbc_lblStregkodeLabel);
+		northPanel.add(lblBarcode, gbc_lblStregkodeLabel);
 		
-		lblAntalLabel = new JLabel("Antal");
+		lblQuantity = new JLabel("Antal");
 		GridBagConstraints gbc_lblAntalLabel = new GridBagConstraints();
 		gbc_lblAntalLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblAntalLabel.gridx = 0;
 		gbc_lblAntalLabel.gridy = 4;
-		northPanel.add(lblAntalLabel, gbc_lblAntalLabel);
+		northPanel.add(lblQuantity, gbc_lblAntalLabel);
 		
-		lblKundeIDLabel = new JLabel("Kunde ID");
+		lblCustomerID = new JLabel("Kunde ID");
 		GridBagConstraints gbc_lblKundeIDLabel = new GridBagConstraints();
 		gbc_lblKundeIDLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblKundeIDLabel.gridx = 0;
 		gbc_lblKundeIDLabel.gridy = 1;
-		northPanel.add(lblKundeIDLabel, gbc_lblKundeIDLabel);
+		northPanel.add(lblCustomerID, gbc_lblKundeIDLabel);
 		
 		textCustomerIDField = new JTextField();
 		textCustomerIDField.setColumns(10);
@@ -215,13 +215,13 @@ public class OpretTilbud extends JDialog {
 		gbc_textBarcodeField.gridy = 3;
 		northPanel.add(textBarcodeField, gbc_textBarcodeField);
 		
-		btnSøgProduktButton = new JButton("Søg produkt");
+		btnSearchProduct = new JButton("Søg produkt");
 		GridBagConstraints gbc_btnSøgProduktButton = new GridBagConstraints();
 		gbc_btnSøgProduktButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSøgProduktButton.insets = new Insets(0, 0, 5, 0);
 		gbc_btnSøgProduktButton.gridx = 2;
 		gbc_btnSøgProduktButton.gridy = 3;
-		northPanel.add(btnSøgProduktButton, gbc_btnSøgProduktButton);
+		northPanel.add(btnSearchProduct, gbc_btnSøgProduktButton);
 		
 		textQuantityField = new JTextField();
 		textQuantityField.setColumns(10);
@@ -232,8 +232,8 @@ public class OpretTilbud extends JDialog {
 		gbc_textQuantityField.gridy = 4;
 		northPanel.add(textQuantityField, gbc_textQuantityField);
 		
-		btnSøgKundeIDButton = new JButton("Tilføj Kunde");
-		btnSøgKundeIDButton.addActionListener(new ActionListener() {
+		btnAddCustomer = new JButton("Tilføj Kunde");
+		btnAddCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleAddCustomer();
 			}
@@ -243,10 +243,10 @@ public class OpretTilbud extends JDialog {
 		gbc_btnSøgKundeIDButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSøgKundeIDButton.gridx = 1;
 		gbc_btnSøgKundeIDButton.gridy = 2;
-		northPanel.add(btnSøgKundeIDButton, gbc_btnSøgKundeIDButton);
+		northPanel.add(btnAddCustomer, gbc_btnSøgKundeIDButton);
 		
-		btnTilføjProduktButton = new JButton("Tilføj produkt");
-		btnTilføjProduktButton.addActionListener(new ActionListener() {
+		btnAddProduct = new JButton("Tilføj produkt");
+		btnAddProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				handleAddProduct();
 			}
@@ -256,10 +256,10 @@ public class OpretTilbud extends JDialog {
 		gbc_btnTilføjProduktButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnTilføjProduktButton.gridx = 1;
 		gbc_btnTilføjProduktButton.gridy = 5;
-		northPanel.add(btnTilføjProduktButton, gbc_btnTilføjProduktButton);
+		northPanel.add(btnAddProduct, gbc_btnTilføjProduktButton);
 		
-		btnSgKunde = new JButton("Søg kunde");
-		btnSgKunde.addActionListener(new ActionListener() {
+		btnSearchCustomer = new JButton("Søg kunde");
+		btnSearchCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -268,7 +268,7 @@ public class OpretTilbud extends JDialog {
 		gbc_btnSgKunde.insets = new Insets(0, 0, 5, 0);
 		gbc_btnSgKunde.gridx = 2;
 		gbc_btnSgKunde.gridy = 1;
-		northPanel.add(btnSgKunde, gbc_btnSgKunde);
+		northPanel.add(btnSearchCustomer, gbc_btnSgKunde);
 		
 		
 		
@@ -281,7 +281,7 @@ public class OpretTilbud extends JDialog {
 			textCustomerIDField.setText("");
 		} else {
 			textCustomerIDField.setEditable(false);
-			lblRabat.setText("Rabat: " + returnDiscount() + "%");
+			lblDiscount.setText("Rabat: " + returnDiscount() + "%");
 		}
 		
 		
@@ -361,7 +361,7 @@ public class OpretTilbud extends JDialog {
         textBarcodeField.setText("");
         textQuantityField.setText("");
         
-        lblTotalPrisLabel.setText("Total pris: " + returnPrice() + " DKK");
+        lblTotalPrice.setText("Total pris: " + returnPrice() + " DKK");
         
 
 

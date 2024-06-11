@@ -229,7 +229,7 @@ public class Menu extends JFrame {
 
 	private void handleOpretTilbud() {
 		// TODO Auto-generated method stub
-		OpretTilbud ot = new OpretTilbud();
+		CreateOffer ot = new CreateOffer();
 		ot.setVisible(true);
 		
 		
