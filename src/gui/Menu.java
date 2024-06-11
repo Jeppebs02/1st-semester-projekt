@@ -101,6 +101,11 @@ public class Menu extends JFrame {
 		layeredTilbudPane.add(btnOpretTilbud);
 		
 		btnFærdiggørTilbud = new JButton("Færdiggør tilbud");
+		btnFærdiggørTilbud.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleFærdiggørbutton();
+			}
+		});
 		btnFærdiggørTilbud.setBounds(10, 78, 172, 23);
 		layeredTilbudPane.add(btnFærdiggørTilbud);
 		
@@ -214,6 +219,12 @@ public class Menu extends JFrame {
 		contentPane.add(btnLogud);
 		
 	
+	}
+
+	private void handleFærdiggørbutton() {
+		// TODO Auto-generated method stub
+		FinishOffer fo = new FinishOffer();
+		fo.setVisible(true);
 	}
 
 	private void handleOpretTilbud() {
