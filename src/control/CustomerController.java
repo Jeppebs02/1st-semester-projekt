@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import model.Customer;
 import model.CustomerContainer;
+import model.Employee;
+import model.OrderContainer;
 
 //@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
 //@date: 31/5/2024
@@ -54,7 +56,12 @@ public class CustomerController {
 	}
 	
 	public ArrayList<Customer> printAllCustomers() {
-		return CustomerContainer.getInstance().findAllCustomers();
-		
+		return CustomerContainer.getInstance().findAllCustomers();	
+	}
+	
+	public String getCustomerName(String customerID) {
+		CustomerContainer cc = CustomerContainer.getInstance();
+		return cc.getCustomerNameByID(customerID);
+
 	}
 }

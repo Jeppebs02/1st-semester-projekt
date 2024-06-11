@@ -37,6 +37,22 @@ public class CustomerContainer {
 		return foundCustomer;
 	}
 	
+	public String getCustomerNameByID(String customerID) {
+		String foundCustomerName = null;
+		Customer currentCustomer = null;
+		boolean searching = true;
+		Iterator<Customer> iterator = customers.iterator();
+
+		while (searching && iterator.hasNext()) {
+			currentCustomer = iterator.next();
+			if (currentCustomer.getCustomerID().equalsIgnoreCase(customerID)) {
+				foundCustomerName = currentCustomer.getName();
+				searching = false;
+			} 
+		}
+		return foundCustomerName;
+	}
+	
 	public void addCustomerToContainer(Customer customer) {
 		if(customer != null) {
 			customers.add(customer);
