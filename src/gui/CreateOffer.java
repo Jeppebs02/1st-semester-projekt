@@ -72,9 +72,6 @@ public class CreateOffer extends JDialog {
 	private GridBagConstraints gbc_btnAddProduct;
 	private GridBagConstraints gbc_btnSearchCustomer;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			TryMe.addData();
@@ -86,9 +83,6 @@ public class CreateOffer extends JDialog {
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
 	public CreateOffer() {
 		oc = new OrderController();
 		oc.createOffer();
@@ -294,7 +288,7 @@ public class CreateOffer extends JDialog {
 		} else {
 			textCustomerIDField.setEditable(false);
 			lblDiscount.setText("Rabat: " + returnDiscount() + "%");
-			JOptionPane.showMessageDialog(this, "Kunden: " + cc.getCustomerName(textCustomerIDField.getText())
+			JOptionPane.showMessageDialog(this, "Kunden: " + cc.getCustomerNameByID(textCustomerIDField.getText())
 			+ "\n er tilføjet til ordren");
 		}		
 	}

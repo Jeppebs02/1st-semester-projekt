@@ -59,7 +59,7 @@ public class CustomerController {
 		return CustomerContainer.getInstance().findAllCustomers();	
 	}
 	
-	public String getCustomerName(String customerID) {
+	public String getCustomerNameByID(String customerID) {
 		CustomerContainer cc = CustomerContainer.getInstance();
 		return cc.getCustomerNameByID(customerID);
 
