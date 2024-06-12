@@ -153,8 +153,11 @@ public class Login extends JFrame {
 			
 			this.setVisible(false);
 			this.dispose();
+			
 		} else {
 			JOptionPane.showMessageDialog(this, "Login failed, try again.");
+			textField.setText("");
+			passwordField.setText("");
 		}
 		
 		
