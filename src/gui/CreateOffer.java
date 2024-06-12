@@ -288,17 +288,18 @@ public class CreateOffer extends JDialog {
 	}
 	
 	private void handleSearchProductButton() {
+		this.setVisible(false);
 		SearchProduct searchProduct = new SearchProduct();
 		searchProduct.setVisible(true);
+		this.setVisible(true);
 		
-		this.setVisible(false);
 	}
 
 	private void handleSeachCustomerButton() {
+		this.setVisible(false);
 		SearchCustomer searchCustomer = new SearchCustomer();
 		searchCustomer.setVisible(true);
-		
-		this.setVisible(false);
+		this.setVisible(true);
 	}
 
 	private void handleAddCustomer() {
@@ -368,7 +369,7 @@ public class CreateOffer extends JDialog {
         if (product == null) {
             JOptionPane.showMessageDialog(this, "Produktet eksistere ikke");
             return;
-        } else if (quantity<product.getInventory().getStock()) {
+        } else if (quantity<=product.getInventory().getStock()) {
         	orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
         } else {
         	JOptionPane.showMessageDialog(this, "Der er ikke nok af produktet: " + product.getName()+".\n"+"Der er "+String.valueOf(product.getInventory().getStock())+" tilbage.");

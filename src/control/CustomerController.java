@@ -62,6 +62,30 @@ public class CustomerController {
 	public String getCustomerNameByID(String customerID) {
 		CustomerContainer cc = CustomerContainer.getInstance();
 		return cc.getCustomerNameByID(customerID);
-
 	}
+	
+	
+	
+	//Search in GUI
+	public Customer getCustomerByID(String customerID) {
+		CustomerContainer cc = CustomerContainer.getInstance();
+		Customer currentCustomer = cc.findCustomerByID(customerID);
+		return currentCustomer;
+	}
+	
+	public Customer getCustomerByPhoneNr(String phoneNr) {
+		return getCustomerByID(phoneNr);
+	}
+	
+	public Customer getCustomerByEmail(String email) {
+		CustomerContainer cc = CustomerContainer.getInstance();
+		return cc.findCustomerByEmail(email);
+	}
+	
+	public ArrayList<Customer> getCustomersByName(String name){
+		CustomerContainer cc = CustomerContainer.getInstance();
+		return cc.findCustomersByName(name);
+	}
+	
+	
 }
