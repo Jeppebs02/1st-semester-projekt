@@ -259,9 +259,8 @@ public class Menu extends JFrame {
 		layeredCustomerPane.add(btnCreateCustomer, gbc_btnCreateCustomer);
 		
 		btnSearchCustomer = new JButton("Gennemse kunde");
-		btnSearchCustomer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnSearchCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				handleGennemseKunde();
 			}
 		});
@@ -274,9 +273,8 @@ public class Menu extends JFrame {
 		layeredCustomerPane.add(btnSearchCustomer, gbc_btnSearchCustomer);
 		
 		btnRemoveCustomer = new JButton("Fjern kunde");
-		btnRemoveCustomer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnRemoveCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				HandleFjernKunde();
 			}
 		});
@@ -385,9 +383,8 @@ public class Menu extends JFrame {
 		panel.setLayout(gbl_panel);
 		
 		btnLogOut = new JButton("Log ud");
-		btnLogOut.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)  {
 				logOut();
 			}
 		});
