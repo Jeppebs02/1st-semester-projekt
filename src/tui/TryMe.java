@@ -1,5 +1,10 @@
 package tui;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+import control.OrderController;
 import model.*;
 
 //@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
@@ -13,20 +18,59 @@ public class TryMe {
 		LoginContainer lc = LoginContainer.getInstance();
 		ProductContainer pc = ProductContainer.getInstance();
 		CustomerContainer cc = CustomerContainer.getInstance();
+		OrderController oc = new OrderController();
 		
 		
 		Customer c = new Customer("Bob Jepsen", "Bob@1337.com", "22112233", "Hurtigvej 99", "22112233");
 		cc.addCustomerToContainer(c);
+		
+		Customer c2 = new Customer("Rikke denseje", "mulle273@dinmor.dk", "66699666", "Spurgt 69", "66699666");
+		cc.addCustomerToContainer(c2);
 		
 		Customer c1 = new Customer("Average Joe", "Average@Joe.com", "44556677", "Average Street 44", "44556677");
 		CustomerCategory cuc = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
 		c1.setCustomerCategory(cuc);
 		cc.addCustomerToContainer(c1);
 		
+		// Opret kundekategorier
+        CustomerCategory loyalCategory = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
+        CustomerCategory newCustomerCategory = new CustomerCategory("Ny", "Nye kunder", 1.0, 7);
+        CustomerCategory vipCustomerCategory = new CustomerCategory("VIP", "VIP kunder", 0.85, 30);
+        CustomerCategory frequentBuyerCategory = new CustomerCategory("Hyppig", "Hyppige købere", 0.95, 7);
+
+		
+		
+		// Liste med tilfældige navne
+        List<String> firstNames = Arrays.asList("Anna", "Bent", "Carl", "Ditte", "Emil", "Freja", "Gustav", "Hanne", "Ivan", "Jette", "Kasper", "Lone", "Mads", "Nina", "Ole", "Pia", "Rasmus", "Sara", "Tina", "Uffe", "Vera", "William", "Xenia", "Yvonne", "Zack");
+        List<String> lastNames = Arrays.asList("Andersen", "Bach", "Christensen", "Dam", "Eriksen", "Frederiksen", "Gade", "Hansen", "Iversen", "Jensen", "Kjær", "Larsen", "Møller", "Nielsen", "Olsen", "Pedersen", "Rasmussen", "Schmidt", "Thomsen", "Ullerup", "Villadsen", "Westergaard", "Xavi", "Yder", "Ziegler");
+        Random rand = new Random();
+
+        // Tilføj 50 kunder
+        for (int i = 1; i <= 50; i++) {
+            String firstName = firstNames.get(rand.nextInt(firstNames.size()));
+            String lastName = lastNames.get(rand.nextInt(lastNames.size()));
+            String phoneNumber = String.format("1234%04d", i);
+            Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@mail.com", phoneNumber, "Adresse " + i, phoneNumber);
+
+            if (i % 5 == 0) {
+                customer.setCustomerCategory(loyalCategory);
+            } else if (i % 5 == 1) {
+                customer.setCustomerCategory(newCustomerCategory);
+            } else if (i % 5 == 2) {
+                customer.setCustomerCategory(vipCustomerCategory);
+            } else if (i % 5 == 3) {
+                customer.setCustomerCategory(frequentBuyerCategory);
+            } else if (i % 5 == 4) {
+                customer.setCustomerCategory(loyalCategory);
+            }
+            cc.addCustomerToContainer(customer);
+        }
+		
+		
 		Employee admin = new Employee("Admin", "Admin@Admin.com", "66666666", "Admin Street 666", "Admin", "Admin", "Admin");
 		Employee jeppe = new Employee("Jeppe", "Jeppebs02@doxed.com", "12341234", "Pågade 22", "ctfjeppebs02", "BestName4ever", "12341234");
-		lc.addNewEmployee(admin);
 		lc.addNewEmployee(jeppe);
+		lc.addNewEmployee(admin);
 		
 		lc.setLoginUser(jeppe);
 		
@@ -97,6 +141,66 @@ public class TryMe {
 		pc.addProductsToContainer(skab);
 		
 		
+		//ordre nr1
+		oc.createOffer();
+		oc.inputProduct("12345678", 4);
+		oc.inputCustomerID("44556677");
+		String ordreNr = oc.generateOrderNr();
+		oc.saveOffer(ordreNr);
+		
+		//ordre nr2
+		oc.createOffer();
+		oc.inputProduct("445566", 2);
+		oc.inputProduct("66778899", 20);
+		oc.inputCustomerID("44556677");
+		ordreNr = oc.generateOrderNr();
+		oc.saveOffer(ordreNr);
+		
+		// ordre nr3
+        oc.createOffer();
+        oc.inputProduct("55667788", 1); // Boremaskine, max 8
+        oc.inputProduct("99887766", 10); // Møtrikker, max 65
+        oc.inputProduct("11223344", 10); // Målebånd, max 66
+        oc.inputCustomerID("66699666");
+        ordreNr = oc.generateOrderNr();
+        oc.saveOffer(ordreNr);
+
+        // ordre nr4
+        oc.createOffer();
+        oc.inputProduct("33445566", 5); // Skruer, max 77
+        oc.inputProduct("11223344", 10); // Målebånd, max 66
+        oc.inputProduct("99008800", 5); // Træ plade, max 67
+        oc.inputCustomerID("22112233");
+        ordreNr = oc.generateOrderNr();
+        oc.saveOffer(ordreNr);
+
+        // ordre nr5
+        oc.createOffer();
+        oc.inputProduct("44556677", 1); // Sav, max 26
+        oc.inputProduct("77118822", 15); // Greb, max 87
+        oc.inputProduct("99008800", 5); // Træ plade, max 67
+        oc.inputCustomerID("66699666");
+        ordreNr = oc.generateOrderNr();
+        oc.saveOffer(ordreNr);
+
+        // ordre nr6
+        oc.createOffer();
+        oc.inputProduct("99008800", 5); // Træ plade, max 67
+        oc.inputProduct("33224455", 2); // Stiksav, max 10
+        oc.inputCustomerID("44556677");
+        ordreNr = oc.generateOrderNr();
+        oc.saveOffer(ordreNr);
+
+        // ordre nr7
+        oc.createOffer();
+        oc.inputProduct("22113344", 3); // Vaterpas, max 26
+        oc.inputProduct("87654321", 4); // Skruetrækker, max 18
+        oc.inputProduct("33224455", 2); // Stiksav, max 10
+        oc.inputProduct("11223344", 10); // Målebånd, max 66
+        oc.inputProduct("99008800", 5); // Træ plade, max 67
+        oc.inputCustomerID("66699666");
+        ordreNr = oc.generateOrderNr();
+        oc.saveOffer(ordreNr);
 	}
 	
 }

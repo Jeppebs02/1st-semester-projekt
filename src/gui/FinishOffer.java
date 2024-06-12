@@ -317,6 +317,8 @@ public class FinishOffer extends JDialog {
 	}
 	
 	private void handleAddOrderNr() {
+		
+		//TODO Fix multiple orders add
 		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
 		
 		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
@@ -335,7 +337,15 @@ public class FinishOffer extends JDialog {
 	}
 	
 	private double returnDiscount() {	
-		return foundOrder.getCustomer().getCustomerCategory().calculateDiscountPercent();
+		double discount;
+		
+		if(foundOrder.getCustomer().getCustomerCategory() == null) {
+			discount = 0.0;
+		} else {
+			discount = foundOrder.getCustomer().getCustomerCategory().calculateDiscountPercent();
+		}
+		
+		return discount;
 	}
 	
 	private double returnPrice() {

@@ -23,6 +23,11 @@ public class LoginController {
 		return currentUser;
 	}
 	
+	public void setLoginUser(Employee e) {
+		LoginContainer lc = LoginContainer.getInstance();
+		lc.setLoginUser(e);
+	}
+	
 	 public boolean authenticateEmployee(String username, String password) {
 		 LoginContainer lc = LoginContainer.getInstance();
 		 return lc.authenticateEmployee(username, password);

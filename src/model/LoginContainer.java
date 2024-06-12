@@ -47,7 +47,8 @@ public class LoginContainer {
 		
 		for ( Employee emp : employees) {
             if (emp.getUsername().equals(username) && emp.authenticate(password)) {
-                res = true;
+                loginUser = emp;
+            	res = true;
             }
         }
         return res;
