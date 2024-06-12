@@ -5,75 +5,47 @@ import java.util.List;
 import java.util.ArrayList;
 
 import control.OrderController;
+import model.Order;
 import model.OrderLine;
 
 public class OrderTableModel extends AbstractTableModel {
-    private String[] columnNames = {"Produkt", "Antal", "Pris"};
+    private final String[] COLUMN_NAMES = {"Produkt", "Antal", "Pris"};
     private OrderController oc;
-    private ArrayList<OrderLine> orderLines;
-    
+    private ArrayList<Order> orderList; 
 
     public OrderTableModel() {
+    	//TODO hent controller fra CreateOffer
     	oc = new OrderController();
-    	
-       orderLines = oc.getOrderLines();
+    	orderList = oc.getOrderList();
     }
 
-    public void addOrderLine(OrderLine orderLine) {
-        this.orderLines.add(orderLine);
-        fireTableRowsInserted(orderLines.size() - 1, orderLines.size() - 1);
-    }
+	@Override
+	public int getRowCount() {
+		return orderList.size();
+	}
 
-    @Override
-    public int getRowCount() {
-        return orderLines.size();
-    }
+	@Override
+	public int getColumnCount() {
+		return COLUMN_NAMES.length;
+	}
 
-    @Override
-    public int getColumnCount() {
-        return columnNames.length;
-    }
+	@Override
+	public String getColumnName(int column) {
+		return COLUMN_NAMES[column];
+	}
 
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        OrderLine orderLine = orderLines.get(rowIndex);
-        switch (columnIndex) {
-            case 0:
-                return orderLine.getProduct();
-            case 1:
-                return orderLine.getQuantity();
-            case 2:
-                return orderLine.getProduct().getPrice().getSalesPrice() * orderLine.getQuantity();
-            default:
-                return null;
-        }
-    }
-
-    @Override
-    public String getColumnName(int column) {
-        return columnNames[column];
-    }
-
-    @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        return columnIndex == 1; // Kun "Antal" kolonnen er redigerbar
-    }
-
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        if (columnIndex == 1) {
-            try {
-                int newQuantity = Integer.parseInt(aValue.toString());
-                if (newQuantity > 0) {
-                    OrderLine orderLine = orderLines.get(rowIndex);
-                    orderLine.setQuantity(newQuantity);
-                    fireTableCellUpdated(rowIndex, 1);
-                    fireTableCellUpdated(rowIndex, 2); // Også opdater pris kolonnen
-                }
-            } catch (NumberFormatException e) {
-                // Håndter undtagelsen (f.eks. vis en fejlmeddelelse)
-                System.err.println("Invalid number format: " + aValue);
-            }
-        }
-    }
+	@Override
+	public Object getValueAt(int r, int c) {
+		String returnString = ""; 
+		if (c==0) {
+			
+		} else if (c==1) {
+			
+		} else if (c==2) {
+			
+		}
+		return returnString;
+	}
+    
+    
 }

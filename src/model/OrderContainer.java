@@ -55,10 +55,10 @@ public class OrderContainer {
 				searching = false;
 			} 
 		}
-		return foundOrder;
-		
-		
+		return foundOrder;	
 	}
 	
-	
+	public ArrayList<Order> getOrderList() {
+		return orders;
+	}
 }
