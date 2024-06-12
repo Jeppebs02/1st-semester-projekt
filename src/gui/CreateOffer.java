@@ -38,8 +38,8 @@ public class CreateOffer extends JDialog {
 	private JButton cancelButton;
 	private OrderController oc;
 	private CustomerController cc;
-	private DefaultTableModel orderLineTableModel;
-	//private OrderTableModel orderLineTableModel;
+	//private DefaultTableModel orderLineTableModel;
+	private OrderTableModel orderLineTableModel;
 	private JPanel northPanel;
 	private JLabel lblBarcode;
 	private JLabel lblQuantity;
@@ -101,13 +101,16 @@ public class CreateOffer extends JDialog {
 		orderLineTable = new JTable(); 
 		
 		//maybe add abstract table model
-		orderLineTableModel= new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-					"Produkt", "Antal", "Pris"
-				}
-				);
+		orderLineTableModel= new OrderTableModel(oc);
+				
+				
+//				new DefaultTableModel(
+//				new Object[][] {
+//				},
+//				new String[] {
+//					"Produkt", "Antal", "Pris"
+//				}
+//				);
 		
 		orderLineTable.setModel(orderLineTableModel);
 		scrollPane.setViewportView(orderLineTable);
@@ -294,6 +297,10 @@ public class CreateOffer extends JDialog {
 		this.setVisible(true);
 		
 	}
+	
+	public OrderController getOC() {
+		return oc;
+	}
 
 	private void handleSeachCustomerButton() {
 		this.setVisible(false);
@@ -363,16 +370,24 @@ public class CreateOffer extends JDialog {
             JOptionPane.showMessageDialog(this, "Antal må ikke indeholde bogstaver");
             return;
         }
-
-        Product product = oc.inputProduct(barcode, quantity);
+            
+        Product product = oc.findProductByBarcode(barcode);
 
         if (product == null) {
-            JOptionPane.showMessageDialog(this, "Produktet eksistere ikke");
+            JOptionPane.showMessageDialog(this, "Produktet eksisterer ikke");
             return;
-        } else if (quantity<=product.getInventory().getStock()) {
-        	orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
         } else {
-        	JOptionPane.showMessageDialog(this, "Der er ikke nok af produktet: " + product.getName()+".\n"+"Der er "+String.valueOf(product.getInventory().getStock())+" tilbage.");
+            int productStock = product.getInventory().getStock();
+
+            oc.inputProduct(barcode, quantity);
+
+            if (quantity <= productStock) {
+                //orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
+                OrderTableModel newOrderLineTableModel = new OrderTableModel(oc);
+                orderLineTable.setModel(newOrderLineTableModel);
+            } else {
+                JOptionPane.showMessageDialog(this, "Der er ikke nok af produktet: " + product.getName() + ".\n" + "Der er " + String.valueOf(product.getInventory().getStock()) + " tilbage.");
+            }
         }
 
         textBarcodeField.setText("");

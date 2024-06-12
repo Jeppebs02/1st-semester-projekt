@@ -11,17 +11,18 @@ import model.OrderLine;
 public class OrderTableModel extends AbstractTableModel {
     private final String[] COLUMN_NAMES = {"Produkt", "Antal", "Pris"};
     private OrderController oc;
-    private ArrayList<Order> orderList; 
+    private ArrayList<OrderLine> orderLines;
 
-    public OrderTableModel() {
+    public OrderTableModel(OrderController orderController) {
     	//TODO hent controller fra CreateOffer
-    	oc = new OrderController();
-    	orderList = oc.getOrderList();
+    	oc = orderController;
+    	
+    	orderLines=oc.getOrderLines();
     }
 
 	@Override
 	public int getRowCount() {
-		return orderList.size();
+		return orderLines.size();
 	}
 
 	@Override
@@ -37,12 +38,13 @@ public class OrderTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int r, int c) {
 		String returnString = ""; 
+		
 		if (c==0) {
-			
+			returnString = orderLines.get(r).getProduct().getName();
 		} else if (c==1) {
-			
+			returnString = "" + orderLines.get(r).getQuantity();
 		} else if (c==2) {
-			
+			returnString = "" + (orderLines.get(r).getProduct().getPrice().getSalesPrice() * orderLines.get(r).getQuantity());
 		}
 		return returnString;
 	}

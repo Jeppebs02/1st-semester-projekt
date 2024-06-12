@@ -8,6 +8,7 @@ import model.Order;
 import model.OrderContainer;
 import model.OrderLine;
 import model.Product;
+import model.ProductContainer;
 
 //@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
 //@date: 31/5/2024
@@ -78,6 +79,11 @@ public class OrderController {
 		OrderContainer oc = OrderContainer.getInstance();
 		return oc.saveOffer(currentOrder,orderNr);
 
+	}
+	
+	public Product findProductByBarcode(String barcode) {
+		ProductController pc = new ProductController();
+		return pc.inputProduct(barcode);
 	}
 	
 	public ArrayList<OrderLine> getOrderLines() {
