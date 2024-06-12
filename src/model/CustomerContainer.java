@@ -70,21 +70,18 @@ public class CustomerContainer {
 	}
 	
 	public ArrayList<Customer> findCustomersByName(String name) {
-		
-		ArrayList<Customer> customers = new ArrayList<>();
-		Customer currentCustomer = null;
-		Iterator<Customer> iterator = customers.iterator();
-
-		while (iterator.hasNext()) {
-			currentCustomer = iterator.next();
-			if (currentCustomer.getName().contains(name)) {
-				
-				customers.add(currentCustomer);
-			} 
-		}
-		return customers;
-		
+	    ArrayList<Customer> allCustomers = findAllCustomers();
+	    ArrayList<Customer> matchedCustomers = new ArrayList<>();
+	    String lowerCaseName = name.toLowerCase();
+	    
+	    for (Customer currentCustomer : allCustomers) {
+	        if (currentCustomer.getName().toLowerCase().contains(lowerCaseName)) {
+	            matchedCustomers.add(currentCustomer);
+	        }
+	    }
+	    return matchedCustomers;
 	}
+
 	
 	public void addCustomerToContainer(Customer customer) {
 		if(customer != null) {

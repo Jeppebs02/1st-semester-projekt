@@ -288,9 +288,9 @@ public class FinishOffer extends JDialog {
 		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
 	}
 	
-	private void handleBtnSave(String choice123) {
+	private void handleBtnSave(String dropDownChoice) {
 		
-        osc.changeOrderStatus(choice123);
+        osc.changeOrderStatus(dropDownChoice);
         lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
         btnSendInvoice.setEnabled(true);
 	    

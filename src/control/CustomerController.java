@@ -73,13 +73,17 @@ public class CustomerController {
 		return currentCustomer;
 	}
 	
-	public Customer getCustomerByPhoneNr(String phoneNr) {
-		return getCustomerByID(phoneNr);
+	public ArrayList<Customer> getCustomerByPhoneNr(String phoneNr) {
+		ArrayList<Customer> foundCustomers = new ArrayList<>();
+		foundCustomers.add(getCustomerByID(phoneNr));
+		return foundCustomers;
 	}
 	
-	public Customer getCustomerByEmail(String email) {
+	public ArrayList<Customer> getCustomerByEmail(String email) {
 		CustomerContainer cc = CustomerContainer.getInstance();
-		return cc.findCustomerByEmail(email);
+		ArrayList<Customer> foundCustomers = new ArrayList<>();
+		foundCustomers.add(cc.findCustomerByEmail(email));
+		return foundCustomers;
 	}
 	
 	public ArrayList<Customer> getCustomersByName(String name){

@@ -99,19 +99,7 @@ public class CreateOffer extends JDialog {
 		contentPanel.add(scrollPane);
 		
 		orderLineTable = new JTable(); 
-		
-		//maybe add abstract table model
 		orderLineTableModel= new OrderTableModel(oc);
-				
-				
-//				new DefaultTableModel(
-//				new Object[][] {
-//				},
-//				new String[] {
-//					"Produkt", "Antal", "Pris"
-//				}
-//				);
-		
 		orderLineTable.setModel(orderLineTableModel);
 		scrollPane.setViewportView(orderLineTable);
 		
@@ -382,7 +370,6 @@ public class CreateOffer extends JDialog {
             oc.inputProduct(barcode, quantity);
 
             if (quantity <= productStock) {
-                //orderLineTableModel.addRow(orderLineToObjectArray(oc.getOrderLines().get(oc.getOrderLines().size()-1)));
                 OrderTableModel newOrderLineTableModel = new OrderTableModel(oc);
                 orderLineTable.setModel(newOrderLineTableModel);
             } else {

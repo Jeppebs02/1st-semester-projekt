@@ -7,14 +7,22 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import control.CustomerController;
+import model.Customer;
+import model.OrderLine;
+
 import javax.swing.JScrollPane;
 import java.awt.GridBagLayout;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -23,7 +31,8 @@ public class SearchCustomer extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JTable CustomerTable;
+	private JTable customerTable;
+	private SearchCustomerTableModel searchCustomerTableModel;
 	private JTextField textFieldCustomerName;
 	private JTextField textFieldCustomerEmail;
 	private JTextField textFieldCustomerPhoneNr;
@@ -73,9 +82,16 @@ public class SearchCustomer extends JDialog {
 			contentPanel.add(scrollPane, BorderLayout.CENTER);
 		}
 		{
-			CustomerTable = new JTable();
-			contentPanel.add(CustomerTable, BorderLayout.SOUTH);
+			customerTable = new JTable();
+			contentPanel.add(customerTable, BorderLayout.SOUTH);
+			
+			searchCustomerTableModel= new SearchCustomerTableModel();
+			customerTable.setModel(searchCustomerTableModel);
+			scrollPane.setViewportView(customerTable);
 		}
+		
+		
+		
 		{
 			northPanel = new JPanel();
 			contentPanel.add(northPanel, BorderLayout.NORTH);
@@ -188,20 +204,42 @@ public class SearchCustomer extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		searchCustomerTableModel.initCustomerList();
 	}
 
 	private void handleCancelButton() {
 		//TODO navigate back to the Offer window, thats only set to invisible
 		this.setVisible(false);
+		this.dispose();
 	}
 
 	private void handleOkButton() {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	private void handleSearchButton() {
-		// TODO Auto-generated method stub
+		CustomerController cc = new CustomerController();
+		
+		String searchString;
+		ArrayList<Customer> displayCustomers = new ArrayList<>();
+		if(!textFieldCustomerName.getText().equals("")) {
+			searchString = textFieldCustomerName.getText();
+			displayCustomers = cc.getCustomersByName(searchString);
+		} else if(!textFieldCustomerEmail.getText().equals("")) {
+			searchString = textFieldCustomerEmail.getText();
+			displayCustomers = cc.getCustomerByEmail(searchString);
+		} else if(!textFieldCustomerPhoneNr.getText().equals("")) {
+			searchString = textFieldCustomerPhoneNr.getText();
+			displayCustomers = cc.getCustomerByPhoneNr(searchString);
+		} else {
+			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
+		}
+		
+		
+		SearchCustomerTableModel newSearchCustomerTableModel = new SearchCustomerTableModel();
+		newSearchCustomerTableModel.setCustomers(displayCustomers);
+        customerTable.setModel(newSearchCustomerTableModel);
 		
 	}
 
