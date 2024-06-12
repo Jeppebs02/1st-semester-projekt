@@ -17,6 +17,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 
 
 public class Menu extends JFrame {
@@ -53,7 +58,8 @@ public class Menu extends JFrame {
 	private JButton btnEmployeeStatistic;
 	private JButton btnCustomerStatistic;
 	private JButton btnInventoryStatistic;
-	private JButton btnLogud;
+	private JPanel panel;
+	private JButton btnLogOut;
 	
 	/**
 	 * Launch the application.
@@ -82,14 +88,19 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 11, 438, 227);
 		contentPane.add(tabbedPane);
 		
 		layeredOfferPane = new JLayeredPane();
 		tabbedPane.addTab("Salg", null, layeredOfferPane, null);
+		GridBagLayout gbl_layeredOfferPane = new GridBagLayout();
+		gbl_layeredOfferPane.columnWidths = new int[]{172, 0};
+		gbl_layeredOfferPane.rowHeights = new int[]{23, 23, 23, 23, 0};
+		gbl_layeredOfferPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredOfferPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredOfferPane.setLayout(gbl_layeredOfferPane);
 		
 		btnCreateOffer = new JButton("Opret tilbud");
 		btnCreateOffer.addActionListener(new ActionListener() {
@@ -97,8 +108,22 @@ public class Menu extends JFrame {
 				handleOpretTilbud();
 			}
 		});
-		btnCreateOffer.setBounds(10, 44, 172, 23);
-		layeredOfferPane.add(btnCreateOffer);
+		
+		btnNormaltSale = new JButton("Normalt salg");
+		GridBagConstraints gbc_btnNormaltSale = new GridBagConstraints();
+		gbc_btnNormaltSale.anchor = GridBagConstraints.NORTH;
+		gbc_btnNormaltSale.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnNormaltSale.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNormaltSale.gridx = 0;
+		gbc_btnNormaltSale.gridy = 0;
+		layeredOfferPane.add(btnNormaltSale, gbc_btnNormaltSale);
+		GridBagConstraints gbc_btnCreateOffer = new GridBagConstraints();
+		gbc_btnCreateOffer.anchor = GridBagConstraints.NORTH;
+		gbc_btnCreateOffer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnCreateOffer.insets = new Insets(0, 0, 5, 0);
+		gbc_btnCreateOffer.gridx = 0;
+		gbc_btnCreateOffer.gridy = 1;
+		layeredOfferPane.add(btnCreateOffer, gbc_btnCreateOffer);
 		
 		btnChangeOfferStatus = new JButton("Færdiggør tilbud");
 		btnChangeOfferStatus.addActionListener(new ActionListener() {
@@ -106,117 +131,254 @@ public class Menu extends JFrame {
 				handleFærdiggørbutton();
 			}
 		});
-		btnChangeOfferStatus.setBounds(10, 78, 172, 23);
-		layeredOfferPane.add(btnChangeOfferStatus);
+		GridBagConstraints gbc_btnChangeOfferStatus = new GridBagConstraints();
+		gbc_btnChangeOfferStatus.anchor = GridBagConstraints.NORTH;
+		gbc_btnChangeOfferStatus.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnChangeOfferStatus.insets = new Insets(0, 0, 5, 0);
+		gbc_btnChangeOfferStatus.gridx = 0;
+		gbc_btnChangeOfferStatus.gridy = 2;
+		layeredOfferPane.add(btnChangeOfferStatus, gbc_btnChangeOfferStatus);
 		
 		btnReturnButton = new JButton("Returner vare ");
-		btnReturnButton.setBounds(10, 112, 172, 23);
-		layeredOfferPane.add(btnReturnButton);
-		
-		btnNormaltSale = new JButton("Normalt salg");
-		btnNormaltSale.setBounds(10, 11, 172, 23);
-		layeredOfferPane.add(btnNormaltSale);
+		GridBagConstraints gbc_btnReturnButton = new GridBagConstraints();
+		gbc_btnReturnButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnReturnButton.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnReturnButton.gridx = 0;
+		gbc_btnReturnButton.gridy = 3;
+		layeredOfferPane.add(btnReturnButton, gbc_btnReturnButton);
 		
 		layeredLeasingPane = new JLayeredPane();
 		tabbedPane.addTab("Leasing", null, layeredLeasingPane, null);
+		GridBagLayout gbl_layeredLeasingPane = new GridBagLayout();
+		gbl_layeredLeasingPane.columnWidths = new int[]{173, 0};
+		gbl_layeredLeasingPane.rowHeights = new int[]{23, 23, 23, 23, 0};
+		gbl_layeredLeasingPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredLeasingPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredLeasingPane.setLayout(gbl_layeredLeasingPane);
 		
 		btnCreateLeasing = new JButton("Udlån maskine");
-		btnCreateLeasing.setBounds(10, 11, 173, 23);
-		layeredLeasingPane.add(btnCreateLeasing);
+		GridBagConstraints gbc_btnCreateLeasing = new GridBagConstraints();
+		gbc_btnCreateLeasing.anchor = GridBagConstraints.NORTH;
+		gbc_btnCreateLeasing.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnCreateLeasing.insets = new Insets(0, 0, 5, 0);
+		gbc_btnCreateLeasing.gridx = 0;
+		gbc_btnCreateLeasing.gridy = 0;
+		layeredLeasingPane.add(btnCreateLeasing, gbc_btnCreateLeasing);
 		
 		btnReturnLeasingButton = new JButton("Returner maskine");
-		btnReturnLeasingButton.setBounds(10, 45, 173, 23);
-		layeredLeasingPane.add(btnReturnLeasingButton);
+		GridBagConstraints gbc_btnReturnLeasingButton = new GridBagConstraints();
+		gbc_btnReturnLeasingButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnReturnLeasingButton.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnReturnLeasingButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnReturnLeasingButton.gridx = 0;
+		gbc_btnReturnLeasingButton.gridy = 1;
+		layeredLeasingPane.add(btnReturnLeasingButton, gbc_btnReturnLeasingButton);
 		
 		btnAddNewMachineButton = new JButton("Tilføj ny maskine");
-		btnAddNewMachineButton.setBounds(10, 79, 173, 23);
-		layeredLeasingPane.add(btnAddNewMachineButton);
+		GridBagConstraints gbc_btnAddNewMachineButton = new GridBagConstraints();
+		gbc_btnAddNewMachineButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnAddNewMachineButton.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddNewMachineButton.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAddNewMachineButton.gridx = 0;
+		gbc_btnAddNewMachineButton.gridy = 2;
+		layeredLeasingPane.add(btnAddNewMachineButton, gbc_btnAddNewMachineButton);
 		
 		btnSearchLeasingButton = new JButton("Gennemse maskiner");
-		btnSearchLeasingButton.setBounds(10, 113, 173, 23);
-		layeredLeasingPane.add(btnSearchLeasingButton);
+		GridBagConstraints gbc_btnSearchLeasingButton = new GridBagConstraints();
+		gbc_btnSearchLeasingButton.anchor = GridBagConstraints.NORTH;
+		gbc_btnSearchLeasingButton.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSearchLeasingButton.gridx = 0;
+		gbc_btnSearchLeasingButton.gridy = 3;
+		layeredLeasingPane.add(btnSearchLeasingButton, gbc_btnSearchLeasingButton);
 		
 		layeredEmployeePane = new JLayeredPane();
 		tabbedPane.addTab("Medarbejder", null, layeredEmployeePane, null);
+		GridBagLayout gbl_layeredEmployeePane = new GridBagLayout();
+		gbl_layeredEmployeePane.columnWidths = new int[]{173, 0};
+		gbl_layeredEmployeePane.rowHeights = new int[]{23, 23, 23, 23, 0};
+		gbl_layeredEmployeePane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredEmployeePane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredEmployeePane.setLayout(gbl_layeredEmployeePane);
 		
 		btnCreateEmployee = new JButton("Opret Medarbejder");
-		btnCreateEmployee.setBounds(10, 11, 173, 23);
-		layeredEmployeePane.add(btnCreateEmployee);
+		GridBagConstraints gbc_btnCreateEmployee = new GridBagConstraints();
+		gbc_btnCreateEmployee.anchor = GridBagConstraints.NORTH;
+		gbc_btnCreateEmployee.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnCreateEmployee.insets = new Insets(0, 0, 5, 0);
+		gbc_btnCreateEmployee.gridx = 0;
+		gbc_btnCreateEmployee.gridy = 0;
+		layeredEmployeePane.add(btnCreateEmployee, gbc_btnCreateEmployee);
 		
 		btnSearchEmployee = new JButton("Gennemse medarbejdere");
-		btnSearchEmployee.setBounds(10, 45, 173, 23);
-		layeredEmployeePane.add(btnSearchEmployee);
+		GridBagConstraints gbc_btnSearchEmployee = new GridBagConstraints();
+		gbc_btnSearchEmployee.anchor = GridBagConstraints.NORTH;
+		gbc_btnSearchEmployee.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSearchEmployee.insets = new Insets(0, 0, 5, 0);
+		gbc_btnSearchEmployee.gridx = 0;
+		gbc_btnSearchEmployee.gridy = 1;
+		layeredEmployeePane.add(btnSearchEmployee, gbc_btnSearchEmployee);
 		
 		btnAddEmployee = new JButton("Tilføj ny medarbejder");
-		btnAddEmployee.setBounds(10, 79, 173, 23);
-		layeredEmployeePane.add(btnAddEmployee);
+		GridBagConstraints gbc_btnAddEmployee = new GridBagConstraints();
+		gbc_btnAddEmployee.anchor = GridBagConstraints.NORTH;
+		gbc_btnAddEmployee.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddEmployee.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAddEmployee.gridx = 0;
+		gbc_btnAddEmployee.gridy = 2;
+		layeredEmployeePane.add(btnAddEmployee, gbc_btnAddEmployee);
 		
 		btnRemoveEmployee = new JButton("Fjern medarbejder");
-		btnRemoveEmployee.setBounds(10, 113, 173, 23);
-		layeredEmployeePane.add(btnRemoveEmployee);
+		GridBagConstraints gbc_btnRemoveEmployee = new GridBagConstraints();
+		gbc_btnRemoveEmployee.anchor = GridBagConstraints.NORTH;
+		gbc_btnRemoveEmployee.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnRemoveEmployee.gridx = 0;
+		gbc_btnRemoveEmployee.gridy = 3;
+		layeredEmployeePane.add(btnRemoveEmployee, gbc_btnRemoveEmployee);
 		
 		layeredCustomerPane = new JLayeredPane();
 		tabbedPane.addTab("Kunde", null, layeredCustomerPane, null);
+		GridBagLayout gbl_layeredCustomerPane = new GridBagLayout();
+		gbl_layeredCustomerPane.columnWidths = new int[]{173, 0};
+		gbl_layeredCustomerPane.rowHeights = new int[]{23, 23, 23, 23, 23, 0};
+		gbl_layeredCustomerPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredCustomerPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredCustomerPane.setLayout(gbl_layeredCustomerPane);
 		
 		btnCreateCustomer = new JButton("Opret kunde ");
-		btnCreateCustomer.setBounds(10, 11, 173, 23);
-		layeredCustomerPane.add(btnCreateCustomer);
+		GridBagConstraints gbc_btnCreateCustomer = new GridBagConstraints();
+		gbc_btnCreateCustomer.anchor = GridBagConstraints.NORTH;
+		gbc_btnCreateCustomer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnCreateCustomer.insets = new Insets(0, 0, 5, 0);
+		gbc_btnCreateCustomer.gridx = 0;
+		gbc_btnCreateCustomer.gridy = 0;
+		layeredCustomerPane.add(btnCreateCustomer, gbc_btnCreateCustomer);
 		
 		btnSearchCustomer = new JButton("Gennemse kunde");
-		btnSearchCustomer.setBounds(10, 45, 173, 23);
-		layeredCustomerPane.add(btnSearchCustomer);
+		GridBagConstraints gbc_btnSearchCustomer = new GridBagConstraints();
+		gbc_btnSearchCustomer.anchor = GridBagConstraints.NORTH;
+		gbc_btnSearchCustomer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSearchCustomer.insets = new Insets(0, 0, 5, 0);
+		gbc_btnSearchCustomer.gridx = 0;
+		gbc_btnSearchCustomer.gridy = 1;
+		layeredCustomerPane.add(btnSearchCustomer, gbc_btnSearchCustomer);
 		
 		btnAddCustomer = new JButton("Tilføj ny kunde");
-		btnAddCustomer.setBounds(10, 79, 173, 23);
-		layeredCustomerPane.add(btnAddCustomer);
+		GridBagConstraints gbc_btnAddCustomer = new GridBagConstraints();
+		gbc_btnAddCustomer.anchor = GridBagConstraints.NORTH;
+		gbc_btnAddCustomer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddCustomer.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAddCustomer.gridx = 0;
+		gbc_btnAddCustomer.gridy = 2;
+		layeredCustomerPane.add(btnAddCustomer, gbc_btnAddCustomer);
 		
 		btnRemoveCustomer = new JButton("Fjern kunde");
-		btnRemoveCustomer.setBounds(10, 113, 173, 23);
-		layeredCustomerPane.add(btnRemoveCustomer);
+		GridBagConstraints gbc_btnRemoveCustomer = new GridBagConstraints();
+		gbc_btnRemoveCustomer.anchor = GridBagConstraints.NORTH;
+		gbc_btnRemoveCustomer.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnRemoveCustomer.insets = new Insets(0, 0, 5, 0);
+		gbc_btnRemoveCustomer.gridx = 0;
+		gbc_btnRemoveCustomer.gridy = 3;
+		layeredCustomerPane.add(btnRemoveCustomer, gbc_btnRemoveCustomer);
 		
 		btnSetCustomerCategory = new JButton("Angiv kunde kategori");
-		btnSetCustomerCategory.setBounds(10, 147, 173, 23);
-		layeredCustomerPane.add(btnSetCustomerCategory);
+		GridBagConstraints gbc_btnSetCustomerCategory = new GridBagConstraints();
+		gbc_btnSetCustomerCategory.anchor = GridBagConstraints.NORTH;
+		gbc_btnSetCustomerCategory.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSetCustomerCategory.gridx = 0;
+		gbc_btnSetCustomerCategory.gridy = 4;
+		layeredCustomerPane.add(btnSetCustomerCategory, gbc_btnSetCustomerCategory);
 		
 		layeredInventoryPane = new JLayeredPane();
 		tabbedPane.addTab("Lager", null, layeredInventoryPane, null);
+		GridBagLayout gbl_layeredInventoryPane = new GridBagLayout();
+		gbl_layeredInventoryPane.columnWidths = new int[]{173, 0};
+		gbl_layeredInventoryPane.rowHeights = new int[]{23, 23, 23, 0};
+		gbl_layeredInventoryPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredInventoryPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredInventoryPane.setLayout(gbl_layeredInventoryPane);
 		
 		btnFindProduct = new JButton("Find vare");
-		btnFindProduct.setBounds(10, 11, 173, 23);
-		layeredInventoryPane.add(btnFindProduct);
+		GridBagConstraints gbc_btnFindProduct = new GridBagConstraints();
+		gbc_btnFindProduct.anchor = GridBagConstraints.NORTH;
+		gbc_btnFindProduct.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnFindProduct.insets = new Insets(0, 0, 5, 0);
+		gbc_btnFindProduct.gridx = 0;
+		gbc_btnFindProduct.gridy = 0;
+		layeredInventoryPane.add(btnFindProduct, gbc_btnFindProduct);
 		
 		btnOrderProduct = new JButton("Bestil vare ");
-		btnOrderProduct.setBounds(10, 45, 173, 23);
-		layeredInventoryPane.add(btnOrderProduct);
+		GridBagConstraints gbc_btnOrderProduct = new GridBagConstraints();
+		gbc_btnOrderProduct.anchor = GridBagConstraints.NORTH;
+		gbc_btnOrderProduct.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnOrderProduct.insets = new Insets(0, 0, 5, 0);
+		gbc_btnOrderProduct.gridx = 0;
+		gbc_btnOrderProduct.gridy = 1;
+		layeredInventoryPane.add(btnOrderProduct, gbc_btnOrderProduct);
 		
 		btnInventoryCount = new JButton("Lager optælling ");
-		btnInventoryCount.setBounds(10, 79, 173, 23);
-		layeredInventoryPane.add(btnInventoryCount);
+		GridBagConstraints gbc_btnInventoryCount = new GridBagConstraints();
+		gbc_btnInventoryCount.anchor = GridBagConstraints.NORTH;
+		gbc_btnInventoryCount.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnInventoryCount.gridx = 0;
+		gbc_btnInventoryCount.gridy = 2;
+		layeredInventoryPane.add(btnInventoryCount, gbc_btnInventoryCount);
 		
 		layeredStatisticPane = new JLayeredPane();
 		tabbedPane.addTab("Statistik", null, layeredStatisticPane, null);
+		GridBagLayout gbl_layeredStatisticPane = new GridBagLayout();
+		gbl_layeredStatisticPane.columnWidths = new int[]{173, 0};
+		gbl_layeredStatisticPane.rowHeights = new int[]{23, 23, 23, 0};
+		gbl_layeredStatisticPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_layeredStatisticPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredStatisticPane.setLayout(gbl_layeredStatisticPane);
 		
 		btnEmployeeStatistic = new JButton("Medarbejder statestik");
-		btnEmployeeStatistic.setBounds(10, 11, 173, 23);
-		layeredStatisticPane.add(btnEmployeeStatistic);
+		GridBagConstraints gbc_btnEmployeeStatistic = new GridBagConstraints();
+		gbc_btnEmployeeStatistic.anchor = GridBagConstraints.NORTH;
+		gbc_btnEmployeeStatistic.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnEmployeeStatistic.insets = new Insets(0, 0, 5, 0);
+		gbc_btnEmployeeStatistic.gridx = 0;
+		gbc_btnEmployeeStatistic.gridy = 0;
+		layeredStatisticPane.add(btnEmployeeStatistic, gbc_btnEmployeeStatistic);
 		
 		btnCustomerStatistic = new JButton("Kunde statestik");
-		btnCustomerStatistic.setBounds(10, 45, 173, 23);
-		layeredStatisticPane.add(btnCustomerStatistic);
+		GridBagConstraints gbc_btnCustomerStatistic = new GridBagConstraints();
+		gbc_btnCustomerStatistic.anchor = GridBagConstraints.NORTH;
+		gbc_btnCustomerStatistic.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnCustomerStatistic.insets = new Insets(0, 0, 5, 0);
+		gbc_btnCustomerStatistic.gridx = 0;
+		gbc_btnCustomerStatistic.gridy = 1;
+		layeredStatisticPane.add(btnCustomerStatistic, gbc_btnCustomerStatistic);
 		
 		btnInventoryStatistic = new JButton("Lager statestik ");
-		btnInventoryStatistic.setBounds(10, 79, 173, 23);
-		layeredStatisticPane.add(btnInventoryStatistic);
+		GridBagConstraints gbc_btnInventoryStatistic = new GridBagConstraints();
+		gbc_btnInventoryStatistic.anchor = GridBagConstraints.NORTH;
+		gbc_btnInventoryStatistic.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnInventoryStatistic.gridx = 0;
+		gbc_btnInventoryStatistic.gridy = 2;
+		layeredStatisticPane.add(btnInventoryStatistic, gbc_btnInventoryStatistic);
 		
-		btnLogud = new JButton("Logud");
-		btnLogud.addMouseListener(new MouseAdapter() {
+		panel = new JPanel();
+		contentPane.add(panel, BorderLayout.SOUTH);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{335, 89, 0};
+		gbl_panel.rowHeights = new int[]{23, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		btnLogOut = new JButton("Log ud");
+		btnLogOut.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				logOut();
 			}
 		});
-		btnLogud.setBounds(339, 242, 89, 23);
-		contentPane.add(btnLogud);
+		GridBagConstraints gbc_btnLogOut = new GridBagConstraints();
+		gbc_btnLogOut.anchor = GridBagConstraints.NORTHEAST;
+		gbc_btnLogOut.gridx = 1;
+		gbc_btnLogOut.gridy = 0;
+		panel.add(btnLogOut, gbc_btnLogOut);
 		
 	
 	}
@@ -234,13 +396,10 @@ public class Menu extends JFrame {
 		
 		
 	}
-
 	private void logOut() {
 		Login login = new Login();
 		login.setVisible(true);
         Menu.this.setVisible(false);
         Menu.this.dispose();
-		
 	}
-
 }
