@@ -47,7 +47,6 @@ public class Menu extends JFrame {
 	private JLayeredPane layeredCustomerPane;
 	private JButton btnCreateCustomer;
 	private JButton btnSearchCustomer;
-	private JButton btnAddCustomer;
 	private JButton btnRemoveCustomer;
 	private JButton btnSetCustomerCategory;
 	private JLayeredPane layeredInventoryPane;
@@ -60,6 +59,7 @@ public class Menu extends JFrame {
 	private JButton btnInventoryStatistic;
 	private JPanel panel;
 	private JButton btnLogOut;
+	private JButton btnUpdateProduct;
 	
 	/**
 	 * Launch the application.
@@ -239,12 +239,18 @@ public class Menu extends JFrame {
 		tabbedPane.addTab("Kunde", null, layeredCustomerPane, null);
 		GridBagLayout gbl_layeredCustomerPane = new GridBagLayout();
 		gbl_layeredCustomerPane.columnWidths = new int[]{173, 0};
-		gbl_layeredCustomerPane.rowHeights = new int[]{23, 23, 23, 23, 23, 0};
+		gbl_layeredCustomerPane.rowHeights = new int[]{23, 23, 23, 23, 0};
 		gbl_layeredCustomerPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_layeredCustomerPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_layeredCustomerPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		layeredCustomerPane.setLayout(gbl_layeredCustomerPane);
 		
 		btnCreateCustomer = new JButton("Opret kunde ");
+		btnCreateCustomer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				HandleOpretKunde();
+			}
+		});
 		GridBagConstraints gbc_btnCreateCustomer = new GridBagConstraints();
 		gbc_btnCreateCustomer.anchor = GridBagConstraints.NORTH;
 		gbc_btnCreateCustomer.fill = GridBagConstraints.HORIZONTAL;
@@ -268,15 +274,6 @@ public class Menu extends JFrame {
 		gbc_btnSearchCustomer.gridy = 1;
 		layeredCustomerPane.add(btnSearchCustomer, gbc_btnSearchCustomer);
 		
-		btnAddCustomer = new JButton("Tilføj ny kunde");
-		GridBagConstraints gbc_btnAddCustomer = new GridBagConstraints();
-		gbc_btnAddCustomer.anchor = GridBagConstraints.NORTH;
-		gbc_btnAddCustomer.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnAddCustomer.insets = new Insets(0, 0, 5, 0);
-		gbc_btnAddCustomer.gridx = 0;
-		gbc_btnAddCustomer.gridy = 2;
-		layeredCustomerPane.add(btnAddCustomer, gbc_btnAddCustomer);
-		
 		btnRemoveCustomer = new JButton("Fjern kunde");
 		btnRemoveCustomer.addMouseListener(new MouseAdapter() {
 			@Override
@@ -289,7 +286,7 @@ public class Menu extends JFrame {
 		gbc_btnRemoveCustomer.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnRemoveCustomer.insets = new Insets(0, 0, 5, 0);
 		gbc_btnRemoveCustomer.gridx = 0;
-		gbc_btnRemoveCustomer.gridy = 3;
+		gbc_btnRemoveCustomer.gridy = 2;
 		layeredCustomerPane.add(btnRemoveCustomer, gbc_btnRemoveCustomer);
 		
 		btnSetCustomerCategory = new JButton("Angiv kunde kategori");
@@ -297,16 +294,16 @@ public class Menu extends JFrame {
 		gbc_btnSetCustomerCategory.anchor = GridBagConstraints.NORTH;
 		gbc_btnSetCustomerCategory.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSetCustomerCategory.gridx = 0;
-		gbc_btnSetCustomerCategory.gridy = 4;
+		gbc_btnSetCustomerCategory.gridy = 3;
 		layeredCustomerPane.add(btnSetCustomerCategory, gbc_btnSetCustomerCategory);
 		
 		layeredInventoryPane = new JLayeredPane();
 		tabbedPane.addTab("Lager", null, layeredInventoryPane, null);
 		GridBagLayout gbl_layeredInventoryPane = new GridBagLayout();
 		gbl_layeredInventoryPane.columnWidths = new int[]{173, 0};
-		gbl_layeredInventoryPane.rowHeights = new int[]{23, 23, 23, 0};
+		gbl_layeredInventoryPane.rowHeights = new int[]{23, 23, 23, 0, 0};
 		gbl_layeredInventoryPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
-		gbl_layeredInventoryPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_layeredInventoryPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		layeredInventoryPane.setLayout(gbl_layeredInventoryPane);
 		
 		btnFindProduct = new JButton("Find vare");
@@ -327,12 +324,21 @@ public class Menu extends JFrame {
 		gbc_btnOrderProduct.gridy = 1;
 		layeredInventoryPane.add(btnOrderProduct, gbc_btnOrderProduct);
 		
+		btnUpdateProduct = new JButton("Opdater vare");
+		GridBagConstraints gbc_btnUpdateProduct = new GridBagConstraints();
+		gbc_btnUpdateProduct.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnUpdateProduct.anchor = GridBagConstraints.NORTH;
+		gbc_btnUpdateProduct.insets = new Insets(0, 0, 5, 0);
+		gbc_btnUpdateProduct.gridx = 0;
+		gbc_btnUpdateProduct.gridy = 2;
+		layeredInventoryPane.add(btnUpdateProduct, gbc_btnUpdateProduct);
+		
 		btnInventoryCount = new JButton("Lager optælling ");
 		GridBagConstraints gbc_btnInventoryCount = new GridBagConstraints();
 		gbc_btnInventoryCount.anchor = GridBagConstraints.NORTH;
 		gbc_btnInventoryCount.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnInventoryCount.gridx = 0;
-		gbc_btnInventoryCount.gridy = 2;
+		gbc_btnInventoryCount.gridy = 3;
 		layeredInventoryPane.add(btnInventoryCount, gbc_btnInventoryCount);
 		
 		layeredStatisticPane = new JLayeredPane();
@@ -395,7 +401,13 @@ public class Menu extends JFrame {
 	
 	}
 
-	protected void HandleFjernKunde() {
+	private void HandleOpretKunde() {
+		NewCustomer nc = new NewCustomer();
+		nc.setVisible(true);
+		
+	}
+
+	private void HandleFjernKunde() {
 		DeleteCustomer dc = new DeleteCustomer();
 		dc.setVisible(true);
 		
