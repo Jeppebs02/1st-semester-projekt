@@ -139,7 +139,9 @@ public class Order {
 		return customer;
 	}
 	
-	
+	public boolean removeOrderLine(OrderLine ol) {
+		return orderLines.remove(ol);
+	}
 	
 
 }

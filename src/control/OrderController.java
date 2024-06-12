@@ -95,9 +95,10 @@ public class OrderController {
 		return lc.getLoginUser();
 	}
 	
-	public ArrayList<Order> getOrderList() {
+	public ArrayList<Order> getOrders() {
 		OrderContainer oc = OrderContainer.getInstance();
 		return oc.getOrderList();
 	}
-
+	
+	
 }
