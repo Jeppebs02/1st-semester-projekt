@@ -278,6 +278,12 @@ public class Menu extends JFrame {
 		layeredCustomerPane.add(btnAddCustomer, gbc_btnAddCustomer);
 		
 		btnRemoveCustomer = new JButton("Fjern kunde");
+		btnRemoveCustomer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				HandleFjernKunde();
+			}
+		});
 		GridBagConstraints gbc_btnRemoveCustomer = new GridBagConstraints();
 		gbc_btnRemoveCustomer.anchor = GridBagConstraints.NORTH;
 		gbc_btnRemoveCustomer.fill = GridBagConstraints.HORIZONTAL;
@@ -387,6 +393,12 @@ public class Menu extends JFrame {
 		panel.add(btnLogOut, gbc_btnLogOut);
 		
 	
+	}
+
+	protected void HandleFjernKunde() {
+		DeleteCustomer dc = new DeleteCustomer();
+		dc.setVisible(true);
+		
 	}
 
 	private void handleGennemseKunde() {
