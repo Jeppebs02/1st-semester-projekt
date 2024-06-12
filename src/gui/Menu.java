@@ -254,6 +254,12 @@ public class Menu extends JFrame {
 		layeredCustomerPane.add(btnCreateCustomer, gbc_btnCreateCustomer);
 		
 		btnSearchCustomer = new JButton("Gennemse kunde");
+		btnSearchCustomer.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				handleGennemseKunde();
+			}
+		});
 		GridBagConstraints gbc_btnSearchCustomer = new GridBagConstraints();
 		gbc_btnSearchCustomer.anchor = GridBagConstraints.NORTH;
 		gbc_btnSearchCustomer.fill = GridBagConstraints.HORIZONTAL;
@@ -381,6 +387,12 @@ public class Menu extends JFrame {
 		panel.add(btnLogOut, gbc_btnLogOut);
 		
 	
+	}
+
+	private void handleGennemseKunde() {
+		SearchCustomer sc = new SearchCustomer();
+		sc.setVisible(true);
+		
 	}
 
 	private void handleFærdiggørbutton() {
