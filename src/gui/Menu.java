@@ -245,9 +245,8 @@ public class Menu extends JFrame {
 		layeredCustomerPane.setLayout(gbl_layeredCustomerPane);
 		
 		btnCreateCustomer = new JButton("Opret kunde ");
-		btnCreateCustomer.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnCreateCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				HandleOpretKunde();
 			}
 		});
