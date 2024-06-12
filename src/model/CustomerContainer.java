@@ -53,6 +53,39 @@ public class CustomerContainer {
 		return foundCustomerName;
 	}
 	
+	public Customer findCustomerByEmail(String email) {
+		Customer foundCustomer = null;
+		Customer currentCustomer = null;
+		boolean searching = true;
+		Iterator<Customer> iterator = customers.iterator();
+
+		while (searching && iterator.hasNext()) {
+			currentCustomer = iterator.next();
+			if (currentCustomer.getEmail().equalsIgnoreCase(email)) {
+				foundCustomer = currentCustomer;
+				searching = false;
+			} 
+		}
+		return foundCustomer;
+	}
+	
+	public ArrayList<Customer> findCustomersByName(String name) {
+		
+		ArrayList<Customer> customers = new ArrayList<>();
+		Customer currentCustomer = null;
+		Iterator<Customer> iterator = customers.iterator();
+
+		while (iterator.hasNext()) {
+			currentCustomer = iterator.next();
+			if (currentCustomer.getName().contains(name)) {
+				
+				customers.add(currentCustomer);
+			} 
+		}
+		return customers;
+		
+	}
+	
 	public void addCustomerToContainer(Customer customer) {
 		if(customer != null) {
 			customers.add(customer);
