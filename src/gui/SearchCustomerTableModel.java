@@ -42,6 +42,10 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 			return customers;
 		}
 
+		public void setCustomers(ArrayList<Customer> customers) {
+			this.customers = customers;
+		}
+
 		@Override
 		public Object getValueAt(int r, int c) {
 			String returnString = ""; 
