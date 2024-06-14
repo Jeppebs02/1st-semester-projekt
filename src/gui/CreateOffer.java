@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import control.CustomerController;
 import control.OrderController;
+import control.ProductController;
 import model.OrderLine;
 import model.Product;
 import tui.TryMe;
@@ -38,7 +39,6 @@ public class CreateOffer extends JDialog {
 	private JButton cancelButton;
 	private OrderController oc;
 	private CustomerController cc;
-	//private DefaultTableModel orderLineTableModel;
 	private OrderTableModel orderLineTableModel;
 	private JPanel northPanel;
 	private JLabel lblBarcode;
@@ -292,7 +292,7 @@ public class CreateOffer extends JDialog {
 
 	private void handleSeachCustomerButton() {
 		this.setVisible(false);
-		SearchCustomer searchCustomer = new SearchCustomer();
+		SearchCustomer searchCustomer = new SearchCustomer(textCustomerIDField);
 		searchCustomer.setVisible(true);
 		this.setVisible(true);
 	}
@@ -309,40 +309,27 @@ public class CreateOffer extends JDialog {
 		}		
 	}
 
-	private Object[] orderLineToObjectArray(OrderLine ol) {
-		String productName = ol.getProduct().getName();
-		int quantity = ol.getQuantity();
-		double price = ol.getProduct().getPrice().getSalesPrice()*quantity;
-		
-		return new Object[] {productName,quantity,price};
-	}
-
 	private void handleOkButton() {
 		// TODO Add a receipt
 		oc.saveOffer(orderNr);
 		this.setVisible(false);
 		this.dispose();
-		
 	}
 
 	private void handleCancelButton() {
 		this.setVisible(false);
 		this.dispose();
-		
 	}
 	
 	private double returnDiscount() {
-		
 		return oc.getCurrentOrder().getCustomer().getCustomerCategory().calculateDiscountPercent();
 	}
 	
 	private double returnPrice() {
-		
 		return oc.getCurrentOrder().calculateTotalPrice();
 	}
 	
 	private void handleAddProduct() {
-
         String barcode = textBarcodeField.getText();
         int quantity=0;
 
@@ -350,17 +337,14 @@ public class CreateOffer extends JDialog {
             if (textQuantityField.getText().equals("")) {
                 quantity = 1;
             } else {
-
                 quantity = Integer.parseInt(textQuantityField.getText());
             }
-
         } catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Antal må ikke indeholde bogstaver");
             return;
         }
             
         Product product = oc.findProductByBarcode(barcode);
-
         if (product == null) {
             JOptionPane.showMessageDialog(this, "Produktet eksisterer ikke");
             return;

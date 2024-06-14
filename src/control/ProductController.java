@@ -2,6 +2,8 @@ package control;
 
 import java.util.ArrayList;
 
+import model.Customer;
+import model.CustomerContainer;
 import model.ItemPrice;
 import model.Location;
 //@author: Ali Barakji, Jeppe B. Sørensen, Kasper Mikkelsen, Magnus Tomra Engberg, Matias Holm Nielsen, Oscar Seistrup Hermann
@@ -55,4 +57,18 @@ public class ProductController {
 		return ProductContainer.getInstance().findAllProducts();
 	}
 	
+	public ArrayList<Product> getProductsByDescription(String description) {
+		ProductContainer pc = ProductContainer.getInstance();
+		return pc.findProductsByDescription(description);
+	}
+	
+	public ArrayList<Product> getProductsByCategory(String category) {
+		ProductContainer pc = ProductContainer.getInstance();
+		return pc.findProductsByCategory(category);
+	}
+	
+	public ArrayList<Product> getProductsByName(String name){
+		ProductContainer pc = ProductContainer.getInstance();
+		return pc.findProductsByName(name);
+	}
 }

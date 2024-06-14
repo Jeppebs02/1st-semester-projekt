@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 import control.CustomerController;
+import control.OrderController;
 import model.Customer;
 
 public class SearchCustomerTableModel extends AbstractTableModel{
@@ -64,5 +65,7 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 			return returnString;
 		}
 		
-		
+		public Customer getSelectedCustomer(int r) {
+			return customers.get(r); 
+		}
 }

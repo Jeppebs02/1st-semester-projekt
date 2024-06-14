@@ -18,7 +18,7 @@ public class SearchProductTableModel extends AbstractTableModel {
 		products = new ArrayList<>();
 	}
 	
-	public void initCustomerTable () {
+	public void initProductTable () {
 		products = pc.printAllProducts();
 	}
 	
@@ -67,5 +67,9 @@ public class SearchProductTableModel extends AbstractTableModel {
 	
 	public ArrayList<Product> getProoducts() {
 		return products;
+	}
+	
+	public void setProducts(ArrayList<Product> products) {
+		this.products = products;
 	}
 }

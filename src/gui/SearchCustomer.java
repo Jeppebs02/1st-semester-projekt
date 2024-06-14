@@ -9,7 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.CustomerController;
+import control.OrderController;
 import model.Customer;
+import model.Order;
 import model.OrderLine;
 
 import javax.swing.JScrollPane;
@@ -53,24 +55,13 @@ public class SearchCustomer extends JDialog {
 	private GridBagConstraints gbc_lblCustomerPhoneNr;
 	private GridBagConstraints gbc_textFieldCustomerPhoneNr;
 	private GridBagConstraints gbc_btnSearch;
+	private ArrayList<Customer> displayCustomers;
+	private JTextField textCustomerIDField;
+	private SearchCustomerTableModel newSearchCustomerTableModel;
+	private boolean searchPress;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			SearchCustomer dialog = new SearchCustomer();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
-	public SearchCustomer() {
+	public SearchCustomer(JTextField textCustomerIDField) {
+		this.textCustomerIDField = textCustomerIDField;
 		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -83,15 +74,11 @@ public class SearchCustomer extends JDialog {
 		}
 		{
 			customerTable = new JTable();
-			contentPanel.add(customerTable, BorderLayout.SOUTH);
-			
+			contentPanel.add(customerTable, BorderLayout.SOUTH);	
 			searchCustomerTableModel= new SearchCustomerTableModel();
 			customerTable.setModel(searchCustomerTableModel);
 			scrollPane.setViewportView(customerTable);
-		}
-		
-		
-		
+		}	
 		{
 			northPanel = new JPanel();
 			contentPanel.add(northPanel, BorderLayout.NORTH);
@@ -204,43 +191,60 @@ public class SearchCustomer extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		displayCustomers = new ArrayList<>();
 		searchCustomerTableModel.initCustomerList();
 	}
 
 	private void handleCancelButton() {
-		//TODO navigate back to the Offer window, thats only set to invisible
 		this.setVisible(false);
 		this.dispose();
 	}
 
 	private void handleOkButton() {
-		// TODO Auto-generated method stub
+		int selectedRow = customerTable.getSelectedRow();
+		Customer selectedCustomer;
 		
+		if (selectedRow != -1) {
+			if (searchPress) {
+				selectedCustomer = newSearchCustomerTableModel.getSelectedCustomer(selectedRow);
+			} else {
+				selectedCustomer = searchCustomerTableModel.getSelectedCustomer(selectedRow);
+			}
+			String customerID = selectedCustomer.getCustomerID();
+			textCustomerIDField.setText(customerID);
+	        this.setVisible(false);
+	        this.dispose();
+			} else {
+        JOptionPane.showMessageDialog(this, "Vælg venligst en kunde");
+    	}
 	}
 	
-	private void handleSearchButton() {
+	private boolean handleSearchButton() {
 		CustomerController cc = new CustomerController();
+		searchPress = false;
 		
 		String searchString;
-		ArrayList<Customer> displayCustomers = new ArrayList<>();
+//		ArrayList<Customer> displayCustomers = new ArrayList<>();
 		if(!textFieldCustomerName.getText().equals("")) {
 			searchString = textFieldCustomerName.getText();
 			displayCustomers = cc.getCustomersByName(searchString);
+			searchPress = true;
 		} else if(!textFieldCustomerEmail.getText().equals("")) {
 			searchString = textFieldCustomerEmail.getText();
 			displayCustomers = cc.getCustomerByEmail(searchString);
+			searchPress = true;
 		} else if(!textFieldCustomerPhoneNr.getText().equals("")) {
 			searchString = textFieldCustomerPhoneNr.getText();
 			displayCustomers = cc.getCustomerByPhoneNr(searchString);
+			searchPress = true;
 		} else {
 			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
 		}
 		
-		
-		SearchCustomerTableModel newSearchCustomerTableModel = new SearchCustomerTableModel();
+		newSearchCustomerTableModel = new SearchCustomerTableModel();
 		newSearchCustomerTableModel.setCustomers(displayCustomers);
         customerTable.setModel(newSearchCustomerTableModel);
-		
+        return searchPress;
 	}
 
 }

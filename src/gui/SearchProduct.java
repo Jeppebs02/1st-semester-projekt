@@ -7,15 +7,22 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import control.CustomerController;
+import control.ProductController;
+import model.Customer;
+import model.Product;
 
 public class SearchProduct extends JDialog {
 
@@ -23,6 +30,7 @@ public class SearchProduct extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JScrollPane scrollPane;
 	private JTable productTable;
+	private SearchProductTableModel searchProductTableModel;
 	private JPanel northPanel;
 	private GridBagLayout gbl_northPanel;
 	private JLabel lblPProductName;
@@ -73,6 +81,9 @@ public class SearchProduct extends JDialog {
 		{
 			productTable = new JTable();
 			contentPanel.add(productTable, BorderLayout.SOUTH);
+			searchProductTableModel= new SearchProductTableModel();
+			productTable.setModel(searchProductTableModel);
+			scrollPane.setViewportView(productTable);
 		}
 		{
 			northPanel = new JPanel();
@@ -179,11 +190,30 @@ public class SearchProduct extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		searchProductTableModel.initProductTable();
 	}
 
 	private void handleSearchButton() {
-		// TODO Auto-generated method stub
+		ProductController pc = new ProductController();
 		
+		String searchString;
+		ArrayList<Product> displayProducts = new ArrayList<>();
+		if(!textFieldProductName.getText().equals("")) {
+			searchString = textFieldProductName.getText();
+			displayProducts = pc.getProductsByName(searchString);
+		} else if(!textFieldPDescription.getText().equals("")) {
+			searchString = textFieldPDescription.getText();
+			displayProducts = pc.getProductsByDescription(searchString);
+		} else if(!textFieldCategory.getText().equals("")) {
+			searchString = textFieldCategory.getText();
+			displayProducts = pc.getProductsByCategory(searchString);
+		} else {
+			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
+		}
+		
+		SearchProductTableModel newSearchProductTableModel = new SearchProductTableModel();
+		newSearchProductTableModel.setProducts(displayProducts);
+        productTable.setModel(newSearchProductTableModel);
 	}
 
 	private void handleOkButton() {
@@ -192,7 +222,6 @@ public class SearchProduct extends JDialog {
 	}
 
 	private void handleCancelButton() {
-		//TODO navigate back to the Offer window, thats only set to invisible
 		this.setVisible(false);
 		this.dispose();	
 	}

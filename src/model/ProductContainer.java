@@ -53,4 +53,42 @@ public class ProductContainer {
 		return new ArrayList<>(this.products);
 	}
 	
+	public ArrayList<Product> findProductsByName(String name) {
+	    ArrayList<Product> allProducts = findAllProducts();
+	    ArrayList<Product> matchedProducts = new ArrayList<>();
+	    String lowerCaseName = name.toLowerCase();
+	    
+	    for (Product currentProduct : allProducts) {
+	        if (currentProduct.getName().toLowerCase().contains(lowerCaseName)) {
+	        	matchedProducts.add(currentProduct);
+	        }
+	    }
+	    return matchedProducts;
+	}
+	
+	public ArrayList<Product> findProductsByDescription(String description) {
+	    ArrayList<Product> allProducts = findAllProducts();
+	    ArrayList<Product> matchedProducts = new ArrayList<>();
+	    String lowerCaseName = description.toLowerCase();
+	    
+	    for (Product currentProduct : allProducts) {
+	        if (currentProduct.getDescription().toLowerCase().contains(lowerCaseName)) {
+	        	matchedProducts.add(currentProduct);
+	        }
+	    }
+	    return matchedProducts;
+	}
+	
+	public ArrayList<Product> findProductsByCategory(String category) {
+	    ArrayList<Product> allProducts = findAllProducts();
+	    ArrayList<Product> matchedProducts = new ArrayList<>();
+	    String lowerCaseName = category.toLowerCase();
+	    
+	    for (Product currentProduct : allProducts) {
+	        if (currentProduct.getCategory().toLowerCase().contains(lowerCaseName)) {
+	        	matchedProducts.add(currentProduct);
+	        }
+	    }
+	    return matchedProducts;
+	}
 }
