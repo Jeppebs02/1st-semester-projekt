@@ -43,14 +43,26 @@ public class TryMe {
 		// Liste med tilfældige navne
         List<String> firstNames = Arrays.asList("Anna", "Bent", "Carl", "Ditte", "Emil", "Freja", "Gustav", "Hanne", "Ivan", "Jette", "Kasper", "Lone", "Mads", "Nina", "Ole", "Pia", "Rasmus", "Sara", "Tina", "Uffe", "Vera", "William", "Xenia", "Yvonne", "Zack");
         List<String> lastNames = Arrays.asList("Andersen", "Bach", "Christensen", "Dam", "Eriksen", "Frederiksen", "Gade", "Hansen", "Iversen", "Jensen", "Kjær", "Larsen", "Møller", "Nielsen", "Olsen", "Pedersen", "Rasmussen", "Schmidt", "Thomsen", "Ullerup", "Villadsen", "Westergaard", "Xavi", "Yder", "Ziegler");
+        String[] streetNames = {
+        	    "Adelgade", "Bakkegårdsvej", "Borups Allé", "Christianshavns Voldgade", "Dag Hammarskjölds Allé", 
+        	    "Elmegade", "Frederiksgade", "Gammel Kongevej", "H.C. Andersens Boulevard", "Istedgade",
+        	    "Jagtvej", "Kongens Nytorv", "Langebrogade", "Mølle Allé", "Nørrebrogade",
+        	    "Østerbrogade", "Pilestræde", "Rantzausgade", "Sankt Annæ Plads", "Strandvejen",
+        	    "Teglgårdsstræde", "Uplandsgade", "Vesterbrogade", "Wildersgade", "Yderlandsvej",
+        	    "Zahle Allé", "Åboulevard", "Amagerbrogade", "Bredgade", "Classensgade",
+        	    "Drechselsgade", "Enghavevej", "Finsensvej", "Gothersgade", "Herman Bangs Plads",
+        	    "Ingerslevsgade", "Kastelvej", "Lygten", "Nansensgade", "Rosenørns Allé"
+        	};
+
         Random rand = new Random();
 
         // Tilføj 50 kunder
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= 500; i++) {
             String firstName = firstNames.get(rand.nextInt(firstNames.size()));
             String lastName = lastNames.get(rand.nextInt(lastNames.size()));
+            String streetName = streetNames[rand.nextInt(streetNames.length)];
             String phoneNumber = String.format("1234%04d", i);
-            Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@mail.com", phoneNumber, "Adresse " + i, phoneNumber);
+            Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@mail.com", phoneNumber, streetName + " " + i, phoneNumber);
 
             if (i % 5 == 0) {
                 customer.setCustomerCategory(loyalCategory);
