@@ -61,7 +61,7 @@ public class TryMe {
             String firstName = firstNames.get(rand.nextInt(firstNames.size()));
             String lastName = lastNames.get(rand.nextInt(lastNames.size()));
             String streetName = streetNames[rand.nextInt(streetNames.length)];
-            String phoneNumber = String.format("12343%03d", i);
+            String phoneNumber = String.format("12345%03d", i);
             Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@mail.com", phoneNumber, streetName + " " + i, phoneNumber);
 
             if (i % 5 == 0) {
