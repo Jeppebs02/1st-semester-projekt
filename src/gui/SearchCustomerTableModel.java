@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 import control.CustomerController;
-import control.OrderController;
 import model.Customer;
-import model.OrderLine;
 
 public class SearchCustomerTableModel extends AbstractTableModel{
 	
@@ -25,8 +23,6 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 	    	customers = cc.printAllCustomers();
 	    }
 
-	 
-
 		@Override
 		public int getRowCount() {
 			return customers.size();
@@ -42,20 +38,9 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 			return COLUMN_NAMES[column];
 		}
 		
-		
-		
-
 		public ArrayList<Customer> getCustomers() {
 			return customers;
 		}
-
-
-
-		public void setCustomers(ArrayList<Customer> customers) {
-			this.customers = customers;
-		}
-
-
 
 		@Override
 		public Object getValueAt(int r, int c) {
