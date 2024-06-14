@@ -47,9 +47,9 @@ public class SearchProductTableModel extends AbstractTableModel {
 		} else if (c==4) {
 			returnString = "" + products.get(r).getPrice().getSalesPrice();
 		} else if (c==5) {
-			returnString = products.get(r).getInventory().getAisle();
-		} else if (c==6) {
 			returnString = products.get(r).getInventory().getDepartment();
+		} else if (c==6) {
+			returnString = products.get(r).getInventory().getAisle();
 		} else if (c==7) {
 			returnString = products.get(r).getInventory().getShelf();
 		} else if (c==8) {
@@ -71,5 +71,9 @@ public class SearchProductTableModel extends AbstractTableModel {
 	
 	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
+	}
+	
+	public Product getSelectedProduct (int r) {
+		return products.get(r);
 	}
 }

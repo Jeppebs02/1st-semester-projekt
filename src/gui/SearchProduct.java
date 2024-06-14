@@ -50,24 +50,12 @@ public class SearchProduct extends JDialog {
 	private JPanel buttonPane;
 	private JButton okButton;
 	private JButton cancelButton;
+	private JTextField textBarcodeField;
+	private boolean addPress;
+	private SearchProductTableModel newSearchProductTableModel;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			SearchProduct dialog = new SearchProduct();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Create the dialog.
-	 */
-	public SearchProduct() {
+	public SearchProduct(JTextField textBarcodeField) {
+		this.textBarcodeField = textBarcodeField;
 		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -201,24 +189,41 @@ public class SearchProduct extends JDialog {
 		if(!textFieldProductName.getText().equals("")) {
 			searchString = textFieldProductName.getText();
 			displayProducts = pc.getProductsByName(searchString);
+			addPress = true;
 		} else if(!textFieldPDescription.getText().equals("")) {
 			searchString = textFieldPDescription.getText();
 			displayProducts = pc.getProductsByDescription(searchString);
+			addPress = true;
 		} else if(!textFieldCategory.getText().equals("")) {
 			searchString = textFieldCategory.getText();
 			displayProducts = pc.getProductsByCategory(searchString);
+			addPress = true;
 		} else {
 			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
 		}
 		
-		SearchProductTableModel newSearchProductTableModel = new SearchProductTableModel();
+		newSearchProductTableModel = new SearchProductTableModel();
 		newSearchProductTableModel.setProducts(displayProducts);
         productTable.setModel(newSearchProductTableModel);
 	}
 
 	private void handleOkButton() {
-		// TODO Auto-generated method stub
+		int selectedRow = productTable.getSelectedRow();
+		Product selectedProduct;
 		
+		if (selectedRow != -1) {
+			if (addPress) {
+				selectedProduct = newSearchProductTableModel.getSelectedProduct(selectedRow);
+			} else {
+				selectedProduct = searchProductTableModel.getSelectedProduct(selectedRow);
+			}
+			String productBarcode = selectedProduct.getBarcode();
+			textBarcodeField.setText(productBarcode);
+	        this.setVisible(false);
+	        this.dispose();
+			} else {
+        JOptionPane.showMessageDialog(this, "Vælg venligst et produkt");
+    	}
 	}
 
 	private void handleCancelButton() {

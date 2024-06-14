@@ -219,12 +219,11 @@ public class SearchCustomer extends JDialog {
     	}
 	}
 	
-	private boolean handleSearchButton() {
+	private void handleSearchButton() {
 		CustomerController cc = new CustomerController();
 		searchPress = false;
 		
 		String searchString;
-//		ArrayList<Customer> displayCustomers = new ArrayList<>();
 		if(!textFieldCustomerName.getText().equals("")) {
 			searchString = textFieldCustomerName.getText();
 			displayCustomers = cc.getCustomersByName(searchString);
@@ -244,7 +243,6 @@ public class SearchCustomer extends JDialog {
 		newSearchCustomerTableModel = new SearchCustomerTableModel();
 		newSearchCustomerTableModel.setCustomers(displayCustomers);
         customerTable.setModel(newSearchCustomerTableModel);
-        return searchPress;
 	}
 
 }

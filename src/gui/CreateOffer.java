@@ -280,7 +280,7 @@ public class CreateOffer extends JDialog {
 	
 	private void handleSearchProductButton() {
 		this.setVisible(false);
-		SearchProduct searchProduct = new SearchProduct();
+		SearchProduct searchProduct = new SearchProduct(textBarcodeField);
 		searchProduct.setVisible(true);
 		this.setVisible(true);
 		
