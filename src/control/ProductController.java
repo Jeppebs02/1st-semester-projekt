@@ -51,7 +51,7 @@ public class ProductController {
 		
 	}
 	
-	public ArrayList<Product> findAllProducts(){
+	public ArrayList<Product> printAllProducts(){
 		return ProductContainer.getInstance().findAllProducts();
 	}
 	
