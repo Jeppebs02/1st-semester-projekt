@@ -41,8 +41,28 @@ public class TryMe {
 		
 		
 		// Liste med tilfældige navne
-        List<String> firstNames = Arrays.asList("Anna", "Bent", "Carl", "Ditte", "Emil", "Freja", "Gustav", "Hanne", "Ivan", "Jette", "Kasper", "Lone", "Mads", "Nina", "Ole", "Pia", "Rasmus", "Sara", "Tina", "Uffe", "Vera", "William", "Xenia", "Yvonne", "Zack");
-        List<String> lastNames = Arrays.asList("Andersen", "Bach", "Christensen", "Dam", "Eriksen", "Frederiksen", "Gade", "Hansen", "Iversen", "Jensen", "Kjær", "Larsen", "Møller", "Nielsen", "Olsen", "Pedersen", "Rasmussen", "Schmidt", "Thomsen", "Ullerup", "Villadsen", "Westergaard", "Xavi", "Yder", "Ziegler");
+        List<String> firstNames = Arrays.asList("Anna", "Bent", "Carl", "Ditte", "Emil", "Freja", "Gustav", "Hanne", "Ivan", "Jette", 
+        	    "Kasper", "Lone", "Mads", "Nina", "Ole", "Pia", "Rasmus", "Sara", "Tina", "Uffe", 
+        	    "Vera", "William", "Xenia", "Yvonne", "Zack", "Astrid", "Bjarke", "Cecilie", "David", "Ellen", 
+        	    "Flemming", "Gitte", "Henrik", "Iben", "Jens", "Kirsten", "Lars", "Maria", "Nikolaj", "Oda", 
+        	    "Pernille", "Rikke", "Søren", "Tove", "Ulla", "Viggo", "Winnie", "Yngve", "Åse", "Aksel", 
+        	    "Birgit", "Claus", "Dorte", "Erik", "Frida", "Grethe", "Holger", "Ingrid", "Johannes", "Karen", 
+        	    "Lise", "Morten", "Niels", "Otto", "Per", "Ruth", "Susanne", "Torben", "Vibeke", "Willy", 
+        	    "Ane", "Bo", "Christina", "Dennis", "Eva", "Finn", "Gorm", "Helle", "Ib", "Johan", 
+        	    "Katrine", "Leif", "Maja", "Naja", "Oskar", "Palle", "Ronja", "Sigurd", "Trine", "Viktor", 
+        	    "Wendy", "Yasmin", "Ziggy", "Anton", "Birthe", "Camilla", "Dagmar", "Edith", "Frederik", "Gunnar");
+        
+        List<String> lastNames = Arrays.asList( "Andersen", "Bach", "Christensen", "Dam", "Eriksen", "Frederiksen", "Gade", "Hansen", "Iversen", "Jensen", 
+        	    "Kjær", "Larsen", "Møller", "Nielsen", "Olsen", "Pedersen", "Rasmussen", "Schmidt", "Thomsen", "Ullerup", 
+        	    "Villadsen", "Westergaard", "Xavi", "Yder", "Ziegler", "Aagaard", "Bang", "Brodersen", "Christoffersen", "Dalsgaard", 
+        	    "Due", "Enevoldsen", "Fischer", "Foged", "Gustavsen", "Hedegaard", "Holm", "Isaksen", "Juul", "Kirkegaard", 
+        	    "Lind", "Lund", "Mathiesen", "Nyborg", "Overgaard", "Poulsen", "Quist", "Riis", "Skov", "Storm", 
+        	    "Toft", "Ulriksen", "Vad", "Wulff", "Østergaard", "Ågård", "Bech", "Berg", "Bertelsen", "Bisgaard", 
+        	    "Boesen", "Brandt", "Bryld", "Bøgh", "Carlsen", "Dahl", "Dyhr", "Frost", "Hede", "Hoffmann", 
+        	    "Hougaard", "Hyldgaard", "Juhl", "Koch", "Kragh", "Krogh", "Lauridsen", "Lundgaard", "Lykke", "Madsen", 
+        	    "Markussen", "Michelsen", "Munk", "Normann", "Nørgaard", "Pilgaard", "Sander", "Skaarup", "Strand", "Sørensen", 
+        	    "Terkelsen", "Thuesen", "Thygesen", "Vedel", "Vestergaard", "Vinding", "Winther", "Witt", "Ødum", "Østergård");
+       
         String[] streetNames = {
         	    "Adelgade", "Bakkegårdsvej", "Borups Allé", "Christianshavns Voldgade", "Dag Hammarskjölds Allé", 
         	    "Elmegade", "Frederiksgade", "Gammel Kongevej", "H.C. Andersens Boulevard", "Istedgade",
@@ -62,7 +82,7 @@ public class TryMe {
             String lastName = lastNames.get(rand.nextInt(lastNames.size()));
             String streetName = streetNames[rand.nextInt(streetNames.length)];
             String phoneNumber = String.format("12345%03d", i);
-            Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@mail.com", phoneNumber, streetName + " " + i, phoneNumber);
+            Customer customer = new Customer(firstName + " " + lastName, firstName.toLowerCase() + i + "@gmail.com", phoneNumber, streetName + " " + i, phoneNumber);
 
             if (i % 5 == 0) {
                 customer.setCustomerCategory(loyalCategory);
