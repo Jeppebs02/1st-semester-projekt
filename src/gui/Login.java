@@ -89,7 +89,7 @@ public class Login extends JFrame {
 		gbl_centerPanel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		centerPanel.setLayout(gbl_centerPanel);
 		
-		lblUsername = new JLabel("Employe ID");
+		lblUsername = new JLabel("Username");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		gbc_lblUsername = new GridBagConstraints();
 		gbc_lblUsername.fill = GridBagConstraints.VERTICAL;
@@ -119,6 +119,11 @@ public class Login extends JFrame {
 		centerPanel.add(lblPassword, gbc_lblPassword);
 		
 		passwordField = new JPasswordField();
+		passwordField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				handleLoginButton();
+			}
+		});
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		gbc_passwordField = new GridBagConstraints();
 		gbc_passwordField.fill = GridBagConstraints.BOTH;

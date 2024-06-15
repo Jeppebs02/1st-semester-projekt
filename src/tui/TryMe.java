@@ -27,11 +27,12 @@ public class TryMe {
 		Customer c2 = new Customer("Rikke denseje", "mulle273@dinmor.dk", "66699666", "Spurgt 69", "66699666");
 		cc.addCustomerToContainer(c2);
 		
+		
 		Customer c1 = new Customer("Average Joe", "Average@Joe.com", "44556677", "Average Street 44", "44556677");
 		CustomerCategory cuc = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
 		c1.setCustomerCategory(cuc);
 		cc.addCustomerToContainer(c1);
-		
+		c2.setCustomerCategory(cuc);
 		// Opret kundekategorier
         CustomerCategory loyalCategory = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
         CustomerCategory newCustomerCategory = new CustomerCategory("Ny", "Nye kunder", 1.0, 7);
