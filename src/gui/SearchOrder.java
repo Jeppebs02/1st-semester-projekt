@@ -53,6 +53,8 @@ public class SearchOrder extends JDialog {
 	private JTextField textCustomerIDField;
 	private SearchCustomerTableModel newSearchCustomerTableModel;
 	private boolean searchPress;
+	private JLabel lblCustomerID;
+	private JTextField textCustomerIDField_1;
 
 	public SearchOrder() {
 		setModal(true);
@@ -76,19 +78,36 @@ public class SearchOrder extends JDialog {
 			contentPanel.add(northPanel, BorderLayout.NORTH);
 			gbl_northPanel = new GridBagLayout();
 			gbl_northPanel.columnWidths = new int[]{83, 253, 0};
-			gbl_northPanel.rowHeights = new int[]{0, 0, 0, 0, 0};
+			gbl_northPanel.rowHeights = new int[]{0, 0, 0, 0, 0, 0};
 			gbl_northPanel.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-			gbl_northPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_northPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			northPanel.setLayout(gbl_northPanel);
+			{
+				lblCustomerID = new JLabel("Kunde ID:");
+				GridBagConstraints gbc_lblCustomerID = new GridBagConstraints();
+				gbc_lblCustomerID.insets = new Insets(0, 0, 5, 5);
+				gbc_lblCustomerID.gridx = 0;
+				gbc_lblCustomerID.gridy = 0;
+				northPanel.add(lblCustomerID, gbc_lblCustomerID);
+			}
+			{
+				textCustomerIDField_1 = new JTextField();
+				textCustomerIDField_1.setColumns(10);
+				GridBagConstraints gbc_textCustomerIDField_1 = new GridBagConstraints();
+				gbc_textCustomerIDField_1.insets = new Insets(0, 0, 5, 0);
+				gbc_textCustomerIDField_1.fill = GridBagConstraints.HORIZONTAL;
+				gbc_textCustomerIDField_1.gridx = 1;
+				gbc_textCustomerIDField_1.gridy = 0;
+				northPanel.add(textCustomerIDField_1, gbc_textCustomerIDField_1);
+			}
 			{
 				lblPCustomerName = new JLabel("Kunde navn:");
 				lblPCustomerName.setHorizontalTextPosition(SwingConstants.LEFT);
 				lblPCustomerName.setHorizontalAlignment(SwingConstants.LEFT);
 				gbc_lblPCustomerName = new GridBagConstraints();
 				gbc_lblPCustomerName.insets = new Insets(0, 0, 5, 5);
-				gbc_lblPCustomerName.anchor = GridBagConstraints.EAST;
 				gbc_lblPCustomerName.gridx = 0;
-				gbc_lblPCustomerName.gridy = 0;
+				gbc_lblPCustomerName.gridy = 1;
 				northPanel.add(lblPCustomerName, gbc_lblPCustomerName);
 			}
 			{
@@ -97,7 +116,7 @@ public class SearchOrder extends JDialog {
 				gbc_textFieldCustomerName.insets = new Insets(0, 0, 5, 0);
 				gbc_textFieldCustomerName.fill = GridBagConstraints.HORIZONTAL;
 				gbc_textFieldCustomerName.gridx = 1;
-				gbc_textFieldCustomerName.gridy = 0;
+				gbc_textFieldCustomerName.gridy = 1;
 				northPanel.add(textFieldCustomerName, gbc_textFieldCustomerName);
 				textFieldCustomerName.setColumns(10);
 			}
@@ -107,10 +126,9 @@ public class SearchOrder extends JDialog {
 				lblEmail.setBackground(new Color(240, 240, 240));
 				lblEmail.setHorizontalAlignment(SwingConstants.LEFT);
 				gbc_lblEmail = new GridBagConstraints();
-				gbc_lblEmail.anchor = GridBagConstraints.EAST;
 				gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
 				gbc_lblEmail.gridx = 0;
-				gbc_lblEmail.gridy = 1;
+				gbc_lblEmail.gridy = 2;
 				northPanel.add(lblEmail, gbc_lblEmail);
 			}
 			{
@@ -119,7 +137,7 @@ public class SearchOrder extends JDialog {
 				gbc_textFieldCustomerEmail.insets = new Insets(0, 0, 5, 0);
 				gbc_textFieldCustomerEmail.fill = GridBagConstraints.HORIZONTAL;
 				gbc_textFieldCustomerEmail.gridx = 1;
-				gbc_textFieldCustomerEmail.gridy = 1;
+				gbc_textFieldCustomerEmail.gridy = 2;
 				northPanel.add(textFieldCustomerEmail, gbc_textFieldCustomerEmail);
 				textFieldCustomerEmail.setColumns(10);
 			}
@@ -128,10 +146,9 @@ public class SearchOrder extends JDialog {
 				lblCustomerPhoneNr.setHorizontalTextPosition(SwingConstants.LEFT);
 				lblCustomerPhoneNr.setHorizontalAlignment(SwingConstants.LEFT);
 				gbc_lblCustomerPhoneNr = new GridBagConstraints();
-				gbc_lblCustomerPhoneNr.anchor = GridBagConstraints.EAST;
 				gbc_lblCustomerPhoneNr.insets = new Insets(0, 0, 5, 5);
 				gbc_lblCustomerPhoneNr.gridx = 0;
-				gbc_lblCustomerPhoneNr.gridy = 2;
+				gbc_lblCustomerPhoneNr.gridy = 3;
 				northPanel.add(lblCustomerPhoneNr, gbc_lblCustomerPhoneNr);
 			}
 			{
@@ -140,15 +157,20 @@ public class SearchOrder extends JDialog {
 				gbc_textFieldCustomerPhoneNr.insets = new Insets(0, 0, 5, 0);
 				gbc_textFieldCustomerPhoneNr.fill = GridBagConstraints.HORIZONTAL;
 				gbc_textFieldCustomerPhoneNr.gridx = 1;
-				gbc_textFieldCustomerPhoneNr.gridy = 2;
+				gbc_textFieldCustomerPhoneNr.gridy = 3;
 				northPanel.add(textFieldCustomerPhoneNr, gbc_textFieldCustomerPhoneNr);
 				textFieldCustomerPhoneNr.setColumns(10);
 			}
 			{
 				btnSearch = new JButton("Søg");
+				btnSearch.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						handleSearchButton();
+					}
+				});
 				gbc_btnSearch = new GridBagConstraints();
 				gbc_btnSearch.gridx = 1;
-				gbc_btnSearch.gridy = 3;
+				gbc_btnSearch.gridy = 4;
 				northPanel.add(btnSearch, gbc_btnSearch);
 			}
 		}
@@ -158,6 +180,11 @@ public class SearchOrder extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						handleOKButton();
+					}
+				});
 				
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
@@ -165,6 +192,11 @@ public class SearchOrder extends JDialog {
 			}
 			{
 				cancelButton = new JButton("Tilbage");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						handleBackButton();
+					}
+				});
 				
 				cancelButton.setActionCommand("Tilbage");
 				buttonPane.add(cancelButton);
@@ -172,5 +204,20 @@ public class SearchOrder extends JDialog {
 		}
 		displayCustomers = new ArrayList<>();
 		searchCustomerTableModel.initCustomerList();
+	}
+
+	private void handleBackButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void handleOKButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void handleSearchButton() {
+		// TODO Auto-generated method stub
+		
 	}
 }
