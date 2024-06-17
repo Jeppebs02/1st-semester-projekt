@@ -59,6 +59,6 @@ public class OrderContainer {
 	}
 	
 	public ArrayList<Order> getOrderList() {
-		return orders;
+		return new ArrayList<>(this.orders);
 	}
 }
