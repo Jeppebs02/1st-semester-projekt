@@ -9,11 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.CustomerController;
-import control.OrderController;
 import model.Customer;
-import model.Order;
-import model.OrderLine;
-
 import javax.swing.JScrollPane;
 import java.awt.GridBagLayout;
 import javax.swing.JTable;

@@ -45,20 +45,6 @@ public class DeleteCustomer extends JDialog {
 	private GridBagConstraints gbc_textFieldCustomerPhoneNr;
 	private GridBagConstraints gbc_btnSearch;
 
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			DeleteCustomer dialog = new DeleteCustomer();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * Create the dialog.
 	 */

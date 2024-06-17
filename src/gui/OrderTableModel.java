@@ -1,11 +1,9 @@
 package gui;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
 import java.util.ArrayList;
 
 import control.OrderController;
-import model.Order;
 import model.OrderLine;
 
 public class OrderTableModel extends AbstractTableModel {
@@ -20,7 +18,7 @@ public class OrderTableModel extends AbstractTableModel {
     }
     
     public OrderTableModel() {
-    	OrderController oc = new OrderController();
+    	oc = new OrderController();
     	orderLines = new ArrayList<>();
     }
     

@@ -1,10 +1,6 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,17 +8,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-
 import control.LoginController;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import javax.swing.SwingConstants;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -45,22 +35,6 @@ public class Login extends JFrame {
 	private GridBagConstraints gbc_usernameField;
 	private GridBagConstraints gbc_lblPassword;
 	private GridBagConstraints gbc_passwordField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -145,8 +119,6 @@ public class Login extends JFrame {
 	}
 
 	private void handleLoginButton() {
-		// TODO Write Login method. Use LoginController to check for employee login.
-		
 		String username = textField.getText();
 		String password = passwordField.getText();
 		
@@ -158,21 +130,13 @@ public class Login extends JFrame {
 			
 			this.setVisible(false);
 			this.dispose();
-			
-			
+				
 		} else {
 			JOptionPane.showMessageDialog(this, "Login failed, try again.");
 			textField.setText("");
 			passwordField.setText("");
-		}
-		
-		
-		
-		
-		
-	}
-	
-	
-	}
+		}	
+	}	
+}
 
 

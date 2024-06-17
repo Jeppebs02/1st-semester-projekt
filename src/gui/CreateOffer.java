@@ -72,17 +72,6 @@ public class CreateOffer extends JDialog {
 	private GridBagConstraints gbc_btnAddProduct;
 	private GridBagConstraints gbc_btnSearchCustomer;
 	
-	public static void main(String[] args) {
-		try {
-			TryMe.addData();
-			CreateOffer dialog = new CreateOffer();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public CreateOffer() {
 		oc = new OrderController();
 		oc.createOffer();
@@ -283,7 +272,6 @@ public class CreateOffer extends JDialog {
 		SearchProduct searchProduct = new SearchProduct(textBarcodeField);
 		searchProduct.setVisible(true);
 		this.setVisible(true);
-		
 	}
 	
 	public OrderController getOC() {
@@ -310,7 +298,6 @@ public class CreateOffer extends JDialog {
 	}
 
 	private void handleOkButton() {
-		// TODO Add a receipt
 		oc.saveOffer(orderNr);
 		this.setVisible(false);
 		this.dispose();
@@ -366,6 +353,5 @@ public class CreateOffer extends JDialog {
         
         lblTotalPrice.setText("Total pris: " + returnPrice() + " DKK");
     }
-	
 	
 }
