@@ -16,7 +16,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import java.awt.Font;
-import javax.swing.JSeparator;
 
 public class NewCustomer extends JDialog {
 

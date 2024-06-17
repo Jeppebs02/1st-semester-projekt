@@ -1,15 +1,11 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
-
-import tui.TryMe;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

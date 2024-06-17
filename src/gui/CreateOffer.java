@@ -7,15 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
 import control.CustomerController;
 import control.OrderController;
-import control.ProductController;
-import model.OrderLine;
 import model.Product;
-import tui.TryMe;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
