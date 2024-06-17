@@ -11,17 +11,29 @@ import model.OrderLine;
 public class OrderTableModel extends AbstractTableModel {
     private final String[] COLUMN_NAMES = {"Produkt", "Antal", "Pris"};
     private OrderController oc;
-    private ArrayList<OrderLine> orderLines;
+    private ArrayList<OrderLine> orderLines; 
 
-    public OrderTableModel(OrderController orderController) {
-    	//TODO hent controller fra CreateOffer
+	public OrderTableModel(OrderController orderController) {
     	oc = orderController;
-    	
-    	orderLines=oc.getOrderLines();
-    }
+    	orderLines = oc.getOrderLines();
 
+    }
+    
+    public OrderTableModel() {
+    	OrderController oc = new OrderController();
+    	orderLines = new ArrayList<>();
+    }
+    
+    public void initSearchOrder() {
+    	orderLines = oc.getOrderLines();
+    }
+    
 	@Override
 	public int getRowCount() {
+		return orderLines.size();
+	}
+	
+	public int getSearchRowCount() {
 		return orderLines.size();
 	}
 
@@ -48,6 +60,12 @@ public class OrderTableModel extends AbstractTableModel {
 		}
 		return returnString;
 	}
-    
-    
+
+	public ArrayList<OrderLine> getSearchOrderLines() {
+		return orderLines;
+	}
+
+    public void setSearchOrderLines(ArrayList<OrderLine> searchOrderLines) {
+		this.orderLines = searchOrderLines;
+	}    
 }

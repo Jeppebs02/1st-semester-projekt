@@ -11,6 +11,7 @@ import control.OrderController;
 import control.OrderStatusController;
 import model.Order;
 import model.OrderLine;
+import model.Product;
 
 import java.awt.GridBagLayout;
 import javax.swing.JTextField;
@@ -33,6 +34,7 @@ import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class FinishOffer extends JDialog {
@@ -45,7 +47,6 @@ public class FinishOffer extends JDialog {
 	private JButton btnSearchOrder;
 	private JButton btnOdreNrButton;
 	private JLabel lblChangeStatus;
-	private JButton btnOpdt;
 	private JPanel SouthPane;
 	private JButton btnSendInvoice;
 	private JButton btnSave;
@@ -53,7 +54,7 @@ public class FinishOffer extends JDialog {
 	private JPanel CenterPane;
 	private JTable table;
 	private JScrollPane scrollPane;
-	private DefaultTableModel orderLineTableModel ;
+	private OrderTableModel orderLineTableModel ;
 	private JPanel panel;
 	private JLabel lblDiscount;
 	private JLabel lblPrice;
@@ -74,25 +75,7 @@ public class FinishOffer extends JDialog {
 	private GridBagLayout gbl_panel;
 	private GridBagConstraints gbc_lblDiscount;
 	private GridBagConstraints gbc_lblPrice;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FinishOffer frame = new FinishOffer();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public FinishOffer() {
 		osc = new OrderStatusController();
 		setModal(true);
@@ -192,16 +175,11 @@ public class FinishOffer extends JDialog {
 		choice.add("Overdue");
 		choice.add("Cancelled");
 		
-		choice.addItemListener(new ItemListener(){
-			
-			
+		choice.addItemListener(new ItemListener(){	
 			public void itemStateChanged(ItemEvent e) {
 				dropDownChoice = handleSave(e);
-		        
 			}
 		});
-		
-		
 		
 		SouthPane = new JPanel();
 		contentPane.add(SouthPane, BorderLayout.SOUTH);
@@ -241,15 +219,7 @@ public class FinishOffer extends JDialog {
 		
 		table = new JTable();
 		
-		orderLineTableModel = new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-					"Produkt", "Antal", "Pris"
-				}
-				
-				);
-		
+		orderLineTableModel = new OrderTableModel();
 		table.setModel(orderLineTableModel);
 		
 		scrollPane.setViewportView(table);
@@ -283,13 +253,9 @@ public class FinishOffer extends JDialog {
 		Choice source = (Choice)e.getSource();
         String selectedChoice = source.getSelectedItem();
         return selectedChoice;
-        //osc.changeOrderStatus(selectedChoice);
-		
-		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());
 	}
 	
 	private void handleBtnSave(String dropDownChoice) {
-		
         osc.changeOrderStatus(dropDownChoice);
         lblCurrentStatus.setText("Status: " + foundOrder.getOrderStatus());
         btnSendInvoice.setEnabled(true);
@@ -297,7 +263,6 @@ public class FinishOffer extends JDialog {
         // Uncomment to show the change in a popup
 		//JOptionPane.showMessageDialog(this, osc.getOrder().getOrderStatus());     
 	}
-	
 
 	private void handleSendFak() {
 		JOptionPane.showMessageDialog(this, "Ordren er sendt til " + foundOrder.getCustomer().getName() + "\n" 
@@ -317,13 +282,15 @@ public class FinishOffer extends JDialog {
 	}
 	
 	private void handleAddOrderNr() {
-		
-		//TODO Fix multiple orders add
+
+		ArrayList<OrderLine> displayOrder = new ArrayList<>();
 		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
+		displayOrder = foundOrder.getOrderLines();
 		
-		for(OrderLine currentOrderLine:foundOrder.getOrderLines()) {
-			orderLineTableModel.addRow(orderLineToObjectArray(currentOrderLine));
-		}
+        OrderTableModel newOrderLineTableModel = new OrderTableModel();
+        newOrderLineTableModel.setSearchOrderLines(displayOrder);
+        table.setModel(newOrderLineTableModel);
+		
 		lblDiscount.setText("Rabat: " + returnDiscount() + "%");
 		lblPrice.setText("Total pris: " + returnPrice() + " DKK");
 		

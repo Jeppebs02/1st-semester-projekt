@@ -16,8 +16,7 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 	    
 	    public SearchCustomerTableModel() {
 	    	cc = new CustomerController();
-	    	customers = new ArrayList<>();
-	    	
+	    	customers = new ArrayList<>(); 	
 	    }
 	    
 	    public void initCustomerList() {

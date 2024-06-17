@@ -73,8 +73,7 @@ public class SearchCustomer extends JDialog {
 			contentPanel.add(scrollPane, BorderLayout.CENTER);
 		}
 		{
-			customerTable = new JTable();
-			contentPanel.add(customerTable, BorderLayout.SOUTH);	
+			customerTable = new JTable();	
 			searchCustomerTableModel= new SearchCustomerTableModel();
 			customerTable.setModel(searchCustomerTableModel);
 			scrollPane.setViewportView(customerTable);
@@ -238,6 +237,7 @@ public class SearchCustomer extends JDialog {
 			searchPress = true;
 		} else {
 			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
+			displayCustomers = searchCustomerTableModel.getCustomers();
 		}
 		
 		newSearchCustomerTableModel = new SearchCustomerTableModel();

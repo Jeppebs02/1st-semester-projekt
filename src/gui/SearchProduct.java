@@ -68,7 +68,6 @@ public class SearchProduct extends JDialog {
 		}
 		{
 			productTable = new JTable();
-			contentPanel.add(productTable, BorderLayout.SOUTH);
 			searchProductTableModel= new SearchProductTableModel();
 			productTable.setModel(searchProductTableModel);
 			scrollPane.setViewportView(productTable);
@@ -183,9 +182,9 @@ public class SearchProduct extends JDialog {
 
 	private void handleSearchButton() {
 		ProductController pc = new ProductController();
-		
 		String searchString;
 		ArrayList<Product> displayProducts = new ArrayList<>();
+		
 		if(!textFieldProductName.getText().equals("")) {
 			searchString = textFieldProductName.getText();
 			displayProducts = pc.getProductsByName(searchString);
@@ -200,6 +199,7 @@ public class SearchProduct extends JDialog {
 			addPress = true;
 		} else {
 			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
+			displayProducts = searchProductTableModel.getProoducts();
 		}
 		
 		newSearchProductTableModel = new SearchProductTableModel();
