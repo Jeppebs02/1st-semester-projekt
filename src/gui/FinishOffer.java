@@ -264,7 +264,6 @@ public class FinishOffer extends JDialog {
 	}
 	
 	private void handleAddOrderNr() {
-
 		ArrayList<OrderLine> displayOrder = new ArrayList<>();
 		foundOrder = osc.findOrderByNr(textOrderNrField.getText());
 		displayOrder = foundOrder.getOrderLines();
@@ -282,7 +281,6 @@ public class FinishOffer extends JDialog {
 	
 	private void handleSearchOrder() {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	private double returnDiscount() {	
