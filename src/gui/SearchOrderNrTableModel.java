@@ -4,27 +4,27 @@ import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
 
-import control.CustomerController;
-import model.Customer;
+import control.OrderController;
+import model.Order;
 
 public class SearchOrderNrTableModel extends AbstractTableModel{
 	
-		private final String[] COLUMN_NAMES = {"Navn", "Email", "Tlf Nr", "Adresse", "Kunde ID"};
-	    private CustomerController cc;
-	    private ArrayList<Customer> customers;
+		private final String[] COLUMN_NAMES = {"Ordre Nr", "Status", "Oprettet", "Kunde navn", "Tlf nr.", "E-mail", "Kunde ID"};
+	    private OrderController oc;
+	    private ArrayList<Order> orders;
 	    
 	    public SearchOrderNrTableModel() {
-	    	cc = new CustomerController();
-	    	customers = new ArrayList<>(); 	
+	    	oc = new OrderController();
+	    	orders = new ArrayList<>(); 	
 	    }
 	    
-	    public void initCustomerList() {
-	    	customers = cc.printAllCustomers();
+	    public void initOrderList() {
+	    	orders = oc.getOrders();
 	    }
 
 		@Override
 		public int getRowCount() {
-			return customers.size();
+			return orders.size();
 		}
 
 		@Override
@@ -37,12 +37,12 @@ public class SearchOrderNrTableModel extends AbstractTableModel{
 			return COLUMN_NAMES[column];
 		}
 		
-		public ArrayList<Customer> getCustomers() {
-			return customers;
+		public ArrayList<Order> getOrders() {
+			return orders;
 		}
 
-		public void setCustomers(ArrayList<Customer> customers) {
-			this.customers = customers;
+		public void setOrders(ArrayList<Order> customers) {
+			this.orders = customers;
 		}
 
 		@Override
@@ -50,20 +50,24 @@ public class SearchOrderNrTableModel extends AbstractTableModel{
 			String returnString = ""; 
 			
 			if (c==0) {
-				returnString = customers.get(r).getName();
+				returnString = orders.get(r).getOrderNr();
 			} else if (c==1) {
-				returnString = customers.get(r).getEmail();
+				returnString = orders.get(r).getOrderStatus();
 			} else if (c==2) {
-				returnString = customers.get(r).getPhoneNr();
+				returnString = orders.get(r).getTimeDateString();
 			} else if (c==3) {
-				returnString = customers.get(r).getAddress();
+				returnString = orders.get(r).getCustomer().getName();
 			} else if (c==4) {
-				returnString = customers.get(r).getCustomerID();
+				returnString = orders.get(r).getCustomer().getPhoneNr();
+			} else if (c==5) {
+				returnString = orders.get(r).getCustomer().getEmail();
+			} else if (c==6) {
+				returnString = orders.get(r).getCustomer().getCustomerID();
 			}
 			return returnString;
 		}
 		
-		public Customer getSelectedCustomer(int r) {
-			return customers.get(r); 
+		public Order getSelectedOrder(int r) {
+			return orders.get(r); 
 		}
 }
