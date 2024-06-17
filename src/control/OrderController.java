@@ -100,5 +100,23 @@ public class OrderController {
 		return oc.getOrderList();
 	}
 	
+	public ArrayList<Order> getOrdersByCustomerID(String customerID) {
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.findOrdersByCustomerID(customerID);
+	}
 	
+	public ArrayList<Order> getOrdersByName(String name) {
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.findOrdersByCustomerName(name);
+	}
+	
+	public ArrayList<Order> getOrdersByEmail(String email) {
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.findOrdersByCustomerEmail(email);
+	}
+	
+	public ArrayList<Order> getOrdersByPhoneNr(String phoneNr) {
+		OrderContainer oc = OrderContainer.getInstance();
+		return oc.findOrdersByCustomerPhoneNr(phoneNr);
+	}
 }

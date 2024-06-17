@@ -105,7 +105,7 @@ public class FinishOffer extends JDialog {
 		btnSearchOrder = new JButton("Søg ordre nr");
 		btnSearchOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				handleSearchOrder();
+				handleSearchOrder(textOrderNrField);
 			}
 		});
 		gbc_btnSearchOrder = new GridBagConstraints();
@@ -279,8 +279,11 @@ public class FinishOffer extends JDialog {
 		lblCurrentStatus.setVisible(true);	
 	}
 	
-	private void handleSearchOrder() {
-		// TODO Auto-generated method stub
+	private void handleSearchOrder(JTextField textOrderNrField) {
+		this.setVisible(false);
+		SearchOrder searchOrder = new SearchOrder(textOrderNrField);
+		searchOrder.setVisible(true);
+		this.setVisible(true);
 	}
 	
 	private double returnDiscount() {	

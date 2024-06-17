@@ -61,4 +61,53 @@ public class OrderContainer {
 	public ArrayList<Order> getOrderList() {
 		return new ArrayList<>(this.orders);
 	}
+	
+	public ArrayList<Order> findOrdersByCustomerID(String customerID) {
+	    ArrayList<Order> allOrders = getOrderList();
+	    ArrayList<Order> matchedOrders = new ArrayList<>();
+	    
+	    for (Order currentOrder : allOrders) {
+	        if (currentOrder.getCustomer().getCustomerID().equals(customerID)) {
+	            matchedOrders.add(currentOrder);
+	        }
+	    }
+	    return matchedOrders;
+	}
+	
+	public ArrayList<Order> findOrdersByCustomerName(String name) {
+	    ArrayList<Order> allOrders = getOrderList();
+	    ArrayList<Order> matchedOders = new ArrayList<>();
+	    String lowerCaseName = name.toLowerCase();
+	    
+	    for (Order currentOrder : allOrders) {
+	        if (currentOrder.getCustomer().getName().toLowerCase().contains(lowerCaseName)) {
+	            matchedOders.add(currentOrder);
+	        }
+	    }
+	    return matchedOders;
+	}
+	
+	public ArrayList<Order> findOrdersByCustomerEmail(String email) {
+	    ArrayList<Order> allOrders = getOrderList();
+	    ArrayList<Order> matchedOrders = new ArrayList<>();
+	    
+	    for (Order currentOrder : allOrders) {
+	        if (currentOrder.getCustomer().getEmail().equals(email)) {
+	            matchedOrders.add(currentOrder);
+	        }
+	    }
+	    return matchedOrders;
+	}
+	
+	public ArrayList<Order> findOrdersByCustomerPhoneNr(String phoneNr) {
+	    ArrayList<Order> allOrders = getOrderList();
+	    ArrayList<Order> matchedOrders = new ArrayList<>();
+	    
+	    for (Order currentOrder : allOrders) {
+	        if (currentOrder.getCustomer().getPhoneNr().equals(phoneNr)) {
+	            matchedOrders.add(currentOrder);
+	        }
+	    }
+	    return matchedOrders;
+	}
 }

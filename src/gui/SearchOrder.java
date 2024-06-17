@@ -13,9 +13,12 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import control.CustomerController;
+import control.OrderController;
 import model.Customer;
 import model.Order;
 
@@ -28,7 +31,7 @@ public class SearchOrder extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JTable customerTable;
+	private JTable orderTable;
 	private SearchOrderNrTableModel searchOrderNrTableModel;
 	private JTextField textFieldCustomerName;
 	private JTextField textFieldCustomerEmail;
@@ -50,14 +53,17 @@ public class SearchOrder extends JDialog {
 	private GridBagConstraints gbc_lblCustomerPhoneNr;
 	private GridBagConstraints gbc_textFieldCustomerPhoneNr;
 	private GridBagConstraints gbc_btnSearch;
-	private ArrayList<Order> displayOrders;
-	private JTextField textCustomerIDField;
+	private ArrayList<Order> displayOrders;;
 	private SearchOrderNrTableModel newSearchOrderNrTableModel;
 	private boolean searchPress;
 	private JLabel lblCustomerID;
-	private JTextField textCustomerIDField_1;
+	private JTextField textFieldCustomerID;
+	private GridBagConstraints gbc_textCustomerIDField_1;
+	private JTextField textOrderNrField;
+	private GridBagConstraints gbc_lblCustomerID;
 
-	public SearchOrder() {
+	public SearchOrder(JTextField textOrderNrField) {
+		this.textOrderNrField = textOrderNrField;
 		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -69,10 +75,10 @@ public class SearchOrder extends JDialog {
 			contentPanel.add(scrollPane, BorderLayout.CENTER);
 		}
 		{
-			customerTable = new JTable();	
+			orderTable = new JTable();	
 			searchOrderNrTableModel= new SearchOrderNrTableModel();
-			customerTable.setModel(searchOrderNrTableModel);
-			scrollPane.setViewportView(customerTable);
+			orderTable.setModel(searchOrderNrTableModel);
+			scrollPane.setViewportView(orderTable);
 		}	
 		{
 			northPanel = new JPanel();
@@ -85,21 +91,21 @@ public class SearchOrder extends JDialog {
 			northPanel.setLayout(gbl_northPanel);
 			{
 				lblCustomerID = new JLabel("Kunde ID:");
-				GridBagConstraints gbc_lblCustomerID = new GridBagConstraints();
+				gbc_lblCustomerID = new GridBagConstraints();
 				gbc_lblCustomerID.insets = new Insets(0, 0, 5, 5);
 				gbc_lblCustomerID.gridx = 0;
 				gbc_lblCustomerID.gridy = 0;
 				northPanel.add(lblCustomerID, gbc_lblCustomerID);
 			}
 			{
-				textCustomerIDField_1 = new JTextField();
-				textCustomerIDField_1.setColumns(10);
-				GridBagConstraints gbc_textCustomerIDField_1 = new GridBagConstraints();
+				textFieldCustomerID = new JTextField();
+				textFieldCustomerID.setColumns(10);
+				gbc_textCustomerIDField_1 = new GridBagConstraints();
 				gbc_textCustomerIDField_1.insets = new Insets(0, 0, 5, 0);
 				gbc_textCustomerIDField_1.fill = GridBagConstraints.HORIZONTAL;
 				gbc_textCustomerIDField_1.gridx = 1;
 				gbc_textCustomerIDField_1.gridy = 0;
-				northPanel.add(textCustomerIDField_1, gbc_textCustomerIDField_1);
+				northPanel.add(textFieldCustomerID, gbc_textCustomerIDField_1);
 			}
 			{
 				lblPCustomerName = new JLabel("Kunde navn:");
@@ -208,17 +214,57 @@ public class SearchOrder extends JDialog {
 	}
 
 	private void handleBackButton() {
-		// TODO Auto-generated method stub
-		
+		this.setVisible(false);
+		this.dispose();
 	}
 
 	private void handleOKButton() {
-		// TODO Auto-generated method stub
+		int selectedRow = orderTable.getSelectedRow();
+		Order selectedOrder;
 		
+		if (selectedRow != -1) {
+			if (searchPress) {
+				selectedOrder = newSearchOrderNrTableModel.getSelectedOrder(selectedRow);
+			} else {
+				selectedOrder = searchOrderNrTableModel.getSelectedOrder(selectedRow);
+			}
+			String orderNr = selectedOrder.getOrderNr();
+			textOrderNrField.setText(orderNr);
+	        this.setVisible(false);
+	        this.dispose();
+			} else {
+        JOptionPane.showMessageDialog(this, "Vælg venligst en kunde");
+    	}
 	}
 
-	private void handleSearchButton() {
-		// TODO Auto-generated method stub
+	private void handleSearchButton()  {
+		OrderController oc = new OrderController();
+		searchPress = false;
 		
+		String searchString;
+		if(!textFieldCustomerID.getText().equals("")) {
+			searchString = textFieldCustomerID.getText();
+			displayOrders = oc.getOrdersByCustomerID(searchString);
+			searchPress = true;
+		} else if(!textFieldCustomerName.getText().equals("")) {
+			searchString = textFieldCustomerName.getText();
+			displayOrders = oc.getOrdersByName(searchString);
+			searchPress = true;
+		} else if(!textFieldCustomerEmail.getText().equals("")) {
+			searchString = textFieldCustomerEmail.getText();
+			displayOrders = oc.getOrdersByEmail(searchString);
+			searchPress = true;
+		} else if(!textFieldCustomerPhoneNr.getText().equals("")) {
+			searchString = textFieldCustomerPhoneNr.getText();
+			displayOrders = oc.getOrdersByPhoneNr(searchString);
+			searchPress = true;
+		} else {
+			JOptionPane.showMessageDialog(this,"Udfyld venligst mindst et af felterne.");
+			displayOrders = searchOrderNrTableModel.getOrders();
+		}
+		
+		newSearchOrderNrTableModel = new SearchOrderNrTableModel();
+		newSearchOrderNrTableModel.setOrders(displayOrders);
+        orderTable.setModel(newSearchOrderNrTableModel);
 	}
 }
