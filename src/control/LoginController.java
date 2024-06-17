@@ -10,7 +10,7 @@ import model.LoginContainer;
 //without compromising the architecture. 
 public class LoginController {
 	
-	//Maybe not used, we dont know yet
+	
 	private Employee currentUser;
 
 	public LoginController() {

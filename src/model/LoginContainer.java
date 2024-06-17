@@ -13,7 +13,7 @@ public class LoginContainer {
 
 	private LoginContainer() {
 		employees = new ArrayList<>();
-		// insert potential employee stuff here
+		
 	}
 	
 	public static LoginContainer getInstance() {
