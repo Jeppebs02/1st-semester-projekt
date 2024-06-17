@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 import control.CustomerController;
-import control.OrderController;
 import model.Customer;
 
 public class SearchCustomerTableModel extends AbstractTableModel{

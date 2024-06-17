@@ -19,9 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import control.CustomerController;
 import control.ProductController;
-import model.Customer;
 import model.Product;
 
 public class SearchProduct extends JDialog {

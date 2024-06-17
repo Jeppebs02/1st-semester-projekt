@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
@@ -10,18 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.EmptyBorder;
 
-import control.OrderController;
 import tui.TryMe;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 
 
 public class Menu extends JFrame {
@@ -61,23 +56,6 @@ public class Menu extends JFrame {
 	private JButton btnLogOut;
 	private JButton btnUpdateProduct;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		TryMe.addData();
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu frame = new Menu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -422,9 +400,8 @@ public class Menu extends JFrame {
 	private void handleOpretTilbud() {
 		CreateOffer co = new CreateOffer();
 		co.setVisible(true);
-		
-		
 	}
+	
 	private void logOut() {
 		Login login = new Login();
 		login.setVisible(true);
