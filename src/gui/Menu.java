@@ -261,7 +261,7 @@ public class Menu extends JFrame {
 		btnSearchCustomer = new JButton("Gennemse kunde");
 		btnSearchCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				handleGennemseKunde();
+				//handleGennemseKunde();
 			}
 		});
 		GridBagConstraints gbc_btnSearchCustomer = new GridBagConstraints();
@@ -409,20 +409,17 @@ public class Menu extends JFrame {
 		
 	}
 
-	private void handleGennemseKunde() {
-		SearchCustomer sc = new SearchCustomer();
-		sc.setVisible(true);
-		
-	}
+//	private void handleGennemseKunde() {
+//		SearchCustomer sc = new SearchCustomer();
+//		sc.setVisible(true);
+//	}
 
 	private void handleFærdiggørbutton() {
-		// TODO Auto-generated method stub
 		FinishOffer fo = new FinishOffer();
 		fo.setVisible(true);
 	}
 
 	private void handleOpretTilbud() {
-		// TODO Auto-generated method stub
 		CreateOffer co = new CreateOffer();
 		co.setVisible(true);
 		
