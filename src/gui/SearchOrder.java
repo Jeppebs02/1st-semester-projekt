@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.Customer;
+import model.Order;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -28,7 +29,7 @@ public class SearchOrder extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTable customerTable;
-	private SearchCustomerTableModel searchCustomerTableModel;
+	private SearchOrderNrTableModel searchOrderNrTableModel;
 	private JTextField textFieldCustomerName;
 	private JTextField textFieldCustomerEmail;
 	private JTextField textFieldCustomerPhoneNr;
@@ -49,9 +50,9 @@ public class SearchOrder extends JDialog {
 	private GridBagConstraints gbc_lblCustomerPhoneNr;
 	private GridBagConstraints gbc_textFieldCustomerPhoneNr;
 	private GridBagConstraints gbc_btnSearch;
-	private ArrayList<Customer> displayCustomers;
+	private ArrayList<Order> displayOrders;
 	private JTextField textCustomerIDField;
-	private SearchCustomerTableModel newSearchCustomerTableModel;
+	private SearchOrderNrTableModel newSearchOrderNrTableModel;
 	private boolean searchPress;
 	private JLabel lblCustomerID;
 	private JTextField textCustomerIDField_1;
@@ -69,8 +70,8 @@ public class SearchOrder extends JDialog {
 		}
 		{
 			customerTable = new JTable();	
-			searchCustomerTableModel= new SearchCustomerTableModel();
-			customerTable.setModel(searchCustomerTableModel);
+			searchOrderNrTableModel= new SearchOrderNrTableModel();
+			customerTable.setModel(searchOrderNrTableModel);
 			scrollPane.setViewportView(customerTable);
 		}	
 		{
@@ -202,8 +203,8 @@ public class SearchOrder extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
-		displayCustomers = new ArrayList<>();
-		searchCustomerTableModel.initCustomerList();
+		displayOrders = new ArrayList<>();
+		searchOrderNrTableModel.initOrderList();
 	}
 
 	private void handleBackButton() {
