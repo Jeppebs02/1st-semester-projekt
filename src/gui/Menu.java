@@ -415,13 +415,11 @@ public class Menu extends JFrame {
 //	}
 
 	private void handleFærdiggørbutton() {
-		// TODO Auto-generated method stub
 		FinishOffer fo = new FinishOffer();
 		fo.setVisible(true);
 	}
 
 	private void handleOpretTilbud() {
-		// TODO Auto-generated method stub
 		CreateOffer co = new CreateOffer();
 		co.setVisible(true);
 		

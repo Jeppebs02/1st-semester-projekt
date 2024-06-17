@@ -1,17 +1,10 @@
 package gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
-import control.OrderController;
 import control.OrderStatusController;
 import model.Order;
 import model.OrderLine;
-import model.Product;
 
 import java.awt.GridBagLayout;
 import javax.swing.JTextField;
@@ -23,14 +16,11 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.Button;
 import javax.swing.JScrollPane;
 import java.awt.Choice;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import javax.swing.JTable;
-import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -271,14 +261,6 @@ public class FinishOffer extends JDialog {
 		
 		this.setVisible(false);
         this.dispose();	
-	}
-	
-	private Object[] orderLineToObjectArray(OrderLine ol) {
-		String productName = ol.getProduct().getName();
-		int quantity = ol.getQuantity();
-		double price = ol.getProduct().getPrice().getSalesPrice()*quantity;
-		
-		return new Object[] {productName,quantity,price};
 	}
 	
 	private void handleAddOrderNr() {
