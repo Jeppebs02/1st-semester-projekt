@@ -32,9 +32,6 @@ public class OrderControllerTest {
 	public void saveOffer() {
 		Product obj1 = orderController.inputProduct("99008800", 10);
 		 
-		assertTrue(orderController.saveOffer());
-		
+		assertTrue(orderController.saveOffer());	
 	}
-	
-	
 }
