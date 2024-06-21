@@ -26,9 +26,11 @@ public class CustomerCategory {
 	}
 
 	public void setName(String name) throws IllegalArgumentException {
-		if (name == null) {
+		if (name.equals("")) {
 			throw new IllegalArgumentException("Name cant be Null");
-		}
+		} if (name.equals(" ")) {
+			throw new IllegalArgumentException("Name cant be an empty space");
+		} 
 		this.name = name;
 	}
 
@@ -40,9 +42,11 @@ public class CustomerCategory {
 	}
 
 	public void setDescription(String description) throws IllegalArgumentException {
-		if (description == null) {
-			throw new IllegalArgumentException("Description cant be Null");
-		}
+		if (description.equals("")) {
+			throw new IllegalArgumentException("description cant be Null");
+		} if (description.equals(" ")) {
+			throw new IllegalArgumentException("description cant be an empt space");
+		} 
 		this.description = description;
 	}
 
@@ -54,7 +58,7 @@ public class CustomerCategory {
 	}
 
 	public void setDiscount(double discount) throws IllegalArgumentException {
-		if (discount <= 0) {
+		if (discount < 0) {
 			throw new IllegalArgumentException("Discount cant be less than or zero. Discount is expressed as a decimal nr. no discount is 1, 20% discount is 0,8, 50% discount is 0,5");
 		}
 		this.discount = discount;
