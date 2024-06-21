@@ -8,7 +8,6 @@ import java.util.ArrayList;
 //@description: This class makes orders. 
 public class Order {
 	private LocalDateTime date;
-	private double totalPrice;
 	private String orderNr;
 	private OrderStatus orderStatus;
 	private ArrayList<OrderLine> orderLines;
@@ -27,21 +26,18 @@ public class Order {
 	public double calculateTotalPrice() {
 		double total=0;
 		
-		
 		for(OrderLine currLine:orderLines) {
-			int currQuantity= currLine.getQuantity();
+			int currQuantity = currLine.getQuantity();
 			double currProductSalesPrice = currLine.getProduct().getPrice().getSalesPrice();
 			
 			total=total+(currProductSalesPrice*currQuantity);
 			
 		}
-		if(customer.getCustomerCategory()==null) {
-			return total;
-		}else {
-			double customerDiscount=customer.getCustomerCategory().getDiscount();
-			return total*customerDiscount;
+		if(customer!=null) {
+			double customerDiscount = customer.getCustomerCategory().getDiscount();
+			total = total*customerDiscount;
 		}
-		
+		return total;
 	}
 	
 	public String getOrderNr() throws NullPointerException {
