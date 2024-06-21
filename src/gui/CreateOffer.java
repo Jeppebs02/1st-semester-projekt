@@ -293,6 +293,8 @@ public class CreateOffer extends JDialog {
 
 	private void handleOkButton() {
 		oc.saveOffer(orderNr);
+		JOptionPane.showMessageDialog(this, "Tilbudet er sendt til " + oc.getCurrentOrder().getCustomer().getName() + "\n" 
+				+ "På email: " + oc.getCurrentOrder().getCustomer().getEmail());
 		this.setVisible(false);
 		this.dispose();
 	}

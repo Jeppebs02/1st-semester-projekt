@@ -256,9 +256,7 @@ public class FinishOffer extends JDialog {
 
 	private void handleSendFak() {
 		JOptionPane.showMessageDialog(this, "Ordren er sendt til " + foundOrder.getCustomer().getName() + "\n" 
-				+ "På email: " + foundOrder.getCustomer().getEmail()	
-				);
-		
+				+ "På email: " + foundOrder.getCustomer().getEmail());
 		this.setVisible(false);
         this.dispose();	
 	}

@@ -23,7 +23,6 @@ public class OrderControllerTest {
 	@Before
 	public void setUp() throws Exception {
         orderController = new OrderController();
-        ProductController productController = new ProductController();
         TryMe.addData();
         orderController.createOffer();
     }
