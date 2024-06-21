@@ -29,7 +29,7 @@ public class CustomerCategory {
 		if (name.equals("")) {
 			throw new IllegalArgumentException("Name cant be Null");
 		} if (name.equals(" ")) {
-			throw new IllegalArgumentException("Name cant be an empt space");
+			throw new IllegalArgumentException("Name cant be an empty space");
 		} 
 		this.name = name;
 	}
