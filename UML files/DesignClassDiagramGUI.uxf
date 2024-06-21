@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>642</x>
+      <y>1158</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchCustomer
+--
+	static final long serialVersionUID = 1L
+	final JPanel contentPanel = new JPanel()
+	customerTable : JTable 
+	searchCustomerTableModel : SearchCustomerTableModel 
+	textFieldCustomerName : JTextField 
+	textFieldCustomerEmail : JTextField 
+	textFieldCustomerPhoneNr : JTextField 
+	northPanel : JPanel 
+	lblPCustomerName : JLabel 
+	lblEmail : JLabel 
+	lblCustomerPhoneNr : JLabel 
+	btnSearch : JButton 
+	buttonPane : JPanel 
+	okButton : JButton 
+	cancelButton : JButton 
+	scrollPane : JScrollPane 
+	gbl_northPanel : GridBagLayout 
+	gbc_lblPCustomerName : GridBagConstraints 
+	gbc_textFieldCustomerName : GridBagConstraints 
+	gbc_lblEmail : GridBagConstraints
+	gbc_textFieldCustomerEmail : GridBagConstraints 
+	gbc_lblCustomerPhoneNr : GridBagConstraints 
+	gbc_textFieldCustomerPhoneNr : GridBagConstraints 
+	gbc_btnSearch : GridBagConstraints 
+	displayCustomers : ArrayList&lt;Customer&gt; 
+	textCustomerIDField : JTextField 
+	newSearchCustomerTableModel : SearchCustomerTableModel 
+	searchPress : boolean 
+--
++&lt;&lt;create&gt;&gt; SearchCustomer(textCustomerIDField:JTextField)
+-handleCancelButton(): void
+-handleOkButton(): void
+-handleSearchButton(): void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>1668</y>
+      <w>222</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>OrderController
+--
+-currentOrder : Order
+--
+-&lt;&lt;create&gt;&gt; OrderController()
++getCurrentOrder(): Order
++createOffer(): Order
++inputProduct(barcode:String, quantity:int): Product
++inputCustomerID(customerID:String): Customer
++saveOffer(order:Order): boolean
++getOrderLines(): ArrayList&lt;OrderLine&gt;
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1464</x>
+      <y>1926</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>ProductController
+--
+-currentProduct : Product
+--
+-&lt;&lt;create&gt;&gt; ProductController()
++inputProduct(barcode:String): Product
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>78</x>
+      <y>1914</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>CustomerController
+--
+-currentCustomer : Customer
+--
+-&lt;&lt;create&gt;&gt; CustomerController()
++inputCostumerID(customerID:String): Customer
++getCurrentCustomer()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>492</x>
+      <y>1914</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>LoginController
+--
+-currentUser : Employee
+--
+-&lt;&lt;create&gt;&gt; LoginController()
++getLoginUser(): Employee
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>2136</y>
+      <w>198</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>OrderContainer
+--
+-orders : ArrayList&lt;Order&gt;
+_-instance : OrderContainer_
+-orderNrCounter : int
+--
+-&lt;&lt;create&gt;&gt; OrderContainer()
+_+getInstance(): OrderContainer_
++saveOffer(order:Order): boolean
++generateOrderNr(): String
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1380</x>
+      <y>2166</y>
+      <w>204</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>ProductContainer
+--
+-products : ArrayList&lt;Product&gt;
+_-instance : ProductContainer_
+--
+-&lt;&lt;create&gt;&gt; ProductContainer()
+_+getInstance(): ProductContainer_
++findProductByBarcode(barcode:String): Product
++addProductToContainer(product:Product)
+{exception NullPointerException}
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>426</x>
+      <y>2304</y>
+      <w>180</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>LoginContainer
+--
+-loginUser : Employee
+_-instance : LoginContainer_
+--
+-&lt;&lt;create&gt;&gt; LoginContainer()
+_+getInstance(): LoginContainer_
++setLoginUser(user:Employee)
+{exception IllegalArgumentException}
++getLoginUser(): Employee
+{exception NullPointerException}
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>2154</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>CustomerContainer
+--
+-customers : ArrayList&lt;Customer&gt;
+_-instance : CustomerContainer_
+--
+-&lt;&lt;create&gt;&gt; CustomerContainer()
+_+getInstance(): CustomerContainer_
++findCustomerByID(customerID:String): Customer
++addCustomerToContainer(customer:Customer)
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1644</x>
+      <y>2166</y>
+      <w>228</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Product
+--
+-name : String
+-barcode : String
+-description : String
+-SKU : String
+-category : String
+-price : ItemPrice
+-inventory : Location
+--
++&lt;&lt;create&gt;&gt; Product(name:String, barcode:String 
+description:String, SKU:String, category:String, 
+price:ItemPrice, inventory:Location) 
++getBarcode(): String {exception NullPointerException}
++getName(): String {exception NullPointerException}
++getPrice(): ItemPrice {exception NullPointerException}
++getInventory(): Location {exception NullPointerException}
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1074</x>
+      <y>2136</y>
+      <w>186</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>Order
+--
+-date : LocalDate
+-totalPrice : double
+-orderNr : String
+-orderStatus : OrderStatus
+-orderLines : ArrayList&lt;OrderLine&gt;
+-employee : Employee
+-customer : Customer
+--
++&lt;&lt;create&gt;&gt; Order()
++calculateTotalPrice(): double
++getOrderNr(): String 
+{exception NullPointerException}
++getOrderStatus(): String
+{exception NullPointerException}
++getTimeMMSSString() String
++getAcceptDeadlineString(): String
++getTimeDateString(): String
++getPaymentDeadlineString(): String
++getOrderLines(): ArrayList&lt;OrderLine&gt;
+{exception NullPointerException}
++setOrderNr(orderNr:String)
+{exception IllegalArgumentException}
++setOrderStatus(orderStatus:OrderStatus)
+{exception IllegalArgumentException}
++setCustomer(customer:Customer)
+{exception IllegalArgumentException}
++setEmployee(employee:Employee)
+{exception IllegalArgumentException}
++addOrderLine(orderLine:OrderLine)
+{exception NullPointerException}
++getCustomer(): Customer
+{exception NullPointerException}
+
+
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>2490</y>
+      <w>234</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>OrderLine
+--
+-quantity : int
+-product : Product
+--
++&lt;&lt;create&gt;&gt; OrderLine(product:Product, quantity:int)
++getQuantity(): int {exception NullPointerException}
++setQuantity(quantity:int) 
+{exception IllegalArgumentException}
++getProduct(): Product {exception NullPointerException}
++setProduct(product:Product) 
+{exception IllegalArgumentException}
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>2148</y>
+      <w>138</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Employee
+--
+-employeeID : String
+-password : String
+-username : String
+--
++&lt;&lt;create&gt;&gt; Employee(name:String, 
+email:String, phoneNr:String, 
+address:String, employee:String,
+password:String, username: String)
++getEmployeeID(): String
+{exception NullPointerException}
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>2154</y>
+      <w>162</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+-customerID : String
+-customerCategory : CustomerCategory
+--
++&lt;&lt;create&gt;&gt; Customer(name:String, 
+email:String, phoneNr:String, 
+address:String, customerID:String)
++getCustomerID(): String
+{exception NullPointerException}
++getCustomerCategory(): 
+CustomerCategory
++setCustomerCategory
+(CustomerCategory:customerCategory)
+{exception IllegalArgumentException}
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1026</x>
+      <y>1848</y>
+      <w>552</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>900.0;130.0;900.0;20.0;10.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>1848</y>
+      <w>810</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;20.0;1330.0;20.0;1330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>1848</y>
+      <w>402</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;40.0;650.0;40.0;650.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1002</x>
+      <y>1848</y>
+      <w>138</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>200.0;480.0;200.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1848</y>
+      <w>84</w>
+      <h>654</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>110.0;1070.0;120.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>1848</y>
+      <w>66</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;160.0;90.0;160.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1458</x>
+      <y>2106</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;40.0;190.0;40.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1578</x>
+      <y>2250</y>
+      <w>78</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1572</x>
+      <y>2106</y>
+      <w>138</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>200.0;100.0;200.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>2094</y>
+      <w>18</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;350.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>2094</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>250.0;100.0;250.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>2328</y>
+      <w>108</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>150.0;10.0;150.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>96</x>
+      <y>2094</y>
+      <w>96</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;40.0;140.0;40.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>2094</y>
+      <w>114</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>160.0;90.0;160.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>2238</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1146</x>
+      <y>2460</y>
+      <w>18</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>2208</y>
+      <w>54</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>2136</y>
+      <w>132</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>/Person/
+--
+-name : String
+-email : String
+-phoneNr : String
+-address : String
+--
+-&lt;&lt;create&gt;&gt; Person(name:String,
+email:String, phoneNr:String,
+address:String)
++getName(): String
+{exception NullPointerException}
++getEmail(): String
+{exception NullPointerException}
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>2178</y>
+      <w>66</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;120.0;90.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>402</x>
+      <y>2178</y>
+      <w>60</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>80.0;10.0;30.0;10.0;30.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1920</x>
+      <y>2076</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>ItemPrice
+--
+-costPrice : double
+-MSRP : double
+-salesPrice : double
+-discount : double
+-date : LocalDateTime
+--
++&lt;&lt;create&gt;&gt; ItemPrice(costPrice:double, MSRP:double 
+salesPrice:double, discount:double, date:LocalDate) 
++getSalesPrice(): double 
+{exception NullPointerException}
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2034</x>
+      <y>2298</y>
+      <w>198</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Location
+--
+-department : String
+-aisle : String
+-shelf : String
+-minStock : int
+-maxStock : int
+-stock : int
+--
++&lt;&lt;create&gt;&gt; Location(department:String, aisle:String, 
+shelf:String, minStock:int, maxStock:int, stock:int)
++getStock(): int
++changeStock(quantity:int)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1866</x>
+      <y>2160</y>
+      <w>66</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>90.0;10.0;30.0;10.0;30.0;160.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>2346</y>
+      <w>510</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>820.0;10.0;820.0;40.0;240.0;40.0;240.0;320.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1284</x>
+      <y>2172</y>
+      <w>84</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+OrderStatus
+--
+ACCEPTED
+PAID
+CANCELED
+ONHOLD
+OVERDUE
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1254</x>
+      <y>2208</y>
+      <w>42</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1518</x>
+      <y>2424</y>
+      <w>204</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SpecificProduct
+--
+-modelNr : String
+-copies : ArrayList&lt;Copy&gt;
+--
++&lt;&lt;create&gt;&gt; Product(name:String, barcode:String 
+description:String, SKU:String, category:String, 
+price:ItemPrice, inventory:Location, modelNr:String) 
++getBarcode(): String
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1770</x>
+      <y>2424</y>
+      <w>198</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>CompositeProduct
+--
+-assemblyInstructions : String
+-components : ArrayList&lt;CompositeLine&gt;
+--
++&lt;&lt;create&gt;&gt; CompositeProduct(name:String, 
+barcode:String, description:String, 
+sKU:String, category:String, 
+price:ItemPrice, inventory:Location, 
+assemblyInstructions:String) 
++getBarcode(): String
++addComponent(component:CompositeLine)
+{exception IllegalArgumentException}
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1614</x>
+      <y>2346</y>
+      <w>126</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190.0;10.0;190.0;90.0;10.0;90.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1734</x>
+      <y>2346</y>
+      <w>144</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;220.0;90.0;220.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1770</x>
+      <y>2586</y>
+      <w>198</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>CompositeLine
+--
+-quantity : int
+-product : Product
+--
++&lt;&lt;create&gt;&gt; CompositeLine(quantity:int, 
+product:Product) 
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1518</x>
+      <y>2586</y>
+      <w>204</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>Copy
+--
+-serialNr : String
+--
++&lt;&lt;create&gt;&gt; Product(serialNr:String) 
++getSerialNr(): String 
+{exception NullPointerException}
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1860</x>
+      <y>2538</y>
+      <w>18</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1818</x>
+      <y>2346</y>
+      <w>180</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=1</panel_attributes>
+    <additional_attributes>250.0;520.0;280.0;520.0;280.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1866</x>
+      <y>2304</y>
+      <w>180</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>2376</y>
+      <w>162</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>CustomerCategory
+--
+-name : String
+-description : String
+-discount : double
+-paymentDeadline : String
+--
+-&lt;&lt;create&gt;&gt; CustomerCategory(name:
+String, description:String, 
+discount:double, String 
+paymentDeadline)
++getName(): String
+{exception NullPointerException}
++setName(name:String)
+{exception IllegalArgumentException}
++getDescription(): String
+{exception NullPointerException}
++setDescription(description:String)
+{exception IllegalArgumentException}
++getDiscount(): double
+{exception NullPointerException}
++setDiscount(discount:double)
+{exception IllegalArgumentException}
++getPaymentDealine(): String
++calculateDiscountPercent(): double
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>2334</y>
+      <w>30</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1146</x>
+      <y>1668</y>
+      <w>222</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>OrderStatusController
+--
+-order : Order
+--
+-&lt;&lt;create&gt;&gt; OrderController()
++findOrderByNr(orderNr:String): Order
++changeOrderStatus(status:String): OrderStatus
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>948</x>
+      <y>1848</y>
+      <w>324</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;180.0;520.0;180.0;520.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>1848</y>
+      <w>108</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;480.0;10.0;180.0;160.0;180.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1614</x>
+      <y>2538</y>
+      <w>18</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>852</x>
+      <y>570</y>
+      <w>216</w>
+      <h>528</h>
+    </coordinates>
+    <panel_attributes>CreateOffer
+--
+	static final long serialVersionUID = 1L
+	final JPanel contentPanel = new JPanel()
+	orderLineTable : JTable 
+	scrollPane : JScrollPane 
+	lblOrdreLabel : JLabel 
+	buttonPane : JPanel 
+	okButton : JButton 
+	cancelButton : JButton 
+	oc : OrderController 
+	cc : CustomerController 
+	orderLineTableModel : OrderTableModel 
+	northPanel : JPanel 
+	lblBarcode : JLabel 
+	lblQuantity : JLabel 
+	lblCustomerID : JLabel 
+	textCustomerIDField : JTextField 
+	textBarcodeField : JTextField 
+	btnSearchProduct : JButton 
+	textQuantityField : JTextField 
+	btnAddCustomer : JButton 
+	btnAddProduct : JButton 
+	btnSearchCustomer : JButton 
+	pricePanel : JPanel 
+	lblTotalPrice : JLabel 
+	lblDiscount : JLabel 
+	lblBlank : JLabel 
+	orderNr : String 
+	gbl_pricePanel : GridBagLayout 
+	gbc_lblDiscount : GridBagConstraints 
+	gbc_lblTotalPriceLabel : GridBagConstraints 
+	gbl_northPanel : GridBagLayout 
+	gbc_lblBlank : GridBagConstraints 
+	gbc_lblBarcode : GridBagConstraints 
+	gbc_lblQuantity : GridBagConstraints 
+	gbc_lblCustomerID : GridBagConstraints 
+	gbc_textCustomerIDField : GridBagConstraints 
+	gbc_textBarcodeField : GridBagConstraints 
+	gbc_btnSearchProduct : GridBagConstraints 
+	gbc_textQuantityField : GridBagConstraints 
+	gbc_btnAddCustomer : GridBagConstraints 
+	gbc_btnAddProduct : GridBagConstraints 
+	gbc_btnSearchCustomer : GridBagConstraints 
+--
++&lt;&lt;create&gt;&gt; CreateOffer()
+-handleSearchProductButton(): void
+-getOC(): OrderController
+-handleSeachCustomerButton(): void
+-handleAddCustomer(): void
+-chandleOkButton(): void
+-handleCancelButton(): void
+-returnDiscount(): double
+-returnPrice(): double
+-handleAddProduct(): void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1104</x>
+      <y>210</y>
+      <w>216</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>Menu
+--
+	static final long serialVersionUID = 1L
+	contentPane : JPanel
+	tabbedPane : JTabbedPane 
+	layeredOfferPane : JLayeredPane 
+	btnCreateOffer : JButton 
+	btnChangeOfferStatus : JButton 
+	btnReturnButton : JButton 
+	btnNormaltSale : JButton 
+	layeredLeasingPane : JLayeredPane 
+	btnCreateLeasing : JButton 
+	btnReturnLeasingButton : JButton 
+	btnAddNewMachineButton : JButton 
+	btnSearchLeasingButton : JButton 
+	layeredEmployeePane : JLayeredPane 
+	btnCreateEmployee : JButton 
+	btnSearchEmployee : JButton 
+	layeredCustomerPane : JLayeredPane 
+	btnCreateCustomer : JButton 
+	btnSearchCustomer : JButton 
+	btnSetCustomerCategory : JButton 
+	layeredInventoryPane : JLayeredPane 
+	btnFindProduct : JButton 
+	btnOrderProduct : JButton 
+	btnInventoryCount : JButton 
+	layeredStatisticPane : JLayeredPane 
+	btnEmployeeStatistic : JButton 
+	btnCustomerStatistic : JButton 
+	btnInventoryStatistic : JButton 
+	panel : JPanel 
+	btnLogOut : pJButton 
+	btnUpdateProduct : JButton 
+	btnCreateSupplier : JButton 
+	btnSearchSupplier : JButton 
+--
++&lt;&lt;create&gt;&gt; Menu()
+-handleFærdiggørbutton(): void
+-handleOpretTilbud(): void
+-logOut(): void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1110</x>
+      <y>0</y>
+      <w>216</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Login
+--
+	static final long serialVersionUID = 1L
+	contentPane : JPanel 
+	textField : JTextField 
+	passwordField : JPasswordField 
+	southPanel : JPanel 
+	btnLogin : JButton 
+	lblPassword : JLabel 
+	lblUsername : JLabel 
+	centerPanel : JPanel 
+	lblLoginHeader : JLabel 
+	northPanel : JPanel 
+	gbl_centerPanel : GridBagLayout 
+	gbc_lblUsername : GridBagConstraints 
+	gbc_usernameField : GridBagConstraints 
+	gbc_lblPassword : GridBagConstraints
+	gbc_passwordField : GridBagConstraints 
+--
++&lt;&lt;create&gt;&gt; Login()
+-handleLoginButton(): void
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>1158</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchProduct
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; SearchProduct(textBarcodeField:JTextField)
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1350</x>
+      <y>594</y>
+      <w>216</w>
+      <h>456</h>
+    </coordinates>
+    <panel_attributes>FinishOffer
+--
+	static final long serialVersionUID = 1L
+	contentPane : JPanel 
+	NorthPane : JPanel 
+	lblInputOrderNr : JLabel 
+	textOrderNrField : JTextField 
+	btnSearchOrder : JButton 
+	btnOdreNrButton : JButton 
+	lblChangeStatus : JLabel 
+	SouthPane : JPanel 
+	btnSendInvoice : JButton 
+	btnSave : JButton 
+	btnBack : JButton 
+	CenterPane : JPanel 
+	table : JTable 
+	scrollPane : JScrollPane 
+	orderLineTableModel : OrderTableModel 
+	panel : JPanel 
+	lblDiscount : JLabel 
+	lblPrice : JLabel 
+	foundOrder : Order 
+	choice : Choice 
+	osc : OrderStatusController 
+	dropDownChoice : String 
+	lblCurrentStatus : JLabel 
+	lblBlank : JLabel 
+	gbl_northPane : GridBagLayout 
+	gbc_textOrderNrField : GridBagConstraints 
+	gbc_btnSearchOrder : GridBagConstraints 
+	gbc_btnOrderNrButton : GridBagConstraints 
+	gbc_lblBlank : GridBagConstraints 
+	gbc_lblCurrentStatus : GridBagConstraints 
+	gbc_lblChangeStatus : GridBagConstraints 
+	gbc_choice : GridBagConstraints 
+	gbl_panel : GridBagLayout 
+	gbc_lblDiscount : GridBagConstraints 
+	gbc_lblPrice : GridBagConstraints 
+--
++&lt;&lt;create&gt;&gt; FinishOffer()
+-handleSave(e:ItemEvent): String
+-handleBtnSave(dropDownChoice:String): void
+-handleSendFak(): void
+-handleAddOrderNr(): void
+-handleSearchOrder(textOrderNrField:JTextField)
+-returnDiscount(): double
+-returnPrice(): double
+-handleTilbageButton(): void
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1356</x>
+      <y>1158</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchOrder
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; SearchOrder(textOrderNrField:JTextField)
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>1410</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchCustomerTableModel
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; SearchCustomerTableModel()
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1014</x>
+      <y>1410</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchProductTableModel
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; SearchProductTableModel()
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1296</x>
+      <y>1410</y>
+      <w>216</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>SearchOrderNrTableModel
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; SearchOrderNrTableModel()
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1116</x>
+      <y>1158</y>
+      <w>228</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>OrderTableModel
+--
+oc : OrderController
+--
++&lt;&lt;create&gt;&gt; OrderTableModel(orderController:OrderController)
++&lt;&lt;create&gt;&gt; OrderTableModel()
++start(): void
++orderMenu(): void
++writeOrderMenu(): int
++createOffer()
++changeOrderStatus()
+-getIntegerFromUser(keyboard:Scanner): int
+-printOrderDesc()
+-printOrderAccept()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
