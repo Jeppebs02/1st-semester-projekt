@@ -33,6 +33,7 @@ public class TryMe {
 		c1.setCustomerCategory(cuc);
 		cc.addCustomerToContainer(c1);
 		c2.setCustomerCategory(cuc);
+		
 		// Opret kundekategorier
         CustomerCategory loyalCategory = new CustomerCategory("Loyal", "Loyale kunder", 0.90, 14);
         CustomerCategory newCustomerCategory = new CustomerCategory("Ny", "Nye kunder", 1.0, 7);
@@ -77,7 +78,7 @@ public class TryMe {
 
         Random rand = new Random();
 
-        // Tilføj 50 kunder
+        // Tilføj 999 kunder
         for (int i = 1; i <= 999; i++) {
             String firstName = firstNames.get(rand.nextInt(firstNames.size()));
             String lastName = lastNames.get(rand.nextInt(lastNames.size()));
