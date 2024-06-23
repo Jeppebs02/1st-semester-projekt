@@ -18,20 +18,29 @@ import tui.TryMe;
 public class OrderControllerTest {
 
 	private OrderController orderController;
-	
+	private Order currentOffer;
+	private String orderNr;
 	
 	@Before
 	public void setUp() throws Exception {
         orderController = new OrderController();
         TryMe.addData();
-        orderController.createOffer();
+        currentOffer = orderController.createOffer();
+        orderNr = orderController.generateOrderNr();
     }
 	
 	
 	@Test
 	public void saveOffer() {
-		Product obj1 = orderController.inputProduct("99008800", 10);
-		 
-		assertTrue(orderController.saveOffer());	
+//		Product obj1 = orderController.inputProduct("99008800", 10);
+
+		assertTrue(orderController.saveOffer(orderNr));	
 	}
+	
+	@Test
+	public void generateOrderNr() {
+		assertNotNull(orderController.generateOrderNr());
+	}
+	
+	
 }

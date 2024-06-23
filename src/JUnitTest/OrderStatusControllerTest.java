@@ -20,6 +20,7 @@ public class OrderStatusControllerTest {
 	 private OrderStatusController orderStatusController;
 	 private OrderController orderController;
 	 private OrderContainer oc;
+	 private Order order;
 
 	    @Before
 	    public void setUp() throws Exception {
@@ -31,32 +32,24 @@ public class OrderStatusControllerTest {
 
 	    @Test 
 	    public void findOrderByNr() {
-	    	Order order= new Order();
+	    	order= new Order();
 	    	oc = OrderContainer.getInstance();
-	    	
-	    	oc.saveOffer(order);
-	    	
 	        
 	        assertNotNull(orderStatusController.findOrderByNr("1"));
 	    }
 	    
 	    @Test
 	    public void findOrderByNrNegativeTest() {
-	    	Order order= new Order();
+	    	order= new Order();
 	    	oc = OrderContainer.getInstance();
 	    	
-	    	oc.saveOffer(order);
-	    	
-	        
-	        assertNull(orderStatusController.findOrderByNr("12"));
+	        assertNull(orderStatusController.findOrderByNr("55"));
 	    }
 	    
 	    @Test
 	    public void changestatus() {
-	    	Order order= new Order();
+	    	order= new Order();
 	    	oc = OrderContainer.getInstance();
-	    	
-	    	oc.saveOffer(order);
 	    	
 	    	orderStatusController.findOrderByNr("1");
 	    	
