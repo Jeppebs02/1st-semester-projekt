@@ -49,11 +49,7 @@ public class OrderController {
 		}
 		return orderProduct; 
 
-	}	
-	//Method overloading to add a "default" argument. Do not delete this pls
-	//public Product inputProduct(String barcode) {
-		//return inputProduct(barcode,1);
-	//}
+	}
 	
 	public Customer inputCustomerID(String customerID) {
 		//Find a customer and add to currentOrder
