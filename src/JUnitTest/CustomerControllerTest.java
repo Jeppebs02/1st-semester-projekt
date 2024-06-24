@@ -25,13 +25,11 @@ public class CustomerControllerTest {
 
     @Test 
     public void inputCustomerID() {
-        
         assertNotNull(customerController.inputCustomerID("22112233"));
     }
     
     @Test
     public void inputCustomerID1() {
-        
         assertEquals("Average Joe", customerController.inputCustomerID("44556677").getName());
     }
     
