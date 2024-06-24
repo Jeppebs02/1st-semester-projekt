@@ -52,8 +52,8 @@ public class SearchOrderNrTableModel extends AbstractTableModel{
 			return orders;
 		}
 
-		public void setOrders(ArrayList<Order> customers) {
-			this.orders = customers;
+		public void setOrders(ArrayList<Order> orders) {
+			this.orders = orders;
 		}
 
 		@Override
