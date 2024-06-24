@@ -8,7 +8,6 @@ import javax.swing.table.AbstractTableModel;
 
 import control.CustomerController;
 import model.Customer;
-import model.Order;
 
 public class SearchCustomerTableModel extends AbstractTableModel{
 	
@@ -23,11 +22,7 @@ public class SearchCustomerTableModel extends AbstractTableModel{
 	    
 	    public void initCustomerList() {
 	    	customers = cc.printAllCustomers();
-	    	Collections.sort(customers, new Comparator<Customer>() {
-	            public int compare(Customer customer1, Customer customer2) {
-	                return customer1.getName().compareToIgnoreCase(customer2.getName());
-	            }
-	        });
+	    	sortCustomerListByName();
 	    }
 	    
 	    public void sortCustomerListByName() {
