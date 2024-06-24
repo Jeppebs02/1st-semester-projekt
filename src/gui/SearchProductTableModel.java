@@ -1,6 +1,8 @@
 package gui;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -20,6 +22,19 @@ public class SearchProductTableModel extends AbstractTableModel {
 	
 	public void initProductTable () {
 		products = pc.printAllProducts();
+		Collections.sort(products, new Comparator<Product>() {
+            public int compare(Product product1, Product product2) {
+                return product1.getName().compareToIgnoreCase(product2.getName());
+            }
+        });
+	}
+	
+	public void sortProductTableByName () {
+		Collections.sort(products, new Comparator<Product>() {
+            public int compare(Product product1, Product product2) {
+                return product1.getName().compareToIgnoreCase(product2.getName());
+            }
+        });
 	}
 	
 	@Override

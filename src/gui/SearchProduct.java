@@ -203,6 +203,7 @@ public class SearchProduct extends JDialog {
 		newSearchProductTableModel = new SearchProductTableModel();
 		newSearchProductTableModel.setProducts(displayProducts);
         productTable.setModel(newSearchProductTableModel);
+        newSearchProductTableModel.sortProductTableByName();
 	}
 
 	private void handleOkButton() {

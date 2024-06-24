@@ -266,5 +266,6 @@ public class SearchOrder extends JDialog {
 		newSearchOrderNrTableModel = new SearchOrderNrTableModel();
 		newSearchOrderNrTableModel.setOrders(displayOrders);
         orderTable.setModel(newSearchOrderNrTableModel);
+        newSearchOrderNrTableModel.sortOrderListByOrderNr();
 	}
 }

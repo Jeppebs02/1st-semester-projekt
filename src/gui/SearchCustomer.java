@@ -239,6 +239,7 @@ public class SearchCustomer extends JDialog {
 		newSearchCustomerTableModel = new SearchCustomerTableModel();
 		newSearchCustomerTableModel.setCustomers(displayCustomers);
         customerTable.setModel(newSearchCustomerTableModel);
+        newSearchCustomerTableModel.sortCustomerListByName();
 	}
 
 }

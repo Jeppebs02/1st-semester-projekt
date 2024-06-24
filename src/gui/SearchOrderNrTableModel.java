@@ -1,11 +1,14 @@
 package gui;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.table.AbstractTableModel;
 
 import control.OrderController;
 import model.Order;
+import model.Product;
 
 public class SearchOrderNrTableModel extends AbstractTableModel{
 	
@@ -20,6 +23,19 @@ public class SearchOrderNrTableModel extends AbstractTableModel{
 	    
 	    public void initOrderList() {
 	    	orders = oc.getOrders();
+			Collections.sort(orders, new Comparator<Order>() {
+	            public int compare(Order order1, Order order2) {
+	                return order1.getOrderNr().compareToIgnoreCase(order2.getOrderNr());
+	            }
+	        });
+	    }
+	    
+	    public void sortOrderListByOrderNr() {
+	    	Collections.sort(orders, new Comparator<Order>() {
+	            public int compare(Order order1, Order order2) {
+	                return order1.getOrderNr().compareToIgnoreCase(order2.getOrderNr());
+	            }
+	        });
 	    }
 
 		@Override
