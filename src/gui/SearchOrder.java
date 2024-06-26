@@ -233,7 +233,7 @@ public class SearchOrder extends JDialog {
 	        this.setVisible(false);
 	        this.dispose();
 			} else {
-        JOptionPane.showMessageDialog(this, "Vælg venligst en kunde");
+        JOptionPane.showMessageDialog(this, "Vælg venligst en ordre");
     	}
 	}
 
