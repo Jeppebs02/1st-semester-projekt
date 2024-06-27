@@ -53,9 +53,8 @@ public class OrderControllerTest {
 	
 	@Test
 	public void getOrdersByCustomerIDSpecific() {
-        String customerID = "66699666";
         ArrayList<Order> expectedOrders = new ArrayList<>(orderController.getOrdersByName("Rikke denseje"));
-        ArrayList<Order> actualOrders = orderController.getOrdersByCustomerID(customerID);
+        ArrayList<Order> actualOrders = orderController.getOrdersByCustomerID("66699666");
 
         assertEquals(expectedOrders, actualOrders);
     }
