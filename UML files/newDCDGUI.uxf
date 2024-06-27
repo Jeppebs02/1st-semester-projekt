@@ -1,63 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>2</zoom_level>
+  <help_text/>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>502</x>
-      <y>450</y>
-      <w>74</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>SearchCustomer
---
--static final long serialVersionUID = 1L
--final JPanel contentPanel = new JPanel()
--customerTable : JTable 
--searchCustomerTableModel : SearchCustomerTableModel 
--textFieldCustomerName : JTextField 
--textFieldCustomerEmail : JTextField 
--textFieldCustomerPhoneNr : JTextField 
--northPanel : JPanel 
--lblPCustomerName : JLabel 
--lblEmail : JLabel 
--lblCustomerPhoneNr : JLabel 
--btnSearch : JButton 
--buttonPane : JPanel 
--okButton : JButton 
--cancelButton : JButton 
--scrollPane : JScrollPane 
--gbl_northPanel : GridBagLayout 
--gbc_lblPCustomerName : GridBagConstraints 
--gbc_textFieldCustomerName : GridBagConstraints 
--gbc_lblEmail : GridBagConstraints
--gbc_textFieldCustomerEmail : GridBagConstraints 
--gbc_lblCustomerPhoneNr : GridBagConstraints 
--gbc_textFieldCustomerPhoneNr : GridBagConstraints 
--gbc_btnSearch : GridBagConstraints 
--displayCustomers : ArrayList&lt;Customer&gt; 
--textCustomerIDField : JTextField 
--newSearchCustomerTableModel : SearchCustomerTableModel 
--searchPress : boolean 
---
-+&lt;&lt;create&gt;&gt; SearchCustomer(textCustomerIDField:JTextField)
--handleCancelButton(): void
--handleOkButton(): void
--handleSearchButton(): void
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>556</x>
-      <y>592</y>
-      <w>74</w>
-      <h>62</h>
+      <x>1029</x>
+      <y>287</y>
+      <w>259</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>OrderController
 --
@@ -84,10 +35,10 @@ new+getOrdersByPhoneNr(phoneNr:String): ArrayList&lt;Order&gt;</panel_attributes
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>750</x>
-      <y>682</y>
-      <w>72</w>
-      <h>40</h>
+      <x>1708</x>
+      <y>602</y>
+      <w>252</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>ProductController
 --
@@ -107,10 +58,10 @@ new+getProductsByName(name:String): ArrayList&lt;Product&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>678</y>
-      <w>72</w>
-      <h>50</h>
+      <x>91</x>
+      <y>588</y>
+      <w>252</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>CustomerController
 --
@@ -133,10 +84,10 @@ new+getCustomersByName(name:String): ArrayList&lt;Customer&gt;</panel_attributes
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>426</x>
-      <y>678</y>
-      <w>72</w>
-      <h>24</h>
+      <x>574</x>
+      <y>588</y>
+      <w>252</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>LoginController
 --
@@ -154,10 +105,10 @@ new+authenticateEmployee(username:String, password:String): boolean
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>542</x>
-      <y>752</y>
-      <w>66</w>
-      <h>48</h>
+      <x>980</x>
+      <y>847</y>
+      <w>231</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>OrderContainer
 --
@@ -181,10 +132,10 @@ new+findOrdersByCustomerPhoneNr(phoneNr:String): ArrayList&lt;Order&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>722</x>
-      <y>762</y>
-      <w>68</w>
-      <h>46</h>
+      <x>1610</x>
+      <y>882</y>
+      <w>238</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>ProductContainer
 --
@@ -208,10 +159,10 @@ new+findProductsByCategory(category:String): ArrayList&lt;Product&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>404</x>
-      <y>826</y>
-      <w>60</w>
-      <h>38</h>
+      <x>497</x>
+      <y>1106</y>
+      <w>210</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>LoginContainer
 --
@@ -236,10 +187,10 @@ new+authenticateEmployee(username:String, password:String): boolean
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>262</x>
-      <y>758</y>
-      <w>72</w>
-      <h>42</h>
+      <x>0</x>
+      <y>868</y>
+      <w>252</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>CustomerContainer
 --
@@ -263,10 +214,10 @@ new+findAllCustomers(): ArrayList&lt;Customer&gt;
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>810</x>
-      <y>762</y>
-      <w>76</w>
-      <h>84</h>
+      <x>1918</x>
+      <y>882</y>
+      <w>266</w>
+      <h>294</h>
     </coordinates>
     <panel_attributes>Product
 --
@@ -304,10 +255,10 @@ new+setInventory(inventory:Location)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>752</y>
-      <w>62</w>
-      <h>110</h>
+      <x>1253</x>
+      <y>847</y>
+      <w>217</w>
+      <h>385</h>
     </coordinates>
     <panel_attributes>Order
 --
@@ -355,10 +306,10 @@ new+removeOrderLine(ol:OrderLine): boolean
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>574</x>
-      <y>870</y>
-      <w>78</w>
-      <h>40</h>
+      <x>1092</x>
+      <y>1260</y>
+      <w>273</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>OrderLine
 --
@@ -384,10 +335,10 @@ new+calculateOrderLinePrice(): double
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>756</y>
-      <w>46</w>
-      <h>46</h>
+      <x>735</x>
+      <y>861</y>
+      <w>161</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>Employee
 --
@@ -412,10 +363,10 @@ new+authenticate(String password): boolean
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>344</x>
-      <y>758</y>
-      <w>54</w>
-      <h>50</h>
+      <x>287</x>
+      <y>868</y>
+      <w>189</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes>Customer
 --
@@ -441,10 +392,10 @@ CustomerCategory
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>604</x>
-      <y>652</y>
-      <w>184</w>
-      <h>34</h>
+      <x>1197</x>
+      <y>497</y>
+      <w>644</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>900.0;150.0;900.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
@@ -452,10 +403,10 @@ CustomerCategory
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
-      <y>652</y>
-      <w>270</w>
-      <h>30</h>
+      <x>203</x>
+      <y>497</y>
+      <w>945</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;130.0;10.0;40.0;1330.0;40.0;1330.0;10.0</additional_attributes>
@@ -463,10 +414,10 @@ CustomerCategory
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>652</y>
-      <w>134</w>
-      <h>30</h>
+      <x>693</x>
+      <y>497</y>
+      <w>469</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;130.0;10.0;60.0;650.0;60.0;650.0;10.0</additional_attributes>
@@ -474,10 +425,10 @@ CustomerCategory
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>596</x>
-      <y>652</y>
-      <w>46</w>
-      <h>104</h>
+      <x>1169</x>
+      <y>497</y>
+      <w>161</w>
+      <h>364</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -486,10 +437,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>592</x>
-      <y>652</y>
-      <w>28</w>
-      <h>222</h>
+      <x>1155</x>
+      <y>497</y>
+      <w>98</w>
+      <h>777</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>110.0;1090.0;120.0;180.0;10.0;180.0;10.0;10.0</additional_attributes>
@@ -497,10 +448,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>652</y>
-      <w>22</w>
-      <h>104</h>
+      <x>1092</x>
+      <y>497</y>
+      <w>77</w>
+      <h>364</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;500.0;10.0;180.0;90.0;180.0;90.0;10.0</additional_attributes>
@@ -508,10 +459,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>748</x>
-      <y>720</y>
-      <w>42</w>
-      <h>46</h>
+      <x>1701</x>
+      <y>735</y>
+      <w>147</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;210.0;10.0;150.0;190.0;150.0;190.0;10.0</additional_attributes>
@@ -519,10 +470,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>788</x>
-      <y>790</y>
-      <w>26</w>
-      <h>8</h>
+      <x>1841</x>
+      <y>980</y>
+      <w>91</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
@@ -531,10 +482,10 @@ m1=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>786</x>
-      <y>720</y>
-      <w>46</w>
-      <h>46</h>
+      <x>1834</x>
+      <y>735</y>
+      <w>161</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -543,10 +494,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>458</x>
-      <y>700</y>
-      <w>6</w>
-      <h>130</h>
+      <x>686</x>
+      <y>665</y>
+      <w>21</w>
+      <h>455</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;630.0;10.0;10.0</additional_attributes>
@@ -554,10 +505,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>322</x>
-      <y>726</y>
-      <w>56</w>
-      <h>36</h>
+      <x>210</x>
+      <y>756</y>
+      <w>196</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -566,10 +517,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>800</y>
-      <w>36</w>
-      <h>60</h>
+      <x>700</x>
+      <y>1015</y>
+      <w>126</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -578,10 +529,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>294</x>
-      <y>726</y>
-      <w>32</w>
-      <h>34</h>
+      <x>112</x>
+      <y>756</y>
+      <w>112</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;100.0;140.0;100.0;140.0;10.0</additional_attributes>
@@ -589,10 +540,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>700</y>
-      <w>38</w>
-      <h>60</h>
+      <x>693</x>
+      <y>665</y>
+      <w>133</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -601,10 +552,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>332</x>
-      <y>786</y>
-      <w>16</w>
-      <h>8</h>
+      <x>245</x>
+      <y>966</y>
+      <w>56</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
@@ -613,10 +564,10 @@ m1=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>644</x>
-      <y>860</y>
-      <w>6</w>
-      <h>14</h>
+      <x>1337</x>
+      <y>1225</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
@@ -625,10 +576,10 @@ m1=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>606</x>
-      <y>776</y>
-      <w>18</w>
-      <h>8</h>
+      <x>1204</x>
+      <y>931</y>
+      <w>63</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
@@ -637,10 +588,10 @@ m1=*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>412</x>
-      <y>752</y>
-      <w>44</w>
-      <h>62</h>
+      <x>525</x>
+      <y>847</y>
+      <w>154</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>/Person/
 --
@@ -671,10 +622,10 @@ new+setEmail(email:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>454</x>
-      <y>766</y>
-      <w>22</w>
-      <h>28</h>
+      <x>672</x>
+      <y>896</y>
+      <w>77</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0;60.0;120.0;90.0;120.0</additional_attributes>
@@ -682,10 +633,10 @@ new+setEmail(email:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
-      <y>766</y>
-      <w>20</w>
-      <h>26</h>
+      <x>469</x>
+      <y>896</y>
+      <w>70</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>80.0;10.0;30.0;10.0;30.0;110.0;10.0;110.0</additional_attributes>
@@ -693,10 +644,10 @@ new+setEmail(email:String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>902</x>
-      <y>732</y>
-      <w>72</w>
-      <h>38</h>
+      <x>2240</x>
+      <y>777</y>
+      <w>252</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>ItemPrice
 --
@@ -719,10 +670,10 @@ salesPrice:double, discount:double, date:LocalDate)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>940</x>
-      <y>806</y>
-      <w>66</w>
-      <h>48</h>
+      <x>2373</x>
+      <y>1036</y>
+      <w>231</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Location
 --
@@ -748,10 +699,10 @@ new+getShelf(): String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>884</x>
-      <y>760</y>
-      <w>22</w>
-      <h>36</h>
+      <x>2177</x>
+      <y>875</y>
+      <w>77</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -760,10 +711,10 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
-      <y>844</y>
-      <w>170</w>
-      <h>46</h>
+      <x>1358</x>
+      <y>1169</y>
+      <w>595</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -772,10 +723,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>764</y>
-      <w>28</w>
-      <h>26</h>
+      <x>1498</x>
+      <y>889</y>
+      <w>98</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
 OrderStatus
@@ -795,10 +746,10 @@ OVERDUE
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>680</x>
-      <y>776</y>
-      <w>14</w>
-      <h>8</h>
+      <x>1463</x>
+      <y>931</y>
+      <w>49</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -807,10 +758,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>768</x>
-      <y>892</y>
-      <w>68</w>
-      <h>28</h>
+      <x>1771</x>
+      <y>1337</y>
+      <w>238</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>SpecificProduct
 --
@@ -830,10 +781,10 @@ price:ItemPrice, inventory:Location, modelNr:String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>852</x>
-      <y>892</y>
-      <w>66</w>
-      <h>40</h>
+      <x>2065</x>
+      <y>1337</y>
+      <w>231</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>CompositeProduct
 --
@@ -857,10 +808,10 @@ assemblyInstructions:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>844</y>
-      <w>42</w>
-      <h>52</h>
+      <x>1883</x>
+      <y>1169</y>
+      <w>147</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>190.0;10.0;190.0;80.0;10.0;80.0;10.0;240.0</additional_attributes>
@@ -868,10 +819,10 @@ assemblyInstructions:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>844</y>
-      <w>48</w>
-      <h>52</h>
+      <x>2023</x>
+      <y>1169</y>
+      <w>168</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0;220.0;80.0;220.0;240.0</additional_attributes>
@@ -879,10 +830,10 @@ assemblyInstructions:String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>852</x>
-      <y>946</y>
-      <w>66</w>
-      <h>18</h>
+      <x>2065</x>
+      <y>1526</y>
+      <w>231</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>CompositeLine
 --
@@ -900,10 +851,10 @@ assemblyInstructions:String)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>768</x>
-      <y>946</y>
-      <w>68</w>
-      <h>22</h>
+      <x>1771</x>
+      <y>1526</y>
+      <w>238</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Copy
 --
@@ -921,10 +872,10 @@ assemblyInstructions:String)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>930</y>
-      <w>6</w>
-      <h>20</h>
+      <x>2170</x>
+      <y>1470</y>
+      <w>21</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
@@ -933,10 +884,10 @@ m1=*</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>868</x>
-      <y>844</y>
-      <w>58</w>
-      <h>118</h>
+      <x>2121</x>
+      <y>1169</y>
+      <w>203</w>
+      <h>413</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 m2=1</panel_attributes>
@@ -945,10 +896,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>884</x>
-      <y>808</y>
-      <w>60</w>
-      <h>8</h>
+      <x>2177</x>
+      <y>1043</y>
+      <w>210</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -957,10 +908,10 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>344</x>
-      <y>832</y>
-      <w>54</w>
-      <h>78</h>
+      <x>287</x>
+      <y>1127</y>
+      <w>189</w>
+      <h>273</h>
     </coordinates>
     <panel_attributes>CustomerCategory
 --
@@ -995,10 +946,10 @@ paymentDeadline)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>370</x>
-      <y>806</y>
-      <w>10</w>
-      <h>30</h>
+      <x>378</x>
+      <y>1036</y>
+      <w>35</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1</panel_attributes>
@@ -1007,10 +958,10 @@ m1=0..1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>644</x>
-      <y>592</y>
-      <w>74</w>
-      <h>26</h>
+      <x>1337</x>
+      <y>287</y>
+      <w>259</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>OrderStatusController
 --
@@ -1028,10 +979,10 @@ new+getOrder(): Order
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>578</x>
-      <y>616</y>
-      <w>108</w>
-      <h>140</h>
+      <x>1106</x>
+      <y>371</y>
+      <w>378</w>
+      <h>490</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;680.0;10.0;380.0;520.0;380.0;520.0;10.0</additional_attributes>
@@ -1039,10 +990,10 @@ new+getOrder(): Order
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
-      <y>616</y>
-      <w>36</w>
-      <h>140</h>
+      <x>1358</x>
+      <y>371</y>
+      <w>126</w>
+      <h>490</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
@@ -1051,672 +1002,94 @@ m1=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>918</y>
-      <w>6</w>
-      <h>32</h>
+      <x>1883</x>
+      <y>1428</y>
+      <w>21</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=*</panel_attributes>
     <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>526</x>
-      <y>236</y>
-      <w>72</w>
-      <h>176</h>
-    </coordinates>
-    <panel_attributes>CreateOffer
---
--static final long serialVersionUID = 1L
--final JPanel contentPanel = new JPanel()
--orderLineTable : JTable 
--scrollPane : JScrollPane 
--lblOrdreLabel : JLabel 
--buttonPane : JPanel 
--okButton : JButton 
--cancelButton : JButton 
--oc : OrderController 
--cc : CustomerController 
--orderLineTableModel : OrderTableModel 
--northPanel : JPanel 
--lblBarcode : JLabel 
--lblQuantity : JLabel 
--lblCustomerID : JLabel 
--textCustomerIDField : JTextField 
--textBarcodeField : JTextField 
--btnSearchProduct : JButton 
--textQuantityField : JTextField 
--btnAddCustomer : JButton 
--btnAddProduct : JButton 
--btnSearchCustomer : JButton 
--pricePanel : JPanel 
--lblTotalPrice : JLabel 
--lblDiscount : JLabel 
--lblBlank : JLabel 
--orderNr : String 
--gbl_pricePanel : GridBagLayout 
--gbc_lblDiscount : GridBagConstraints 
--gbc_lblTotalPriceLabel : GridBagConstraints 
--gbl_northPanel : GridBagLayout 
--gbc_lblBlank : GridBagConstraints 
--gbc_lblBarcode : GridBagConstraints 
--gbc_lblQuantity : GridBagConstraints 
--gbc_lblCustomerID : GridBagConstraints 
--gbc_textCustomerIDField : GridBagConstraints 
--gbc_textBarcodeField : GridBagConstraints 
--gbc_btnSearchProduct : GridBagConstraints 
--gbc_textQuantityField : GridBagConstraints 
--gbc_btnAddCustomer : GridBagConstraints 
--gbc_btnAddProduct : GridBagConstraints 
--gbc_btnSearchCustomer : GridBagConstraints 
---
-+&lt;&lt;create&gt;&gt; CreateOffer()
--handleSearchProductButton(): void
--getOC(): OrderController
--handleSeachCustomerButton(): void
--handleAddCustomer(): void
--chandleOkButton(): void
--handleCancelButton(): void
--returnDiscount(): double
--returnPrice(): double
--handleAddProduct(): void
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>632</x>
-      <y>84</y>
-      <w>72</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>Menu
---
--static final long serialVersionUID = 1L
--contentPane : JPanel
--tabbedPane : JTabbedPane 
--layeredOfferPane : JLayeredPane 
--btnCreateOffer : JButton 
--btnChangeOfferStatus : JButton 
--btnReturnButton : JButton 
--btnNormaltSale : JButton 
--layeredLeasingPane : JLayeredPane 
--btnCreateLeasing : JButton 
--btnReturnLeasingButton : JButton 
--btnAddNewMachineButton : JButton 
--btnSearchLeasingButton : JButton 
--layeredEmployeePane : JLayeredPane 
--btnCreateEmployee : JButton 
--btnSearchEmployee : JButton 
--layeredCustomerPane : JLayeredPane 
--btnCreateCustomer : JButton 
--btnSearchCustomer : JButton 
--btnSetCustomerCategory : JButton 
--layeredInventoryPane : JLayeredPane 
--btnFindProduct : JButton 
--btnOrderProduct : JButton 
--btnInventoryCount : JButton 
--layeredStatisticPane : JLayeredPane 
--btnEmployeeStatistic : JButton 
--btnCustomerStatistic : JButton 
--btnInventoryStatistic : JButton 
--panel : JPanel 
--btnLogOut : pJButton 
--btnUpdateProduct : JButton 
--btnCreateSupplier : JButton 
--btnSearchSupplier : JButton 
---
-+&lt;&lt;create&gt;&gt; Menu()
--handleFærdiggørbutton(): void
--handleOpretTilbud(): void
--logOut(): void
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>632</x>
-      <y>0</y>
-      <w>72</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>Login
---
--static final long serialVersionUID = 1L
--contentPane : JPanel 
--textField : JTextField 
--passwordField : JPasswordField 
--southPanel : JPanel 
--btnLogin : JButton 
--lblPassword : JLabel 
--lblUsername : JLabel 
--centerPanel : JPanel 
--lblLoginHeader : JLabel 
--northPanel : JPanel 
--gbl_centerPanel : GridBagLayout 
--gbc_lblUsername : GridBagConstraints 
--gbc_usernameField : GridBagConstraints 
--gbc_lblPassword : GridBagConstraints
--gbc_passwordField : GridBagConstraints 
---
-+&lt;&lt;create&gt;&gt; Login()
--handleLoginButton(): void
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>622</x>
-      <y>450</y>
-      <w>72</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>SearchProduct
---
--static final long serialVersionUID = 1L
--final JPanel contentPanel = new JPanel()
--scrollPane : JScrollPane 
--productTable : JTable 
--searchProductTableModel : SearchProductTableModel 
--northPanel : JPanel 
--gbl_northPanel : GridBagLayout 
--lblPProductName : JLabel 
--gbc_lblPProductName : GridBagConstraints 
--textFieldProductName : JTextField 
--gbc_textFieldProductName : GridBagConstraints 
--lblDescription : JLabel 
--gbc_lblDescription : GridBagConstraints 
--textFieldPDescription : JTextField 
--gbc_textFieldPDescription : GridBagConstraints 
--lblCategory : JLabel 
--gbc_lblCategory : GridBagConstraints 
--textFieldCategory : JTextField 
--gbc_textFieldCategory : GridBagConstraints 
--btnSearch : JButton 
--gbc_btnSearch : GridBagConstraints 
--buttonPane : JPanel 
--okButton : JButton 
--cancelButton : JButton 
--textBarcodeField : JTextField 
--addPress : boolean 
--newSearchProductTableModel : SearchProductTableModel 
---
-+&lt;&lt;create&gt;&gt; SearchProduct(textBarcodeField:JTextField)
--handleSearchButton(): void
--handleOkButton(): void
--handleCancelButton(): void
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>710</x>
-      <y>272</y>
-      <w>72</w>
-      <h>152</h>
-    </coordinates>
-    <panel_attributes>FinishOffer
---
--static final long serialVersionUID = 1L
--contentPane : JPanel 
--NorthPane : JPanel 
--lblInputOrderNr : JLabel 
--textOrderNrField : JTextField 
--btnSearchOrder : JButton 
--btnOdreNrButton : JButton 
--lblChangeStatus : JLabel 
--SouthPane : JPanel 
--btnSendInvoice : JButton 
--btnSave : JButton 
--btnBack : JButton 
--CenterPane : JPanel 
--table : JTable 
--scrollPane : JScrollPane 
--orderLineTableModel : OrderTableModel 
--panel : JPanel 
--lblDiscount : JLabel 
--lblPrice : JLabel 
--foundOrder : Order 
--choice : Choice 
--osc : OrderStatusController 
--dropDownChoice : String 
--lblCurrentStatus : JLabel 
--lblBlank : JLabel 
--gbl_northPane : GridBagLayout 
--gbc_textOrderNrField : GridBagConstraints 
--gbc_btnSearchOrder : GridBagConstraints 
--gbc_btnOrderNrButton : GridBagConstraints 
--gbc_lblBlank : GridBagConstraints 
--gbc_lblCurrentStatus : GridBagConstraints 
--gbc_lblChangeStatus : GridBagConstraints 
--gbc_choice : GridBagConstraints 
--gbl_panel : GridBagLayout 
--gbc_lblDiscount : GridBagConstraints 
--gbc_lblPrice : GridBagConstraints 
---
-+&lt;&lt;create&gt;&gt; FinishOffer()
--handleSave(e:ItemEvent): String
--handleBtnSave(dropDownChoice:String): void
--handleSendFak(): void
--handleAddOrderNr(): void
--handleSearchOrder(textOrderNrField:JTextField)
--returnDiscount(): double
--returnPrice(): double
--handleTilbageButton(): void
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>706</x>
-      <y>448</y>
-      <w>72</w>
-      <h>126</h>
-    </coordinates>
-    <panel_attributes>SearchOrder
---
--static final long serialVersionUID = 1L
--final JPanel contentPanel = new JPanel()
--orderTable : JTable 
--searchOrderNrTableModel : SearchOrderNrTableModel 
--textFieldCustomerName : JTextField 
--textFieldCustomerEmail : JTextField 
--textFieldCustomerPhoneNr : JTextField 
--northPanel : JPanel 
--lblPCustomerName : JLabel 
--lblEmail : JLabel 
--lblCustomerPhoneNr : JLabel 
--btnSearch : JButton 
--buttonPane : JPanel 
--okButton : JButton 
--cancelButton : JButton 
--scrollPane : JScrollPane 
--gbl_northPanel : GridBagLayout 
--gbc_lblPCustomerName : GridBagConstraints 
--gbc_textFieldCustomerName : GridBagConstraints 
--gbc_lblEmail : GridBagConstraints 
--gbc_textFieldCustomerEmail : GridBagConstraints 
--gbc_lblCustomerPhoneNr : GridBagConstraints 
--gbc_textFieldCustomerPhoneNr : GridBagConstraints 
--gbc_btnSearch : GridBagConstraints 
--displayOrders : ArrayList&lt;Order&gt; 
--newSearchOrderNrTableModel : SearchOrderNrTableModel 
--searchPress : boolean 
--lblCustomerID : JLabel 
--textFieldCustomerID : JTextField 
--gbc_textCustomerIDField_1 : GridBagConstraints 
--textOrderNrField : JTextField 
--gbc_lblCustomerID : GridBagConstraints 
-
---
-+&lt;&lt;create&gt;&gt; SearchOrder(textOrderNrField:JTextField)
--handleBackButton(): void
--handleOKButton(): void
--handleSearchButton(): void
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>358</x>
-      <y>466</y>
-      <w>76</w>
-      <h>46</h>
-    </coordinates>
-    <panel_attributes>SearchCustomerTableModel
---
--final String[] COLUMN_NAMES = {"Navn", "Email", "Tlf Nr", "Adresse", "Kunde ID"};
--cc : CustomerController 
--customers : ArrayList&lt;Customer&gt; 
---
-+&lt;&lt;create&gt;&gt; SearchOrderNrTableModel()
-+initCustomer(): void
-+getRowCount(): int
-+getColumnCount(): int
-+getColumnName(column:int): String
-+getCustomers(): ArrayList&lt;Customer&gt;
-+setCustomers(customers:ArrayList&lt;Customer&gt;): void
-+getValueAt(r:int, c:int): Object
-+getSelectedCustomer (r:int): Customer
-
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>390</x>
-      <y>550</y>
-      <w>76</w>
-      <h>46</h>
-    </coordinates>
-    <panel_attributes>SearchProductTableModel
---
--final String[] COLUMN_NAMES = {"Navn", "Kategori", "SKU", "Streg kode", "Pris", "Afdeling", "Række", "Hylde", "Antal på lager","Beskrivels"}
--pc : ProductController 
--products : ArrayList&lt;Product&gt; 
---
-+&lt;&lt;create&gt;&gt; SearchProductTableModel()
-+initProductTable(): void
-+getRowCount(): int
-+getColumnCount(): int
-+getValueAt(r:int, c:int): Object
-+getColumnName(column:int): String
-+getProoducts(): ArrayList&lt;Product&gt;
-+setProducts(products:ArrayList&lt;Product&gt;): void
-+getSelectedProduct (r:int): Product</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>816</x>
-      <y>470</y>
-      <w>76</w>
-      <h>46</h>
-    </coordinates>
-    <panel_attributes>SearchOrderNrTableModel
---
--final String[] COLUMN_NAMES = {"Ordre Nr", "Status", "Oprettet", "Kunde navn", "Tlf nr.", "E-mail", "Kunde ID"};
--oc : OrderController 
--orders : ArrayList&lt;Order&gt; 
---
-+&lt;&lt;create&gt;&gt; SearchOrderNrTableModel()
-+initOrderList(): void
-+getRowCount(): int
-+getColumnCount(): int
-+getColumnName(column:int): String
-+getOrders(): ArrayList&lt;Order&gt;
-+setOrders(Orders:ArrayList&lt;Order&gt;): void
-+getValueAt(r:int, c:int): Object
-+getSelectedOrder(r:int): Order
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>618</x>
-      <y>298</y>
-      <w>76</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>OrderTableModel
---
--final String[] COLUMN_NAMES = {"Produkt", "Antal", "Pris"}
--oc : OrderController 
--orderLines : ArrayList&lt;OrderLine&gt; orderLines 
---
-+&lt;&lt;create&gt;&gt; OrderTableModel(orderController:OrderController)
-+&lt;&lt;create&gt;&gt; OrderTableModel()
-+initSearchOrder(): void
-+getRowCount(): int
-+getSearchRowCount(): int
-+getColumnCount(): int
-+getColumnName(column:int): String
-+getValueAt(r:int, c:int): Object
-+getSearchOrderLines(): ArrayList&lt;OrderLine&gt;
-+setSearchOrderLines(searchOrderLines:ArrayList&lt;OrderLine&gt;): void
-
-
-
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>526</x>
-      <y>410</y>
-      <w>6</w>
-      <h>44</h>
+      <x>273</x>
+      <y>154</y>
+      <w>770</w>
+      <h>448</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;620.0;10.0;10.0;1080.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>62</y>
-      <w>6</w>
-      <h>26</h>
+      <x>1281</x>
+      <y>154</y>
+      <w>602</w>
+      <h>462</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>840.0;640.0;840.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>564</x>
-      <y>206</y>
-      <w>72</w>
-      <h>34</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;150.0;10.0;10.0;340.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>702</x>
-      <y>206</y>
-      <w>48</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>220.0;330.0;220.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>596</x>
-      <y>406</y>
-      <w>56</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>260.0;220.0;260.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>746</x>
-      <y>422</y>
-      <w>6</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>464</x>
-      <y>554</y>
-      <w>162</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;120.0;790.0;120.0;790.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>432</x>
-      <y>496</y>
-      <w>74</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;350.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>776</x>
-      <y>490</y>
-      <w>44</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>692</x>
-      <y>326</y>
-      <w>22</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>596</x>
-      <y>326</y>
-      <w>26</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>340</x>
-      <y>508</y>
-      <w>22</w>
-      <h>174</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;850.0;10.0;10.0;90.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>464</x>
-      <y>584</y>
-      <w>336</w>
-      <h>102</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>1660.0;490.0;1660.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>606</x>
-      <y>514</y>
-      <w>240</w>
-      <h>82</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;390.0;10.0;330.0;1180.0;330.0;1180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>616</x>
-      <y>346</y>
-      <w>6</w>
-      <h>250</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;1230.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>588</x>
-      <y>410</y>
-      <w>6</w>
-      <h>186</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;910.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
-      <y>392</y>
-      <w>180</w>
-      <h>290</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;1430.0;10.0;730.0;670.0;730.0;670.0;10.0;880.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>716</x>
-      <y>420</y>
-      <w>76</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;930.0;360.0;930.0;360.0;10.0;330.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>628</x>
-      <y>602</y>
-      <w>20</w>
-      <h>6</h>
+      <x>1281</x>
+      <y>322</y>
+      <w>70</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1029</x>
+      <y>147</y>
+      <w>259</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>GUI
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>42</y>
-      <w>168</w>
-      <h>640</h>
+      <x>1155</x>
+      <y>175</y>
+      <w>21</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1232</x>
+      <y>175</y>
+      <w>252</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>340.0;160.0;340.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>175</y>
+      <w>287</w>
+      <h>427</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;3180.0;10.0;10.0;820.0;10.0</additional_attributes>
+    <additional_attributes>10.0;590.0;10.0;110.0;390.0;110.0;390.0;10.0</additional_attributes>
   </element>
 </diagram>

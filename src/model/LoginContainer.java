@@ -54,4 +54,8 @@ public class LoginContainer {
         return res;
     }
 
+	public ArrayList<Employee> getEmployees() {
+		return employees;
+	}
+
 }
